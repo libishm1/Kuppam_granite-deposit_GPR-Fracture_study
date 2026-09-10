@@ -1,5 +1,7 @@
 # Kuppam dolerite benches: GPR fracture model, verification and block yield
 
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
+
 **Interactive model (English and Tamil, phone and desktop):**
 https://libishm1.github.io/Kuppam_granite-deposit_GPR-Fracture_study/
 
@@ -56,5 +58,13 @@ file. Python 3 with numpy, scipy, scikit-image, Pillow, matplotlib and PyMuPDF.
 
 ## Licence
 
-MIT for the code and the documents in this repository. The survey data belongs to the
-client; the contractor's report is not redistributed.
+Copyright (C) 2026 Libish M.
+
+This repository (code, documents, tables, figures and the web interface) is licensed
+under the **GNU General Public License v3.0** (see `LICENSE`). You may use, study and
+share it, and build on it, on the terms of that licence: keep the copyright and licence
+notices, state what you changed, and release derived work under the same licence.
+Attribute as: *Libish M, Kuppam dolerite benches: GPR fracture model, verification and
+block yield, 2026, https://github.com/libishm1/Kuppam_granite-deposit_GPR-Fracture_study*.
+
+The survey data belongs to the client; the contractor's report is not redistributed.
