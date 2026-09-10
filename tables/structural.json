@@ -1,0 +1,170 @@
+{
+ "A": {
+  "planes": {
+   "A1": {
+    "n_picks": 428,
+    "lines": 12,
+    "dip_deg": 26.9,
+    "dip_direction_grid_deg": 328.0,
+    "strike_grid_deg": 58.0,
+    "depth_min_m": 0.47,
+    "depth_max_m": 2.32,
+    "plane_rms_m": 0.036,
+    "plane_max_m": 0.081,
+    "footprint_x_m": [
+     0.0,
+     5.5
+    ],
+    "footprint_y_m": [
+     0.5,
+     5.1
+    ],
+    "angle_to_dominant_crack_strike_deg": 76.0
+   },
+   "A2": {
+    "n_picks": 565,
+    "lines": 9,
+    "dip_deg": 34.0,
+    "dip_direction_grid_deg": 1.0,
+    "strike_grid_deg": 91.0,
+    "depth_min_m": 0.44,
+    "depth_max_m": 1.81,
+    "plane_rms_m": 0.049,
+    "plane_max_m": 0.13,
+    "footprint_x_m": [
+     0.0,
+     4.5
+    ],
+    "footprint_y_m": [
+     0.5,
+     2.4
+    ],
+    "angle_to_dominant_crack_strike_deg": 71.0
+   }
+  },
+  "cracks": {
+   "traces": 14,
+   "total_m": 15.2,
+   "mean_trace_m": 1.09,
+   "max_trace_m": 2.4,
+   "dominant_strike_grid_deg": 162.0,
+   "concentration_R": 0.14,
+   "crossings_per_m_along_x": 0.29,
+   "crossings_per_m_along_y": 0.22,
+   "mean_spacing_along_x_m": 3.44,
+   "mean_spacing_along_y_m": 4.58
+  }
+ },
+ "B": {
+  "planes": {
+   "B1": {
+    "n_picks": 1580,
+    "lines": 13,
+    "dip_deg": 6.9,
+    "dip_direction_grid_deg": 84.0,
+    "strike_grid_deg": 174.0,
+    "depth_min_m": 0.42,
+    "depth_max_m": 0.99,
+    "plane_rms_m": 0.048,
+    "plane_max_m": 0.118,
+    "footprint_x_m": [
+     6.5,
+     9.5
+    ],
+    "footprint_y_m": [
+     0.0,
+     6.0
+    ],
+    "angle_to_dominant_crack_strike_deg": 78.0
+   },
+   "B2": {
+    "n_picks": 969,
+    "lines": 6,
+    "dip_deg": 22.2,
+    "dip_direction_grid_deg": 350.0,
+    "strike_grid_deg": 80.0,
+    "depth_min_m": 1.96,
+    "depth_max_m": 3.95,
+    "plane_rms_m": 0.097,
+    "plane_max_m": 0.254,
+    "footprint_x_m": [
+     0.0,
+     5.0
+    ],
+    "footprint_y_m": [
+     0.1,
+     4.8
+    ],
+    "angle_to_dominant_crack_strike_deg": 8.0
+   }
+  },
+  "cracks": {
+   "traces": 25,
+   "total_m": 24.1,
+   "mean_trace_m": 0.97,
+   "max_trace_m": 4.2,
+   "dominant_strike_grid_deg": 72.0,
+   "concentration_R": 0.13,
+   "crossings_per_m_along_x": 0.22,
+   "crossings_per_m_along_y": 0.19,
+   "mean_spacing_along_x_m": 4.54,
+   "mean_spacing_along_y_m": 5.14
+  }
+ },
+ "C": {
+  "planes": {
+   "C1": {
+    "n_picks": 1292,
+    "lines": 9,
+    "dip_deg": 6.9,
+    "dip_direction_grid_deg": 31.0,
+    "strike_grid_deg": 121.0,
+    "depth_min_m": 0.23,
+    "depth_max_m": 1.04,
+    "plane_rms_m": 0.11,
+    "plane_max_m": 0.296,
+    "footprint_x_m": [
+     1.0,
+     5.0
+    ],
+    "footprint_y_m": [
+     0.5,
+     7.0
+    ],
+    "angle_to_dominant_crack_strike_deg": 35.0
+   },
+   "C2": {
+    "n_picks": 9481,
+    "lines": 32,
+    "dip_deg": 2.8,
+    "dip_direction_grid_deg": 279.0,
+    "strike_grid_deg": 9.0,
+    "depth_min_m": 2.64,
+    "depth_max_m": 3.7,
+    "plane_rms_m": 0.186,
+    "plane_max_m": 0.533,
+    "footprint_x_m": [
+     0.0,
+     7.1
+    ],
+    "footprint_y_m": [
+     0.0,
+     8.2
+    ],
+    "angle_to_dominant_crack_strike_deg": 77.0
+   }
+  },
+  "cracks": {
+   "traces": 39,
+   "total_m": 34.1,
+   "mean_trace_m": 0.88,
+   "max_trace_m": 2.01,
+   "dominant_strike_grid_deg": 86.0,
+   "concentration_R": 0.26,
+   "crossings_per_m_along_x": 0.25,
+   "crossings_per_m_along_y": 0.38,
+   "mean_spacing_along_x_m": 4.04,
+   "mean_spacing_along_y_m": 2.6
+  }
+ }
+}

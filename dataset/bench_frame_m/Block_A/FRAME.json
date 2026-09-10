@@ -1,0 +1,47 @@
+{
+ "block": "A",
+ "frame": "bench: plane through the painted grid, z up, bench top = 0, metres",
+ "report_origin_xy": [
+  -4.506129635745737,
+  2.6272257682018862
+ ],
+ "report_x_dir": [
+  0.9614054914988144,
+  0.27513538652075126
+ ],
+ "report_y_dir": [
+  0.27513538652075126,
+  -0.9614054914988144
+ ],
+ "grid_m": [
+  5.5,
+  5.5
+ ],
+ "scale_m_per_mesh_unit": 0.7281285243734927,
+ "mesh_units_to_bench": "L = ((P - plane_c) @ plane_R.T) * scale",
+ "plane_R": [
+  [
+   0.9985631844624185,
+   0.05358700062770779,
+   -0.0
+  ],
+  [
+   -0.04174605903313307,
+   0.7779139932927537,
+   -0.6269825241540019
+  ],
+  [
+   -0.033598112915402316,
+   0.6260816659215054,
+   0.7790333204719014
+  ]
+ ],
+ "plane_c": [
+  2.8430640824961895,
+  1.7017558751699902,
+  -3.9444434995636724
+ ],
+ "placement": "LABELS: chalk numerals 9,10,11 in 20260819_113938 back-projected, snapped to the white lattice; A0 = 8 lines before 9",
+ "n_valid_placements": 1,
+ "origin_corner_ambiguity": "4-fold (square), unverified"
+}

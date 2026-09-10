@@ -1,0 +1,29 @@
+{
+ "A": {
+  "paint_contrast_at_zero": 0.0772,
+  "best_shift_m": [
+   -0.0,
+   0.05
+  ],
+  "best_contrast": 0.0801,
+  "ratio_zero_to_best": 0.963
+ },
+ "B": {
+  "paint_contrast_at_zero": 0.0026,
+  "best_shift_m": [
+   -0.0,
+   -0.0
+  ],
+  "best_contrast": 0.0026,
+  "ratio_zero_to_best": 1.0
+ },
+ "C": {
+  "paint_contrast_at_zero": 0.01,
+  "best_shift_m": [
+   -0.0,
+   -0.05
+  ],
+  "best_contrast": 0.0101,
+  "ratio_zero_to_best": 0.989
+ }
+}

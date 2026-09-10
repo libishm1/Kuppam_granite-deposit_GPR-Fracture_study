@@ -1,0 +1,268 @@
+block,line,window,lag_ns,r
+A,20.8.26 A Block new001_20260820_17,surface 0-3ns,0.2356,0.7455
+A,20.8.26 A Block new001_20260820_17,shallow 4-10ns,-3.0203,0.3365
+A,20.8.26 A Block new001_20260820_17,mid 8-16ns,-0.1155,0.4652
+A,20.8.26 A Block new002_20260820_17,surface 0-3ns,0.2632,0.6494
+A,20.8.26 A Block new002_20260820_17,shallow 4-10ns,-3.093,0.3821
+A,20.8.26 A Block new002_20260820_17,mid 8-16ns,1.1045,0.3712
+A,20.8.26 A Block new003_20260820_17,surface 0-3ns,0.2832,0.5671
+A,20.8.26 A Block new003_20260820_17,shallow 4-10ns,3.5801,0.4645
+A,20.8.26 A Block new003_20260820_17,mid 8-16ns,-3.104,0.13
+A,20.8.26 A Block new004_20260820_17,surface 0-3ns,0.2549,0.7383
+A,20.8.26 A Block new004_20260820_17,shallow 4-10ns,4.8539,0.2754
+A,20.8.26 A Block new004_20260820_17,mid 8-16ns,-0.9242,0.516
+A,20.8.26 A Block new005_20260820_17,surface 0-3ns,0.235,0.745
+A,20.8.26 A Block new005_20260820_17,shallow 4-10ns,4.0369,0.2864
+A,20.8.26 A Block new005_20260820_17,mid 8-16ns,-0.6285,0.4254
+A,20.8.26 A Block new006_20260820_17,surface 0-3ns,0.2469,0.74
+A,20.8.26 A Block new006_20260820_17,shallow 4-10ns,-3.3123,0.3042
+A,20.8.26 A Block new006_20260820_17,mid 8-16ns,-1.391,0.2996
+A,20.8.26 A Block new007_20260820_17,surface 0-3ns,0.2495,0.7422
+A,20.8.26 A Block new007_20260820_17,shallow 4-10ns,4.5663,0.3481
+A,20.8.26 A Block new007_20260820_17,mid 8-16ns,-0.0627,0.3591
+A,20.8.26 A Block new008_20260820_17,surface 0-3ns,0.2471,0.7439
+A,20.8.26 A Block new008_20260820_17,shallow 4-10ns,4.5288,0.3068
+A,20.8.26 A Block new008_20260820_17,mid 8-16ns,-1.9043,0.4073
+A,20.8.26 A Block new009_20260820_17,surface 0-3ns,0.2589,0.7349
+A,20.8.26 A Block new009_20260820_17,shallow 4-10ns,4.5595,0.2884
+A,20.8.26 A Block new009_20260820_17,mid 8-16ns,-0.2737,0.3011
+A,20.8.26 A Block new010_20260820_17,surface 0-3ns,0.2543,0.7456
+A,20.8.26 A Block new010_20260820_17,shallow 4-10ns,4.1853,0.3163
+A,20.8.26 A Block new010_20260820_17,mid 8-16ns,-0.1825,0.3317
+A,20.8.26 A Block new011_20260820_17,surface 0-3ns,0.2571,0.7379
+A,20.8.26 A Block new011_20260820_17,shallow 4-10ns,4.5265,0.3585
+A,20.8.26 A Block new011_20260820_17,mid 8-16ns,-0.0772,0.3002
+A,20.8.26 A Block new012_20260820_17,surface 0-3ns,0.2591,0.7322
+A,20.8.26 A Block new012_20260820_17,shallow 4-10ns,4.2029,0.4085
+A,20.8.26 A Block new012_20260820_17,mid 8-16ns,1.642,0.2195
+A,20.8.26 A Block new013_20260820_17,surface 0-3ns,0.239,0.7255
+A,20.8.26 A Block new013_20260820_17,shallow 4-10ns,4.4581,0.314
+A,20.8.26 A Block new013_20260820_17,mid 8-16ns,1.0908,0.2027
+A,20.8.26 A Block new014_20260820_17,surface 0-3ns,0.2372,0.734
+A,20.8.26 A Block new014_20260820_17,shallow 4-10ns,-2.1004,0.3288
+A,20.8.26 A Block new014_20260820_17,mid 8-16ns,-2.4863,0.2347
+A,20.8.26 A Block new015_20260820_17,surface 0-3ns,0.2283,0.7331
+A,20.8.26 A Block new015_20260820_17,shallow 4-10ns,-3.3179,0.3717
+A,20.8.26 A Block new015_20260820_17,mid 8-16ns,0.9848,0.2619
+A,20.8.26 A Block new016_20260820_17,surface 0-3ns,0.2346,0.7291
+A,20.8.26 A Block new016_20260820_17,shallow 4-10ns,4.0066,0.321
+A,20.8.26 A Block new016_20260820_17,mid 8-16ns,1.1038,0.2036
+A,20.8.26 A Block new017_20260820_17,surface 0-3ns,0.2331,0.7207
+A,20.8.26 A Block new017_20260820_17,shallow 4-10ns,4.6467,0.3001
+A,20.8.26 A Block new017_20260820_17,mid 8-16ns,1.7156,0.2378
+A,20.8.26 A Block new018_20260820_17,surface 0-3ns,0.2591,0.7047
+A,20.8.26 A Block new018_20260820_17,shallow 4-10ns,4.154,0.3425
+A,20.8.26 A Block new018_20260820_17,mid 8-16ns,0.9829,0.3477
+A,20.8.26 A Block new019_20260820_17,surface 0-3ns,0.255,0.7228
+A,20.8.26 A Block new019_20260820_17,shallow 4-10ns,-2.0965,0.2932
+A,20.8.26 A Block new019_20260820_17,mid 8-16ns,-0.2555,0.3269
+A,20.8.26 A Block new020_20260820_17,surface 0-3ns,0.2508,0.7277
+A,20.8.26 A Block new020_20260820_17,shallow 4-10ns,4.2327,0.3221
+A,20.8.26 A Block new020_20260820_17,mid 8-16ns,1.0972,0.3327
+A,20.8.26 A Block new021_20260820_17,surface 0-3ns,0.2463,0.7149
+A,20.8.26 A Block new021_20260820_17,shallow 4-10ns,-2.0929,0.3104
+A,20.8.26 A Block new021_20260820_17,mid 8-16ns,1.7111,0.324
+A,20.8.26 A Block new022_20260820_17,surface 0-3ns,0.2538,0.6841
+A,20.8.26 A Block new022_20260820_17,shallow 4-10ns,4.175,0.337
+A,20.8.26 A Block new022_20260820_17,mid 8-16ns,1.4694,0.4167
+A,20.8.26 A Block new023_20260820_17,surface 0-3ns,0.2374,0.7126
+A,20.8.26 A Block new023_20260820_17,shallow 4-10ns,3.2457,0.3394
+A,20.8.26 A Block new023_20260820_17,mid 8-16ns,1.97,0.5291
+A,20.8.26 A Block new024_20260820_17,surface 0-3ns,0.2556,0.7128
+A,20.8.26 A Block new024_20260820_17,shallow 4-10ns,3.0898,0.2767
+A,20.8.26 A Block new024_20260820_17,mid 8-16ns,2.3273,0.4604
+B,20.8.26 B Block proceq new001_2026,surface 0-3ns,0.2574,0.7255
+B,20.8.26 B Block proceq new001_2026,shallow 4-10ns,4.6526,0.2827
+B,20.8.26 B Block proceq new001_2026,mid 8-16ns,1.5878,0.4061
+B,20.8.26 B Block proceq new002_2026,surface 0-3ns,0.2646,0.7322
+B,20.8.26 B Block proceq new002_2026,shallow 4-10ns,-1.8058,0.3796
+B,20.8.26 B Block proceq new002_2026,mid 8-16ns,1.9611,0.3306
+B,20.8.26 B Block proceq new003_2026,surface 0-3ns,0.2727,0.7273
+B,20.8.26 B Block proceq new003_2026,shallow 4-10ns,-2.9505,0.3438
+B,20.8.26 B Block proceq new003_2026,mid 8-16ns,2.0667,0.4155
+B,20.8.26 B Block proceq new004_2026,surface 0-3ns,0.2595,0.7317
+B,20.8.26 B Block proceq new004_2026,shallow 4-10ns,-3.3309,0.3222
+B,20.8.26 B Block proceq new004_2026,mid 8-16ns,-2.9696,0.3183
+B,20.8.26 B Block proceq new005_2026,surface 0-3ns,0.2713,0.6841
+B,20.8.26 B Block proceq new005_2026,shallow 4-10ns,3.0862,0.5067
+B,20.8.26 B Block proceq new005_2026,mid 8-16ns,1.7138,0.3315
+B,20.8.26 B Block proceq new006_2026,surface 0-3ns,0.2645,0.6958
+B,20.8.26 B Block proceq new006_2026,shallow 4-10ns,-2.6123,0.534
+B,20.8.26 B Block proceq new006_2026,mid 8-16ns,2.612,0.6511
+B,20.8.26 B Block proceq new007_2026,surface 0-3ns,0.2648,0.705
+B,20.8.26 B Block proceq new007_2026,shallow 4-10ns,2.9712,0.3341
+B,20.8.26 B Block proceq new007_2026,mid 8-16ns,1.2204,0.2094
+B,20.8.26 B Block proceq new008_2026,surface 0-3ns,0.2558,0.6629
+B,20.8.26 B Block proceq new008_2026,shallow 4-10ns,-4.6235,0.4094
+B,20.8.26 B Block proceq new008_2026,mid 8-16ns,-0.954,0.1782
+B,20.8.26 B Block proceq new009_2026,surface 0-3ns,0.2621,0.7036
+B,20.8.26 B Block proceq new009_2026,shallow 4-10ns,-4.8906,0.5442
+B,20.8.26 B Block proceq new009_2026,mid 8-16ns,1.1185,0.3106
+B,20.8.26 B Block proceq new010_2026,surface 0-3ns,0.2614,0.6983
+B,20.8.26 B Block proceq new010_2026,shallow 4-10ns,-3.2953,0.3673
+B,20.8.26 B Block proceq new010_2026,mid 8-16ns,-0.2869,0.3577
+B,20.8.26 B Block proceq new011_2026,surface 0-3ns,0.2586,0.7023
+B,20.8.26 B Block proceq new011_2026,shallow 4-10ns,-4.8852,0.4218
+B,20.8.26 B Block proceq new011_2026,mid 8-16ns,1.7308,0.2441
+B,20.8.26 B Block proceq new012_2026,surface 0-3ns,0.2658,0.687
+B,20.8.26 B Block proceq new012_2026,shallow 4-10ns,3.0995,0.3177
+B,20.8.26 B Block proceq new012_2026,mid 8-16ns,-0.023,0.4604
+B,20.8.26 B Block proceq new013_2026,surface 0-3ns,0.2482,0.7034
+B,20.8.26 B Block proceq new013_2026,shallow 4-10ns,-4.8889,0.3092
+B,20.8.26 B Block proceq new013_2026,mid 8-16ns,1.3456,0.3717
+B,20.8.26 B Block proceq new014_2026,surface 0-3ns,0.2451,0.7314
+B,20.8.26 B Block proceq new014_2026,shallow 4-10ns,4.528,0.3325
+B,20.8.26 B Block proceq new014_2026,mid 8-16ns,-0.6125,0.2183
+B,20.8.26 B Block proceq new015_2026,surface 0-3ns,0.2492,0.7416
+B,20.8.26 B Block proceq new015_2026,shallow 4-10ns,4.3579,0.3687
+B,20.8.26 B Block proceq new015_2026,mid 8-16ns,0.2517,0.4328
+B,20.8.26 B Block proceq new016_2026,surface 0-3ns,0.2606,0.7143
+B,20.8.26 B Block proceq new016_2026,shallow 4-10ns,4.0195,0.31
+B,20.8.26 B Block proceq new016_2026,mid 8-16ns,-1.7737,0.2243
+B,20.8.26 B Block proceq new017_2026,surface 0-3ns,0.2404,0.7303
+B,20.8.26 B Block proceq new017_2026,shallow 4-10ns,4.3998,0.3234
+B,20.8.26 B Block proceq new017_2026,mid 8-16ns,1.5767,0.4763
+B,20.8.26 B Block proceq new018_2026,surface 0-3ns,0.2195,0.7457
+B,20.8.26 B Block proceq new018_2026,shallow 4-10ns,4.8174,0.2939
+B,20.8.26 B Block proceq new018_2026,mid 8-16ns,1.3418,0.4284
+B,20.8.26 B Block proceq new019_2026,surface 0-3ns,0.2452,0.7298
+B,20.8.26 B Block proceq new019_2026,shallow 4-10ns,4.7954,0.2817
+B,20.8.26 B Block proceq new019_2026,mid 8-16ns,-0.0015,0.2588
+B,20.8.26 B Block proceq new020_2026,surface 0-3ns,0.2459,0.7354
+B,20.8.26 B Block proceq new020_2026,shallow 4-10ns,4.6089,0.3041
+B,20.8.26 B Block proceq new020_2026,mid 8-16ns,1.2255,0.4688
+B,20.8.26 B Block proceq new021_2026,surface 0-3ns,0.2515,0.7305
+B,20.8.26 B Block proceq new021_2026,shallow 4-10ns,2.9821,0.2656
+B,20.8.26 B Block proceq new021_2026,mid 8-16ns,-0.6939,0.2723
+B,20.8.26 B Block proceq new022_2026,surface 0-3ns,0.2519,0.7364
+B,20.8.26 B Block proceq new022_2026,shallow 4-10ns,-1.9663,0.3724
+B,20.8.26 B Block proceq new022_2026,mid 8-16ns,-3.8413,0.2892
+B,20.8.26 B Block proceq new023_2026,surface 0-3ns,0.2424,0.7381
+B,20.8.26 B Block proceq new023_2026,shallow 4-10ns,4.8691,0.2815
+B,20.8.26 B Block proceq new023_2026,mid 8-16ns,0.9669,0.2001
+B,20.8.26 B Block proceq new024_2026,surface 0-3ns,0.238,0.7304
+B,20.8.26 B Block proceq new024_2026,shallow 4-10ns,-2.1816,0.2998
+B,20.8.26 B Block proceq new024_2026,mid 8-16ns,1.468,0.3943
+B,20.8.26 B Block proceq new025_2026,surface 0-3ns,0.2333,0.7101
+B,20.8.26 B Block proceq new025_2026,shallow 4-10ns,-2.0923,0.3757
+B,20.8.26 B Block proceq new025_2026,mid 8-16ns,1.3615,0.3704
+B,20.8.26 B Block proceq new026_2026,surface 0-3ns,0.2495,0.6792
+B,20.8.26 B Block proceq new026_2026,shallow 4-10ns,4.0827,0.3912
+B,20.8.26 B Block proceq new026_2026,mid 8-16ns,-0.6483,0.2778
+B,20.8.26 B Block proceq new027_2026,surface 0-3ns,0.247,0.6792
+B,20.8.26 B Block proceq new027_2026,shallow 4-10ns,3.2177,0.4837
+B,20.8.26 B Block proceq new027_2026,mid 8-16ns,-2.8569,0.2357
+B,20.8.26 B Block proceq new028_2026,surface 0-3ns,0.2637,0.6468
+B,20.8.26 B Block proceq new028_2026,shallow 4-10ns,-2.3607,0.3297
+B,20.8.26 B Block proceq new028_2026,mid 8-16ns,1.8828,0.5986
+B,20.8.26 B Block proceq new029_2026,surface 0-3ns,0.288,0.6766
+B,20.8.26 B Block proceq new029_2026,shallow 4-10ns,-2.4465,0.4401
+B,20.8.26 B Block proceq new029_2026,mid 8-16ns,2.2788,0.4193
+B,20.8.26 B Block proceq new030_2026,surface 0-3ns,0.2872,0.6625
+B,20.8.26 B Block proceq new030_2026,shallow 4-10ns,1.998,0.5264
+B,20.8.26 B Block proceq new030_2026,mid 8-16ns,2.7475,0.2805
+B,20.8.26 B Block proceq new031_2026,surface 0-3ns,0.2219,0.7224
+B,20.8.26 B Block proceq new031_2026,shallow 4-10ns,2.7756,0.6108
+B,20.8.26 B Block proceq new031_2026,mid 8-16ns,-3.9602,0.4355
+B,20.8.26 B Block proceq new032_2026,surface 0-3ns,0.2378,0.6777
+B,20.8.26 B Block proceq new032_2026,shallow 4-10ns,-4.0071,0.4063
+B,20.8.26 B Block proceq new032_2026,mid 8-16ns,3.2438,0.4415
+B,20.8.26 B Block proceq new033_2026,surface 0-3ns,0.2671,0.6759
+B,20.8.26 B Block proceq new033_2026,shallow 4-10ns,-3.8663,0.5057
+B,20.8.26 B Block proceq new033_2026,mid 8-16ns,2.3523,0.4469
+C,20.8.26 C Block new001_20260820_18,surface 0-3ns,0.2805,0.7156
+C,20.8.26 C Block new001_20260820_18,shallow 4-10ns,-4.857,0.4824
+C,20.8.26 C Block new001_20260820_18,mid 8-16ns,2.6428,0.6235
+C,20.8.26 C Block new002_20260820_18,surface 0-3ns,0.2892,0.7053
+C,20.8.26 C Block new002_20260820_18,shallow 4-10ns,-3.4744,0.4343
+C,20.8.26 C Block new002_20260820_18,mid 8-16ns,-3.1901,0.3335
+C,20.8.26 C Block new003_20260820_18,surface 0-3ns,0.2822,0.7083
+C,20.8.26 C Block new003_20260820_18,shallow 4-10ns,-1.948,0.4663
+C,20.8.26 C Block new003_20260820_18,mid 8-16ns,2.4069,0.6996
+C,20.8.26 C Block new004_20260820_18,surface 0-3ns,0.2817,0.716
+C,20.8.26 C Block new004_20260820_18,shallow 4-10ns,3.7573,0.4754
+C,20.8.26 C Block new004_20260820_18,mid 8-16ns,-2.6052,0.4156
+C,20.8.26 C Block new005_20260820_18,surface 0-3ns,0.2895,0.7083
+C,20.8.26 C Block new005_20260820_18,shallow 4-10ns,0.7793,0.4403
+C,20.8.26 C Block new005_20260820_18,mid 8-16ns,4.6404,0.4544
+C,20.8.26 C Block new006_20260820_18,surface 0-3ns,0.2945,0.6915
+C,20.8.26 C Block new006_20260820_18,shallow 4-10ns,-3.5476,0.4673
+C,20.8.26 C Block new006_20260820_18,mid 8-16ns,-1.6293,0.3672
+C,20.8.26 C Block new007_20260820_18,surface 0-3ns,0.3096,0.6994
+C,20.8.26 C Block new007_20260820_18,shallow 4-10ns,2.764,0.5305
+C,20.8.26 C Block new007_20260820_18,mid 8-16ns,-1.1418,0.3181
+C,20.8.26 C Block new008_20260820_18,surface 0-3ns,0.2501,0.7312
+C,20.8.26 C Block new008_20260820_18,shallow 4-10ns,3.0961,0.6274
+C,20.8.26 C Block new008_20260820_18,mid 8-16ns,-4.9824,0.3555
+C,20.8.26 C Block new009_20260820_18,surface 0-3ns,0.241,0.7328
+C,20.8.26 C Block new009_20260820_18,shallow 4-10ns,3.0298,0.5491
+C,20.8.26 C Block new009_20260820_18,mid 8-16ns,-3.3535,0.4013
+C,20.8.26 C Block new010_20260820_18,surface 0-3ns,0.2969,0.6299
+C,20.8.26 C Block new010_20260820_18,shallow 4-10ns,4.1729,0.3998
+C,20.8.26 C Block new010_20260820_18,mid 8-16ns,0.9767,0.1269
+C,20.8.26 C Block new011_20260820_18,surface 0-3ns,0.2618,0.7173
+C,20.8.26 C Block new011_20260820_18,shallow 4-10ns,-3.0262,0.3508
+C,20.8.26 C Block new011_20260820_18,mid 8-16ns,1.4599,0.4126
+C,20.8.26 C Block new012_20260820_18,surface 0-3ns,0.1954,0.7398
+C,20.8.26 C Block new012_20260820_18,shallow 4-10ns,-2.1382,0.6324
+C,20.8.26 C Block new012_20260820_18,mid 8-16ns,1.4892,0.5932
+C,20.8.26 C Block new013_20260820_18,surface 0-3ns,0.217,0.6807
+C,20.8.26 C Block new013_20260820_18,shallow 4-10ns,-2.4346,0.603
+C,20.8.26 C Block new013_20260820_18,mid 8-16ns,1.0894,0.5412
+C,20.8.26 C Block new014_20260820_18,surface 0-3ns,0.2512,0.6836
+C,20.8.26 C Block new014_20260820_18,shallow 4-10ns,2.9554,0.4272
+C,20.8.26 C Block new014_20260820_18,mid 8-16ns,2.3483,0.4949
+C,20.8.26 C Block new015_20260820_18,surface 0-3ns,0.2719,0.6685
+C,20.8.26 C Block new015_20260820_18,shallow 4-10ns,-2.0736,0.3665
+C,20.8.26 C Block new015_20260820_18,mid 8-16ns,2.4219,0.2959
+C,20.8.26 C Block new016_20260820_18,surface 0-3ns,0.244,0.722
+C,20.8.26 C Block new016_20260820_18,shallow 4-10ns,-2.4605,0.3047
+C,20.8.26 C Block new016_20260820_18,mid 8-16ns,2.1688,0.5137
+C,20.8.26 C Block new017_20260820_19,surface 0-3ns,0.2476,0.7142
+C,20.8.26 C Block new017_20260820_19,shallow 4-10ns,-4.7802,0.4667
+C,20.8.26 C Block new017_20260820_19,mid 8-16ns,-1.1063,0.4793
+C,20.8.26 C Block new018_20260820_19,surface 0-3ns,0.2422,0.7321
+C,20.8.26 C Block new018_20260820_19,shallow 4-10ns,4.6087,0.3069
+C,20.8.26 C Block new018_20260820_19,mid 8-16ns,1.4716,0.4089
+C,20.8.26 C Block new019_20260820_19,surface 0-3ns,0.2428,0.7335
+C,20.8.26 C Block new019_20260820_19,shallow 4-10ns,-2.1,0.2716
+C,20.8.26 C Block new019_20260820_19,mid 8-16ns,1.8307,0.374
+C,20.8.26 C Block new020_20260820_19,surface 0-3ns,0.2337,0.7209
+C,20.8.26 C Block new020_20260820_19,shallow 4-10ns,4.0588,0.3232
+C,20.8.26 C Block new020_20260820_19,mid 8-16ns,1.0981,0.399
+C,20.8.26 C Block new021_20260820_19,surface 0-3ns,0.254,0.7102
+C,20.8.26 C Block new021_20260820_19,shallow 4-10ns,-4.5249,0.3384
+C,20.8.26 C Block new021_20260820_19,mid 8-16ns,-0.0236,0.2304
+C,20.8.26 C Block new022_20260820_19,surface 0-3ns,0.2362,0.7279
+C,20.8.26 C Block new022_20260820_19,shallow 4-10ns,-4.8551,0.3614
+C,20.8.26 C Block new022_20260820_19,mid 8-16ns,2.8775,0.2396
+C,20.8.26 C Block new023_20260820_19,surface 0-3ns,0.2213,0.6889
+C,20.8.26 C Block new023_20260820_19,shallow 4-10ns,-4.6275,0.4266
+C,20.8.26 C Block new023_20260820_19,mid 8-16ns,-0.0024,0.466
+C,20.8.26 C Block new024_20260820_19,surface 0-3ns,0.2272,0.7152
+C,20.8.26 C Block new024_20260820_19,shallow 4-10ns,-2.1735,0.2998
+C,20.8.26 C Block new024_20260820_19,mid 8-16ns,-0.4437,0.5455
+C,20.8.26 C Block new025_20260820_19,surface 0-3ns,0.3419,0.5881
+C,20.8.26 C Block new025_20260820_19,shallow 4-10ns,-1.755,0.267
+C,20.8.26 C Block new025_20260820_19,mid 8-16ns,1.0092,0.2803
+C,20.8.26 C Block new026_20260820_19,surface 0-3ns,0.2355,0.7346
+C,20.8.26 C Block new026_20260820_19,shallow 4-10ns,-3.3596,0.691
+C,20.8.26 C Block new026_20260820_19,mid 8-16ns,-1.2736,0.4848
+C,20.8.26 C Block new027_20260820_19,surface 0-3ns,0.2397,0.7332
+C,20.8.26 C Block new027_20260820_19,shallow 4-10ns,2.9352,0.3844
+C,20.8.26 C Block new027_20260820_19,mid 8-16ns,2.3443,0.4504
+C,20.8.26 C Block new028_20260820_19,surface 0-3ns,0.2532,0.7054
+C,20.8.26 C Block new028_20260820_19,shallow 4-10ns,-2.3638,0.396
+C,20.8.26 C Block new028_20260820_19,mid 8-16ns,1.1434,0.7496
+C,20.8.26 C Block new029_20260820_19,surface 0-3ns,0.247,0.7416
+C,20.8.26 C Block new029_20260820_19,shallow 4-10ns,-6.1352,0.3793
+C,20.8.26 C Block new029_20260820_19,mid 8-16ns,-3.1512,0.3117
+C,20.8.26 C Block new030_20260820_19,surface 0-3ns,0.2292,0.732
+C,20.8.26 C Block new030_20260820_19,shallow 4-10ns,-3.6892,0.5501
+C,20.8.26 C Block new030_20260820_19,mid 8-16ns,2.7425,0.3754
+C,20.8.26 C Block new031_20260820_19,surface 0-3ns,0.246,0.7249
+C,20.8.26 C Block new031_20260820_19,shallow 4-10ns,-3.314,0.4294
+C,20.8.26 C Block new031_20260820_19,mid 8-16ns,-2.5833,0.6441
+C,20.8.26 C Block new032_20260820_19,surface 0-3ns,0.1649,0.7437
+C,20.8.26 C Block new032_20260820_19,shallow 4-10ns,-3.7296,0.7102
+C,20.8.26 C Block new032_20260820_19,mid 8-16ns,2.4883,0.5724

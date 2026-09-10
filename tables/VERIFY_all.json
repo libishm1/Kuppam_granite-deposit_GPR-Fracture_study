@@ -1,0 +1,104 @@
+{
+ "picks": {
+  "C2_crossings": 230,
+  "C2_before_adjust_median_abs_cm": 7.3,
+  "C2_after_adjust_median_abs_cm": 10.6,
+  "C2_after_adjust_p90_cm": 23.6,
+  "C2_within_20cm_pct": 84.0
+ },
+ "registration": {
+  "A": {
+   "scale_m_per_unit": 0.7281285243734927,
+   "lattice_spacing_under_this_scale_m": 0.5,
+   "spacing_error_pct": 0.0,
+   "axis_angle_deg": 90.0,
+   "handedness_z_up": "left",
+   "source": "LABELS: chalk numerals 9,10,11 in 20260819_113938 back-proje"
+  },
+  "B": {
+   "scale_m_per_unit": 1.0137940623429103,
+   "lattice_spacing_under_this_scale_m": 0.515,
+   "spacing_error_pct": 3.0,
+   "axis_angle_deg": 90.0,
+   "handedness_z_up": "right",
+   "source": "LABELS: circle-cross marks B0 (photo 55), B1 (44), B3 (60) b"
+  },
+  "C": {
+   "scale_m_per_unit": 0.6745105008567356,
+   "lattice_spacing_under_this_scale_m": 0.5,
+   "spacing_error_pct": 0.0,
+   "axis_angle_deg": 90.0,
+   "handedness_z_up": "left",
+   "source": "LABELS: C0 circle-cross in 20260819_182441 (px 470,3350) bac"
+  }
+ },
+ "dem": {
+  "A": {
+   "relief_m": 0.313,
+   "plane_tilt_deg": 2.44,
+   "residual_from_plane_rms_m": 0.011,
+   "local_roughness_30cm_m": 0.0011
+  },
+  "B": {
+   "relief_m": 0.412,
+   "plane_tilt_deg": 2.02,
+   "residual_from_plane_rms_m": 0.039,
+   "local_roughness_30cm_m": 0.001
+  },
+  "C": {
+   "relief_m": 0.216,
+   "plane_tilt_deg": 1.01,
+   "residual_from_plane_rms_m": 0.033,
+   "local_roughness_30cm_m": 0.0015
+  }
+ },
+ "sketch": {
+  "A": {
+   "traces": 14,
+   "total_m": 15.3,
+   "lattice_leak_pct": 8.5,
+   "grid_affine_resid_cm": 21.562001128085065
+  },
+  "B": {
+   "traces": 25,
+   "total_m": 24.3,
+   "lattice_leak_pct": 4.1,
+   "grid_affine_resid_cm": 30.98699725541603
+  },
+  "C": {
+   "traces": 39,
+   "total_m": 34.4,
+   "lattice_leak_pct": 7.6,
+   "grid_affine_resid_cm": 16.455002742272654
+  }
+ },
+ "photo": {
+  "A": {
+   "kept": 59,
+   "chalk_weeded": 12,
+   "within30_pct": 34.0,
+   "null_within30_pct": 32.0,
+   "median_cm": 45.0,
+   "null_median_cm": 49.0,
+   "lift": 1.04
+  },
+  "B": {
+   "kept": 27,
+   "chalk_weeded": 2,
+   "within30_pct": 37.0,
+   "null_within30_pct": 28.0,
+   "median_cm": 40.0,
+   "null_median_cm": 59.0,
+   "lift": 1.34
+  },
+  "C": {
+   "kept": 55,
+   "chalk_weeded": 4,
+   "within30_pct": 27.0,
+   "null_within30_pct": 36.0,
+   "median_cm": 43.0,
+   "null_median_cm": 46.0,
+   "lift": 0.77
+  }
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "A": {
+  "A1": {
+   "v1_flat": {
+    "daylights": true,
+    "daylight_len_m": 4.08,
+    "median_dist_to_sketch_cm": 39.7540338802234,
+    "frac_within_30cm": 0.28431372549019607,
+    "n_sketch_traces_within_40cm": 1,
+    "best": [
+     [
+      0.8334663032557202,
+      32.13774171820104
+     ]
+    ]
+   },
+   "v2_dem": {
+    "daylights": true,
+    "daylight_len_m": 3.46,
+    "median_dist_to_sketch_cm": 34.58501815742706,
+    "frac_within_30cm": 0.31213872832369943,
+    "n_sketch_traces_within_40cm": 1,
+    "best": [
+     [
+      0.7388088726123248,
+      22.49004957765404
+     ]
+    ]
+   }
+  },
+  "A2": {
+   "v1_flat": {
+    "daylights": false,
+    "min_depth_m": 0.06896039371950355
+   },
+   "v2_dem": {
+    "daylights": false,
+    "min_depth_m": 0.09643566832747852
+   }
+  }
+ },
+ "B": {
+  "B1": {
+   "v1_flat": {
+    "daylights": true,
+    "daylight_len_m": 6.66,
+    "median_dist_to_sketch_cm": 34.34829420468872,
+    "frac_within_30cm": 0.32432432432432434,
+    "n_sketch_traces_within_40cm": 3,
+    "best": [
+     [
+      1.4894286985275047,
+      34.02453884463468
+     ],
+     [
+      0.45205596983596863,
+      29.62117271581516
+     ],
+     [
+      0.28392788910252525,
+      30.644130190522198
+     ]
+    ]
+   },
+   "v2_dem": {
+    "daylights": true,
+    "daylight_len_m": 8.28,
+    "median_dist_to_sketch_cm": 24.283599994712873,
+    "frac_within_30cm": 0.6618357487922706,
+    "n_sketch_traces_within_40cm": 4,
+    "best": [
+     [
+      2.2834888919302294,
+      24.53243135460631
+     ],
+     [
+      1.4894286985275047,
+      32.33887771286537
+     ],
+     [
+      0.3093353010416363,
+      28.2603594259558
+     ]
+    ]
+   }
+  },
+  "B2": {
+   "v1_flat": {
+    "daylights": false,
+    "min_depth_m": 1.35823758561409
+   },
+   "v2_dem": {
+    "daylights": false,
+    "min_depth_m": 1.18033758561409
+   }
+  }
+ },
+ "C": {
+  "C1": {
+   "v1_flat": {
+    "daylights": false,
+    "min_depth_m": 0.11350296216988988
+   },
+   "v2_dem": {
+    "daylights": true,
+    "daylight_len_m": 0.82,
+    "median_dist_to_sketch_cm": 207.89895927185268,
+    "frac_within_30cm": 0.0,
+    "n_sketch_traces_within_40cm": 0,
+    "best": []
+   }
+  },
+  "C2": {
+   "v1_flat": {
+    "daylights": false,
+    "min_depth_m": 2.839010465456859
+   },
+   "v2_dem": {
+    "daylights": false,
+    "min_depth_m": 2.635310465456859
+   }
+  }
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "A": {
+  "grid_json": "grid_A_paint.json",
+  "scale_m_per_unit": 0.7281285243734927,
+  "units_per_m": 1.3733839102930832,
+  "plane_R": [
+   [
+    0.9985631844624185,
+    0.05358700062770779,
+    -0.0
+   ],
+   [
+    -0.04174605903313307,
+    0.7779139932927537,
+    -0.6269825241540019
+   ],
+   [
+    -0.033598112915402316,
+    0.6260816659215054,
+    0.7790333204719014
+   ]
+  ],
+  "plane_c": [
+   2.8430640824961895,
+   1.7017558751699902,
+   -3.9444434995636724
+  ],
+  "origin_local_units": [
+   -6.188645939428027,
+   3.608189598755856
+  ],
+  "xdir_local": [
+   0.9614054914988144,
+   0.27513538652075126
+  ],
+  "ydir_local": [
+   0.27513538652075126,
+   -0.9614054914988144
+  ],
+  "placement_index": 0,
+  "placement": "LABELS: chalk numerals 9,10,11 in 20260819_113938 back-projected, snapped to the white lattice; A0 = 8 lines before 9",
+  "n_valid_placements": 1,
+  "origin_mesh": [
+   -3.4873176102818757,
+   4.176986080654745,
+   -6.206715321817834
+  ],
+  "note": "depth negative along -n; report frame; corner choice unverified, see AUDIT/MODEL"
+ },
+ "B": {
+  "grid_json": "grid_B_lum.json",
+  "scale_m_per_unit": 1.0137940623429103,
+  "units_per_m": 0.9863936248442492,
+  "plane_R": [
+   [
+    0.9989694954240531,
+    -0.04538664134095814,
+    0.0
+   ],
+   [
+    0.01692976980224223,
+    0.37262778424031895,
+    -0.927826447837414
+   ],
+   [
+    0.042110926214651914,
+    0.926870318437233,
+    0.3730121749935337
+   ]
+  ],
+  "plane_c": [
+   -2.517992928960202,
+   0.966762204104005,
+   -6.453994023976559
+  ],
+  "origin_local_units": [
+   -1.7002376237671495,
+   3.5303762375016468
+  ],
+  "xdir_local": [
+   0.04243882472531729,
+   -0.9990990672380461
+  ],
+  "ydir_local": [
+   0.9990990672380461,
+   0.04243882472531729
+  ],
+  "placement_index": 0,
+  "placement": "LABELS: circle-cross marks B0 (photo 55), B1 (44), B3 (60) back-projected; 9.5 x 6 rectangle least squares, rms 0.04 m",
+  "n_valid_placements": 1,
+  "origin_mesh": [
+   -4.156709993059653,
+   2.3594465542432403,
+   -9.729570467947326
+  ],
+  "note": "depth negative along -n; report frame; corner choice unverified, see AUDIT/MODEL"
+ },
+ "C": {
+  "grid_json": "grid_Cfull_red.json",
+  "scale_m_per_unit": 0.6745105008567356,
+  "units_per_m": 1.482556607687858,
+  "plane_R": [
+   [
+    0.9922692913410776,
+    0.1241033982672354,
+    -0.0
+   ],
+   [
+    -0.08253724957712764,
+    0.6599269584123897,
+    -0.7467824395316318
+   ],
+   [
+    -0.09267823851217172,
+    0.7410092820600132,
+    0.665068408516887
+   ]
+  ],
+  "plane_c": [
+   -9.029473362586671,
+   2.459505884759754,
+   -7.757465178018546
+  ],
+  "origin_local_units": [
+   2.8455937859733207,
+   4.9454151364694034
+  ],
+  "xdir_local": [
+   0.9728453247000254,
+   -0.23145620365266087
+  ],
+  "ydir_local": [
+   -0.2314562036526609,
+   -0.9728453247000255
+  ],
+  "placement_index": 0,
+  "placement": "LABELS: C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; x toward k1 (7 m), y toward k3 (8 m); lattice angles and spacing unchanged",
+  "n_valid_placements": 1,
+  "origin_mesh": [
+   -6.614058996515631,
+   6.076266512784017,
+   -11.450614358127826
+  ],
+  "note": "depth negative along -n; report frame; corner choice unverified, see AUDIT/MODEL"
+ }
+}

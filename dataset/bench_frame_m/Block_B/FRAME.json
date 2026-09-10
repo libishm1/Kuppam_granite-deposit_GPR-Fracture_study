@@ -1,0 +1,47 @@
+{
+ "block": "B",
+ "frame": "bench: plane through the painted grid, z up, bench top = 0, metres",
+ "report_origin_xy": [
+  -1.723690807547155,
+  3.5790744674156736
+ ],
+ "report_x_dir": [
+  0.04243882472531729,
+  -0.9990990672380461
+ ],
+ "report_y_dir": [
+  0.9990990672380461,
+  0.04243882472531729
+ ],
+ "grid_m": [
+  9.5,
+  6.0
+ ],
+ "scale_m_per_mesh_unit": 1.0137940623429103,
+ "mesh_units_to_bench": "L = ((P - plane_c) @ plane_R.T) * scale",
+ "plane_R": [
+  [
+   0.9989694954240531,
+   -0.04538664134095814,
+   0.0
+  ],
+  [
+   0.01692976980224223,
+   0.37262778424031895,
+   -0.927826447837414
+  ],
+  [
+   0.042110926214651914,
+   0.926870318437233,
+   0.3730121749935337
+  ]
+ ],
+ "plane_c": [
+  -2.517992928960202,
+  0.966762204104005,
+  -6.453994023976559
+ ],
+ "placement": "LABELS: circle-cross marks B0 (photo 55), B1 (44), B3 (60) back-projected; 9.5 x 6 rectangle least squares, rms 0.04 m",
+ "n_valid_placements": 1,
+ "origin_corner_ambiguity": "2-fold (180 deg), unverified"
+}
