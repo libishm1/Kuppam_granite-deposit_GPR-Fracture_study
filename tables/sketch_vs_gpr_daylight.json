@@ -1,123 +1,232 @@
 {
  "A": {
   "A1": {
+   "source": "PICKS_A1_final.csv",
+   "n_picks": 428,
+   "footprint_x_m": [
+    0.0,
+    5.5
+   ],
+   "footprint_y_m": [
+    0.5,
+    5.05
+   ],
+   "plane_depth": [
+    -0.2675,
+    0.4312,
+    0.8012
+   ],
+   "plane_elev": [
+    0.2933,
+    -0.4684,
+    -0.7701
+   ],
+   "dip_depth_plane_deg": 26.9,
+   "dip_elev_plane_deg": 28.9,
    "v1_flat": {
     "daylights": true,
-    "daylight_len_m": 4.08,
-    "median_dist_to_sketch_cm": 39.7540338802234,
-    "frac_within_30cm": 0.28431372549019607,
-    "n_sketch_traces_within_40cm": 1,
-    "best": [
-     [
-      0.8334663032557202,
-      32.13774171820104
-     ]
-    ]
+    "daylight_len_m": 2.95,
+    "median_dist_to_chalk_cm": 39.9,
+    "frac_within_30cm": 0.293,
+    "null_mean_frac": 0.328,
+    "null_p95_frac": 0.787,
+    "lift": 0.89,
+    "better_than_chance_p05": false,
+    "line_inside_pick_footprint_frac": 0.68,
+    "line_beyond_footprint_m": 0.0
    },
    "v2_dem": {
     "daylights": true,
-    "daylight_len_m": 3.46,
-    "median_dist_to_sketch_cm": 34.58501815742706,
-    "frac_within_30cm": 0.31213872832369943,
-    "n_sketch_traces_within_40cm": 1,
-    "best": [
-     [
-      0.7388088726123248,
-      22.49004957765404
-     ]
-    ]
+    "daylight_len_m": 3.01,
+    "median_dist_to_chalk_cm": 39.7,
+    "frac_within_30cm": 0.301,
+    "null_mean_frac": 0.344,
+    "null_p95_frac": 0.814,
+    "lift": 0.88,
+    "better_than_chance_p05": false,
+    "line_inside_pick_footprint_frac": 0.67,
+    "line_beyond_footprint_m": 0.0
    }
   },
   "A2": {
+   "source": "PICKS_A2_final.csv",
+   "n_picks": 565,
+   "footprint_x_m": [
+    0.0,
+    4.5
+   ],
+   "footprint_y_m": [
+    0.5,
+    2.39
+   ],
+   "plane_depth": [
+    0.009,
+    0.6732,
+    0.069
+   ],
+   "plane_elev": [
+    0.0177,
+    -0.7091,
+    -0.0381
+   ],
+   "dip_depth_plane_deg": 34.0,
+   "dip_elev_plane_deg": 35.3,
    "v1_flat": {
-    "daylights": false,
-    "min_depth_m": 0.06896039371950355
+    "daylights": false
    },
    "v2_dem": {
-    "daylights": false,
-    "min_depth_m": 0.09643566832747852
+    "daylights": true,
+    "daylight_len_m": 0.05,
+    "median_dist_to_chalk_cm": 67.0,
+    "frac_within_30cm": 0.0,
+    "null_mean_frac": 0.33,
+    "null_p95_frac": 1.0,
+    "lift": 0.0,
+    "better_than_chance_p05": false,
+    "line_inside_pick_footprint_frac": 0.0,
+    "line_beyond_footprint_m": 0.95
    }
   }
  },
  "B": {
   "B1": {
+   "source": "PICKS_B1_raw.csv",
+   "n_picks": 1580,
+   "footprint_x_m": [
+    6.5,
+    9.51
+   ],
+   "footprint_y_m": [
+    0.0,
+    6.0
+   ],
+   "plane_depth": [
+    0.1201,
+    0.013,
+    -0.2882
+   ],
+   "plane_elev": [
+    -0.1381,
+    0.0108,
+    0.3533
+   ],
+   "dip_depth_plane_deg": 6.9,
+   "dip_elev_plane_deg": 7.9,
    "v1_flat": {
     "daylights": true,
-    "daylight_len_m": 6.66,
-    "median_dist_to_sketch_cm": 34.34829420468872,
-    "frac_within_30cm": 0.32432432432432434,
-    "n_sketch_traces_within_40cm": 3,
-    "best": [
-     [
-      1.4894286985275047,
-      34.02453884463468
-     ],
-     [
-      0.45205596983596863,
-      29.62117271581516
-     ],
-     [
-      0.28392788910252525,
-      30.644130190522198
-     ]
-    ]
+    "daylight_len_m": 6.03,
+    "median_dist_to_chalk_cm": 34.5,
+    "frac_within_30cm": 0.311,
+    "null_mean_frac": 0.274,
+    "null_p95_frac": 0.61,
+    "lift": 1.13,
+    "better_than_chance_p05": false,
+    "line_inside_pick_footprint_frac": 0.0,
+    "line_beyond_footprint_m": 4.1
    },
    "v2_dem": {
     "daylights": true,
-    "daylight_len_m": 8.28,
-    "median_dist_to_sketch_cm": 24.283599994712873,
-    "frac_within_30cm": 0.6618357487922706,
-    "n_sketch_traces_within_40cm": 4,
-    "best": [
-     [
-      2.2834888919302294,
-      24.53243135460631
-     ],
-     [
-      1.4894286985275047,
-      32.33887771286537
-     ],
-     [
-      0.3093353010416363,
-      28.2603594259558
-     ]
-    ]
+    "daylight_len_m": 6.13,
+    "median_dist_to_chalk_cm": 51.9,
+    "frac_within_30cm": 0.175,
+    "null_mean_frac": 0.268,
+    "null_p95_frac": 0.591,
+    "lift": 0.65,
+    "better_than_chance_p05": false,
+    "line_inside_pick_footprint_frac": 0.0,
+    "line_beyond_footprint_m": 3.36
    }
   },
   "B2": {
+   "source": "PICKS_B2_raw.csv",
+   "n_picks": 969,
+   "footprint_x_m": [
+    0.0,
+    5.0
+   ],
+   "footprint_y_m": [
+    0.15,
+    4.76
+   ],
+   "plane_depth": [
+    -0.0678,
+    0.4021,
+    2.0019
+   ],
+   "plane_elev": [
+    0.0792,
+    -0.3622,
+    -2.1077
+   ],
+   "dip_depth_plane_deg": 22.2,
+   "dip_elev_plane_deg": 20.3,
    "v1_flat": {
-    "daylights": false,
-    "min_depth_m": 1.35823758561409
+    "daylights": false
    },
    "v2_dem": {
-    "daylights": false,
-    "min_depth_m": 1.18033758561409
+    "daylights": false
    }
   }
  },
  "C": {
   "C1": {
+   "source": "PICKS_C1_raw.csv",
+   "n_picks": 1292,
+   "footprint_x_m": [
+    1.0,
+    5.0
+   ],
+   "footprint_y_m": [
+    0.5,
+    7.02
+   ],
+   "plane_depth": [
+    0.0624,
+    0.1038,
+    0.1135
+   ],
+   "plane_elev": [
+    -0.0424,
+    -0.097,
+    -0.2272
+   ],
+   "dip_depth_plane_deg": 6.9,
+   "dip_elev_plane_deg": 6.0,
    "v1_flat": {
-    "daylights": false,
-    "min_depth_m": 0.11350296216988988
+    "daylights": false
    },
    "v2_dem": {
-    "daylights": true,
-    "daylight_len_m": 0.82,
-    "median_dist_to_sketch_cm": 207.89895927185268,
-    "frac_within_30cm": 0.0,
-    "n_sketch_traces_within_40cm": 0,
-    "best": []
+    "daylights": false
    }
   },
   "C2": {
+   "source": "PICKS_C2_adjusted.csv",
+   "n_picks": 9481,
+   "footprint_x_m": [
+    0.0,
+    7.1
+   ],
+   "footprint_y_m": [
+    0.0,
+    8.22
+   ],
+   "plane_depth": [
+    -0.0307,
+    0.0099,
+    3.1554
+   ],
+   "plane_elev": [
+    0.0468,
+    -0.0043,
+    -3.2653
+   ],
+   "dip_depth_plane_deg": 1.8,
+   "dip_elev_plane_deg": 2.7,
    "v1_flat": {
-    "daylights": false,
-    "min_depth_m": 2.839010465456859
+    "daylights": false
    },
    "v2_dem": {
-    "daylights": false,
-    "min_depth_m": 2.635310465456859
+    "daylights": false
    }
   }
  }

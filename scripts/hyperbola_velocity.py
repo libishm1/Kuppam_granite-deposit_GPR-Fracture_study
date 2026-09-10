@@ -62,7 +62,7 @@ w = csv.DictWriter(open('tables/hyperbola_velocity.csv','w',newline='',encoding=
                    fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
 
 import statistics as st
-good = [r for r in rows if r['vwidth'] <= 0.012 and 0.09 < r['v'] < 0.17]
+good = [r for r in rows if r['vwidth'] <= 0.012 and r['t0_ns'] > 10]     # the ONE selection rule; the same rule gives the working velocity (see velocity_summary.json)
 print('Diffraction-hyperbola velocity scan, HF channel, apices between 0.25 and 1.3 m')
 print('candidates %d, well-focused %d\n' % (len(rows), len(good)))
 print('%-6s %5s %10s %10s %10s %10s'%('block','n','v median','v mean','v sd','RDP median'))

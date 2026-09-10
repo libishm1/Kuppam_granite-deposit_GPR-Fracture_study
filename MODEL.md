@@ -76,10 +76,11 @@ Over the 7.0 x 8.0 m grid, at 2.95 t/m3.
 | above C-1, western strip | 22.0 m3 | 65 t |
 | C-1 down to C-2, western strip | 76.2 m3 | 225 t |
 | above C-2, rest of the block | 79.2 m3 | 234 t |
-| **total above C-2** | **177.4 m3** | **523 t** |
+| **total above C-2** | **172.7 m3** | **509 t** |
 
-Planning flat at the report band mid of 3.16 m would give 177.0 m3, so the total
-is almost unchanged. **The value is not in the total, it is in knowing where the
+(Cells integrated; an earlier version summed every grid node as a full cell and
+gave 177.4 m3, 4.8 m3 too much.) Planning flat at the report band mid of 3.16 m
+would give 177.0 m3. **The value is not in the total, it is in knowing where the
 2.77 m high spot is**, because a single block cut to the mean would hole through
 there.
 
@@ -444,11 +445,11 @@ Figures `figs/FRACTURES_A.png`, `_B`, `_C`; DEMs `figs/DEM_*.png`. Products in `
 
 ## v2: every surface re-datumed to the photogrammetry surface
 
-The bench is not flat. From the meshes, at 10 cm: A relief 31 cm, B 41 cm, C 27 cm;
+The bench is not flat. From the meshes, at 10 cm: A relief 31 cm, B 41 cm, C 22 cm (C was 27 cm before its origin was moved onto the C0 cross);
 median slope 2 to 3 degrees. **v1 is kept untouched**; v2 puts each pick below the
 surface height at its own (x, y). Corrections are 0.2 to 0.27 m of relief across every
 feature, mean within plus or minus 5 cm. On B the surface rises 30 cm over the 6 m
-y-axis, so B-2's true dip against horizontal is about 19.5 degrees, not the 22 measured
+y-axis, so B-2's dip against horizontal on the DEM is about 19.5 degrees (still unmigrated), not the 22 measured
 against the antenna. The two Block B surfaces are disjoint because they are two
 features, picked on different channels and line families; the DEM has nothing to do
 with it.
@@ -487,19 +488,19 @@ random point in the grid is within 30 cm of sketch ink 27 to 36 per cent of the 
 | --- | --- | --- | --- |
 | A-1 | 28 % within 30 cm | 31 % | **no better than chance.** One 0.7 m sketch trace runs parallel at 22 cm; a coincidence, not a confirmation |
 | A-2 | plane top 7 cm, no daylight | 10 cm | the sketch's E-W dash at y 65 to 70 sits on A-2's 0.25 m contour; suggestive, not testable |
-| B-1 | 32 % | **66 %, 2.4x the null** | a 2.3 m sketch trace tracks the daylight over 4 m at 25 cm. **Confirmed on the rock.** |
+| B-1 | 32 % | ~~66 %, 2.4x the null~~ **withdrawn**: the v2 column contoured depth + height, which is not an intersection. Corrected (`daylight_test.py`): 18 % on the DEM, chance 27 %, and the line lies outside the picked area | **not confirmed on the rock** |
 | B-2 | plane top 1.36 m | 1.18 m | never reaches the surface; cannot be tested this way |
 | C-1 | plane top 11 cm | 0.8 m of daylight, 2 m from any ink | not seen at the surface |
 | C-2 | 2.84 m | 2.64 m | as expected |
 
-**B-1 closes the geometry.** The report places it at x 650 to 950, dipping east at 5 to
-14 degrees. Its plane daylights at x about 200, on the west side, and the crew drew a
-4 m fracture there. So B-1 is a shallow east-dipping sheet that outcrops on the west
-and is 0.5 to 1 m down where PARSAN picked it. The report's picks and the crew's
-crack are the same surface seen at two depths.
+**B-1 does not close the geometry.** The report places it at x 650 to 950, dipping
+east. Extrapolating its plane 4.5 m west to a daylight line at x about 200 is a
+projection far outside the picks, and the corrected test finds that line no closer to
+the crew's chalked cracks than a random line would be. The crack the crew drew there
+and B-1 may or may not be the same surface; nothing here shows it.
 
 **Block C is the important negative.** The sketch's largest system is a NE-SW network
-at x 350 to 700, y 100 to 300, at right angles to C-1. It is a steep set the radar did
+at x 350 to 700, y 100 to 300, about 35 degrees from C-1's strike. It is a set the radar did
 not pick, exactly what Section 9 of the report says the method is blind to. **The
 steep joints that control how a block splits are on the sketch and not in the GPR.**
 

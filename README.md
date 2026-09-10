@@ -17,7 +17,8 @@ cutting, the verification of every stage, and the web interface that shows all o
 
 | file | for whom |
 | --- | --- |
-| [REPORT.md](REPORT.md) ([PDF](REPORT.pdf)) | the consolidated report: data, the six fracture surfaces, registration, block yield, the cut plan, verification, what the radar can and cannot do |
+| [REPORT.md](REPORT.md) ([PDF](REPORT.pdf)) | the consolidated report: data, the six fracture surfaces, registration, candidate blocks with and without uncertainty, the cut plan and its order, verification, what the radar can and cannot do |
+| [AUDIT_RESPONSE.md](AUDIT_RESPONSE.md) | the independent read-only audit of 10 September, item by item, and what was changed in answer |
 | [GEOLOGIST_AUDIT.md](GEOLOGIST_AUDIT.md) | frame and conventions, picking methods, dip / dip direction / strike, checks, discrepancies with the contractor's report, open questions |
 | [VERIFICATION.md](VERIFICATION.md) | per-line ties to the contractor's report; orientation audit of the interface |
 | [MODEL.md](MODEL.md), [AUDIT.md](AUDIT.md) | the working documents: raw-data audit and the block-by-block model |
@@ -27,8 +28,7 @@ cutting, the verification of every stage, and the web interface that shows all o
 
 One HTML file, `index.html`, with the data embedded (about 8 MB). Three roles switch
 the default layers and tab: **Mason** (the cuts in order, the blocks in removal order),
-**Owner** (tonnes in blocks the saw can free, the four assumptions side by side, a blank
-price field), **Geologist** (the raw radar lines stood up in 3D, one line at a time with
+**Owner** (tonnes in candidate blocks, as drawn and with uncertainty, the four chalk assumptions side by side, a blank price field), **Geologist** (the raw radar lines stood up in 3D, one line at a time with
 the picks on it, dip and strike, spectra and velocity). Every number on the page is read
 from the tables in `tables/`. The page states what is checked and what is not.
 
@@ -47,7 +47,8 @@ State can be linked: `index.html#block=B&role=geo&tab=radar&ch=LF&line=5`
 - "East" in the cutting order is taken as grid +x, the sense the contractor's report uses
   on Block B. It has not been checked with a compass.
 - The block plan is a model, not a promise: the chalked surface cracks have not been
-  measured for depth, and the radar does not see steep cracks.
+  measured for depth, the surfaces carry the uncertainty stated on the page, and this
+  survey does not reliably constrain steep cracks.
 
 ## Reproduce
 

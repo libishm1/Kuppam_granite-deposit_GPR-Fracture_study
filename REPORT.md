@@ -4,9 +4,11 @@ Libish M, 10 September 2026. Survey by PARSAN Overseas, 18 to 20 August 2026; re
 revised 9 September; raw data received 9 September; this model built 9 and 10 September.
 
 **Interactive model:** https://libishm1.github.io/Kuppam_granite-deposit_GPR-Fracture_study/
-(3D, per block, layers with reliability stated; a Cutting view with the straight-cut plan
-and its order for the maestry, a Yield view for the office, a Radar view for the
-geologist with every raw line and the picks on it; English and Tamil; phone and desktop).
+(3D, per block, layers with their checks stated; a Cutting view with the straight-cut plan,
+its dependencies and its order for the maestry, a Yield view for the office with both
+clearance cases, a Radar view for the geologist with every raw line and the picks on
+it, a How-sure view with the uncertainty of every surface; English and Tamil; phone and
+desktop).
 Private copy: https://claude.ai/code/artifact/59ea49e0-aba8-45c8-ac58-595fa29f9424
 
 ---
@@ -25,9 +27,9 @@ chalked on the rock, and packed saleable blocks between everything.
 | six GPR surfaces | all six rebuilt from raw data; of the four with published picks, three tie to the report inside 10 cm and all four inside 20 cm; B-1 and A-2 had no published depths and are checked indirectly |
 | position on the rock | each grid found in its mesh to a few cm (A, C) or ~10 cm (B); origins on the crew's painted marks; proven by drawing the model back into the photographs |
 | surface cracks | 78 chained traces from the field sketches, 15 to 34 m per block; the photo-based detector was tested and found no better than chance, so it is not relied on |
-| yield, surface cracks assumed 1 m deep | A 97 t (35 %), B 277 t (54 %), C 289 t (57 %) in saleable blocks; C carries 7 large gangsaw blocks |
-| the biggest unknown | how deep the chalked cracks go: the yield ranges from 65 % to 30 % across that assumption on C, and 41 % to 19 % on A |
-| the biggest finding | the steep joint set that will control how blocks split is on the sketches and not in the radar; the radar cannot see it |
+| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A 46 t, B 264 t, C 183 t; as drawn (best case) A 85, B 281, C 221 t. Not a promise: section 7 |
+| the biggest unknowns | how deep the chalked cracks go, and how far each surface really is from where it is drawn: the uncertain and as-drawn cases in section 7 bracket it |
+| the biggest finding | the steep joint set that will control how blocks split is on the sketches and not in the radar; this survey (0.5 m lines, 2D, unmigrated) does not constrain steep fractures |
 
 Everything here regenerates from `scripts/`. Every figure named below is in `figs/`.
 
@@ -46,16 +48,16 @@ Everything here regenerates from `scripts/`. Every figure named below is in `fig
 Picks were made on the raw radargrams: C-2 by dynamic-programming tracking on all 32
 lines with a least-squares adjustment across 230 line crossings; the others by
 corridor tracking between PARSAN's published endpoints, so their interpretation sets
-the ends and the data fills in between. Velocity 0.1202 m/ns from a diffraction scan
-on the blocks themselves (114 well-focused apices below 0.6 m, out of 322 candidates; filter vwidth <= 0.012, t0 > 10 ns in `tables/hyperbola_velocity.csv`), against PARSAN's 0.1200.
+the ends and the data fills in between. Velocity 0.1202 m/ns is a working assumption: the median of 114 diffraction-hyperbola fits
+on the blocks themselves (one rule: vwidth <= 0.012, t0 > 10 ns, of 322 candidates in `tables/hyperbola_velocity.csv`), whose 10th to 90th percentiles run 0.088 to 0.172 m/ns and whose block medians are A 0.112, B 0.1263, C 0.13; PARSAN used 0.1200. It has not been calibrated against a reflector of known depth (`tables/velocity_summary.json`).
 
-| surface | what it is | picks (report) | tie to the report | independent check | carry as |
+| surface | what it is | picks (report) | tie to the report | internal consistency check | carry as |
 | --- | --- | --- | --- | --- | --- |
 | C-2 | base cap under Block C, 2.77 to 3.57 m | 9,481 (8 ranges) | median 3 cm on their 8 lines | 230 crossings, median 11 cm, 84 % within 20 cm | **good** |
 | C-1 | shallow sheet, west half of C, dips 7 deg SE | 1,292 (18) | 8 cm at every end | plane residual 11 cm | **good** |
 | B-2 | deep wedge, west of B, dips 22 deg | 969 (12) | 12 cm; dips to 0.3 deg | none possible: one line direction only | caution |
-| B-1 | shallow sheet, east of B, dips 7 deg east | 1,580 (none) | five indirect checks pass | HF vs LF on orthogonal lines, 97 % within 20 cm; **confirmed on the rock** by a 4 m chalked crack at its outcrop | **good** |
-| A-2 | steep E-W sheet in A, dips 34 deg | 565 (none) | matches described geometry | orthogonal-line check, 0.9 cm median | **good** |
+| B-1 | shallow sheet, east of B, dips 7 deg east | 1,580 (none) | five indirect checks pass | HF vs LF on orthogonal lines, 97 % within 20 cm. **Not confirmed on the rock**: where its plane would reach the bench it follows the chalked cracks no better than a random line (section 6), and that line lies outside the area where it was picked. PARSAN read it at 1.0 to 1.95 m (section 9) | caution |
+| A-2 | inclined sheet in A, dips 34 deg toward +y | 565 (none) | matches described geometry | orthogonal-line check, 0.9 cm median | **good** |
 | A-1 | dipping sheet in A, NW, 27 deg | 428 (4) | dip matches once one printed depth order is reversed | position vs chalked cracks no better than chance | caution |
 
 Two corrections to the report came out of this: Line 10's two A-1 depths are printed in
@@ -95,7 +97,7 @@ From the meshes, the bench surface has 27 to 41 cm of relief across each grid an
 tilts 1 to 3 degrees. Version 1 of every surface (kept) puts depth below a flat
 bench; version 2 puts each pick below the real surface at its own (x, y). The
 correction is up to 20 cm either way. On B the surface rises 30 cm across 6 m, so
-B-2's true dip is 19.5 degrees, not the 22 measured against the antenna.
+B-2's dip against the horizontal on the DEM is 19.5 degrees, not the 22 measured against the antenna; this is still the dip of the unmigrated, modelled surface (section 7.3 gives the migrated one).
 
 ## 6. Surface fractures
 
@@ -111,108 +113,207 @@ on a lattice line). Tested against the sketches with a random-line null, the det
 scored 1.04x, 1.34x and 0.77x chance on A, B, C. **It is not relied on.** The sketch is
 the surface witness.
 
-**Where the GPR planes reach the surface.** B-1's plane outcrops at x about 2 m on the
-west side of B; the crew drew a 4 m crack there; 66 per cent of the outcrop line is
-within 30 cm of it against 27 per cent for a random line. A-1 scores at chance. C-1
-does not reach any chalked crack. And Block C's largest surface system is a steep
-NE-SW network at right angles to C-1 that the radar did not pick.
+**Where the GPR planes reach the surface.** An earlier version of this test contoured
+plane depth plus bench height, which mixes a depth below the local surface with an
+absolute elevation, and reported B-1 as confirmed on the rock at 66 per cent. That was
+wrong and is withdrawn. `scripts/daylight_test.py` now fits each surface both as a
+depth-below-surface plane and as an absolute-elevation plane met with the DEM, and
+scores each daylight line against the chalked cracks with a null of random placements
+of the same line. B-1: 31 per cent of its line within 30 cm on the flat definition and
+18 per cent on the DEM, against 27 per cent for a random line (95th percentile
+59 per cent), and none of the line lies inside the area where B-1 was picked: it is an
+extrapolation, at chance. A-1: at chance. A-2, B-2, C-1 and C-2 do not reach the bench
+inside the grid. Block C's largest surface system is a steep NE-SW network about 35
+degrees from C-1's strike that the radar did not pick.
 
 ![Block B: sketched cracks against the GPR planes](figs/FRACTURES_B.png)
 
 ## 7. Block yield
 
-Voxel packing at 20 cm against the GPR surfaces (15 cm safety) and the chalked cracks
-(10 cm safety, extruded vertically to an assumed depth), 5 cm saw allowance, blocks
-capped at 3.3 x 2.0 x 2.0 m for handling, density 2.95 t/m3. Classes: gangsaw large
->= 2.7 x 1.5 x 1.5, gangsaw >= 2.1 x 1.2 x 1.2, small >= 1.5 x 0.9 x 0.9, cutter
->= 0.9 x 0.6 x 0.6. Depth limit: the C-2 cap for C; an assumed 3.0 m bench for A and B,
-where no floor was surveyed. The production equivalent is `BlockCutOptSolver` in
-Frahan.StonePack.Core.
+Two questions are kept apart here: how much rock lies between the surfaces (section
+7.1, a heuristic), and what a wire saw could actually take out of it in straight cuts,
+in what order, and how sure that is (7.2 and 7.3). Everything in this section is in
+one physical frame, bench-frame absolute elevation on the painted grid (10 cm voxels):
+rock exists below the photographed surface and above the floor; each GPR surface is a
+forbidden band at its absolute elevation; the chalked cracks are vertical prisms from
+the local surface down to an assumed depth. Density 2.95 t/m3, unmeasured. Classes:
+gangsaw large >= 2.7 x 1.5 x 1.5 m, gangsaw >= 2.1 x 1.2 x 1.2, small >= 1.5 x 0.9 x
+0.9, cutter >= 0.9 x 0.6 x 0.6, on the marked size; 5 cm kerf per dimension. Floor:
+the C-2 cap for C; a flat floor 3.0 m below the median surface for A and B, where no
+floor was surveyed.
+
+Two clearance cases are run for every chalk assumption. **As drawn**: 15 cm clear of
+each surface where the model draws it, 10 cm from a chalked crack. **With
+uncertainty**: clear of each surface by twice its estimated positional error (section
+7.3) and of its migrated position as well, 20 cm from a chalked crack. The uncertain
+case is the one to plan on; the as-drawn case is the best case.
+
+### 7.1 Rock between the surfaces: an unconstrained heuristic estimate
+
+Greedy largest-box packing on the same domain pooled to 20 cm (a cell is free only if
+all its 10 cm voxels are), no requirement that any cut can reach a block, classes on
+finished size. It is not a proven upper bound on the straight-cut plan and nothing in
+it can be cut as listed; it says roughly how much rock the surfaces leave. Earlier
+versions of this table rounded A to 5.6 m and B to 9.6 m and let boxes leave the
+footprint; the footprint is now exact.
+
+With uncertainty:
 
 | block | chalked cracks assumed to reach | large | gangsaw | small | cutter | tonnes | of gross |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A | ignored | 1 | 1 | 5 | 9 | 114 | 41 % |
-| A | 1.0 m | 0 | 1 | 5 | 11 | 97 | 35 % |
-| A | full depth | 0 | 0 | 3 | 8 | 52 | 19 % |
-| B | ignored | 6 | 0 | 4 | 6 | 333 | 65 % |
-| B | 1.0 m | 5 | 0 | 6 | 10 | 277 | 54 % |
-| B | full depth | 2 | 0 | 6 | 11 | 188 | 37 % |
-| C | ignored | 8 | 1 | 3 | 6 | 331 | 65 % |
-| C | 1.0 m | 7 | 1 | 4 | 5 | 289 | 57 % |
-| C | full depth | 1 | 2 | 5 | 9 | 151 | 30 % |
+| A | ignored | 0 | 2 | 4 | 5 | 75 | 28 % |
+| A | 0.5 m | 0 | 1 | 4 | 5 | 62 | 23 % |
+| A | 1.0 m | 0 | 1 | 4 | 6 | 62 | 23 % |
+| A | full depth | 0 | 0 | 3 | 5 | 33 | 12 % |
+| B | ignored | 6 | 2 | 4 | 2 | 311 | 61 % |
+| B | 0.5 m | 6 | 0 | 5 | 3 | 284 | 56 % |
+| B | 1.0 m | 4 | 1 | 7 | 6 | 264 | 52 % |
+| B | full depth | 2 | 0 | 4 | 9 | 181 | 36 % |
+| C | ignored | 4 | 2 | 5 | 4 | 251 | 49 % |
+| C | 0.5 m | 4 | 2 | 4 | 4 | 236 | 46 % |
+| C | 1.0 m | 0 | 5 | 7 | 4 | 217 | 43 % |
+| C | full depth | 0 | 2 | 3 | 7 | 106 | 21 % |
 
-In every block the gangsaw stock lies below the first metre; the chalked cracks carve
-the top metre into small and cutter stock. **The depth of the chalked cracks is worth
-more tonnage than anything the radar left open.**
+As drawn:
 
-![Packing plans and yield by scenario](figs/PACKING.png)
+| block | chalked cracks assumed to reach | large | gangsaw | small | cutter | tonnes | of gross |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| A | ignored | 1 | 1 | 6 | 7 | 108 | 40 % |
+| A | 0.5 m | 1 | 0 | 7 | 8 | 99 | 37 % |
+| A | 1.0 m | 1 | 0 | 6 | 9 | 99 | 37 % |
+| A | full depth | 0 | 0 | 4 | 10 | 57 | 21 % |
+| B | ignored | 6 | 2 | 5 | 1 | 313 | 61 % |
+| B | 0.5 m | 6 | 1 | 5 | 3 | 290 | 57 % |
+| B | 1.0 m | 4 | 1 | 10 | 3 | 287 | 56 % |
+| B | full depth | 2 | 3 | 3 | 8 | 210 | 41 % |
+| C | ignored | 6 | 2 | 2 | 8 | 295 | 58 % |
+| C | 0.5 m | 6 | 2 | 2 | 7 | 289 | 57 % |
+| C | 1.0 m | 6 | 2 | 5 | 5 | 273 | 54 % |
+| C | full depth | 1 | 2 | 5 | 6 | 149 | 29 % |
 
-### 7.1 A plan the saw can follow: straight cuts only
+### 7.2 A plan the saw can follow: straight cuts only
 
-The table above is free packing: blocks placed anywhere between the surfaces, some of
-them impossible to free with a wire saw because a neighbour is in the way of the cut.
-A wire saw makes through-planes. The cutting plan is therefore a guillotine tree: the
-bench is split by one vertical plane along a grid line or one horizontal plane at a
-marked depth, and each half is split again, until a piece is either a clean block or
-waste. `scripts/guillotine_pack.py` solves that tree exactly by dynamic programming over
-every sub-box on the painted 0.5 m lattice, with depth steps of 0.5 m, the same
-forbidden voxels as the free packer, a block classified on its marked size and weighed
-after the 5 cm kerf, and an objective that prefers gangsaw stock (weights 1.0, 0.85,
-0.55, 0.30 for the four classes) over the same tonnage in cutter stock.
+A wire saw makes through-planes. The cutting plan is a guillotine tree: the bench is
+split by one vertical plane on a painted 0.5 m line or one horizontal plane at a
+0.5 m level, each half is split again, until a piece is a clean block or waste.
+`scripts/guillotine_pack.py` solves that tree exactly by dynamic programming over every
+sub-box, maximising class-weighted tonnage (weights 1.0, 0.85, 0.55, 0.30). A leaf is a
+block when it holds no forbidden voxel; its usable height runs from the cut below it up
+to the lowest surface point over its footprint, so the top of a first-lift block is
+the rough bench, not a cut (Block B has 0.41 m of relief). Every other leaf that holds
+rock is a waste piece that still has to be lifted. Every block's clearance to every
+surface is re-measured after the solve in the same frame: the minimum over all runs is
+0.15 m, the as-drawn clearance.
 
-| block | chalked cracks assumed to reach | large | gangsaw | small | cutter | cuts | tonnes | of gross |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A | ignored | 1 | 0 | 6 | 2 | 36 | 65 | 24 % |
-| A | 1.0 m | 0 | 0 | 6 | 1 | 36 | 46 | 17 % |
-| A | full depth | 0 | 0 | 4 | 1 | 34 | 24 | 9 % |
-| B | ignored | 9 | 0 | 7 | 0 | 37 | 296 | 59 % |
-| B | 1.0 m | 7 | 0 | 10 | 1 | 57 | 238 | 47 % |
-| B | full depth | 2 | 0 | 16 | 0 | 70 | 161 | 32 % |
-| C | ignored | 7 | 0 | 13 | 0 | 51 | 279 | 55 % |
-| C | 1.0 m | 7 | 0 | 11 | 1 | 58 | 240 | 47 % |
-| C | full depth | 0 | 1 | 16 | 2 | 84 | 123 | 24 % |
+With uncertainty (plan on this):
 
-Against the free packing at 1.0 m, straight cuts keep 86 % of the tonnage on B (238 of
-277 t) and 83 % on C (240 of 289 t), and only 47 % on A (46 of 97 t): A's stock is
-small pieces between the A-1 sheet and the chalked cracks, and a through-plane cannot
-isolate them without cutting a neighbour. The class counts of the two tables are not
-directly comparable: the straight plan classifies on the marked size, as a quarry does,
-so a block marked 3.0 x 2.0 x 1.5 m (2.95 x 1.95 x 1.45 m after the saw) counts as
-gangsaw large, while the free packer classified on the finished size. Tonnage is
-comparable; both are after kerf. These are the numbers the interface shows first; the
-free packing is shown as the upper bound.
+| block | chalked cracks assumed to reach | large | gangsaw | small | cutter | cuts | waste pieces | tonnes | of gross |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | ignored | 0 | 1 | 8 | 0 | 45 | 37 | 64 | 24 % |
+| A | 0.5 m | 0 | 0 | 7 | 1 | 39 | 32 | 48 | 18 % |
+| A | 1.0 m | 0 | 0 | 6 | 1 | 36 | 30 | 46 | 17 % |
+| A | full depth | 0 | 0 | 4 | 1 | 39 | 35 | 24 | 9 % |
+| B | ignored | 12 | 4 | 1 | 0 | 36 | 20 | 329 | 65 % |
+| B | 0.5 m | 11 | 0 | 5 | 1 | 48 | 32 | 283 | 56 % |
+| B | 1.0 m | 10 | 0 | 7 | 3 | 59 | 40 | 264 | 52 % |
+| B | full depth | 4 | 0 | 7 | 6 | 59 | 43 | 159 | 31 % |
+| C | ignored | 5 | 0 | 13 | 0 | 62 | 36 | 241 | 48 % |
+| C | 0.5 m | 5 | 1 | 11 | 0 | 77 | 47 | 207 | 41 % |
+| C | 1.0 m | 0 | 1 | 21 | 1 | 93 | 56 | 183 | 36 % |
+| C | full depth | 0 | 1 | 12 | 2 | 82 | 59 | 89 | 18 % |
 
-**Order of cutting.** The tree gives the order: the root cut first, then the sub-box on
-the east side (larger x) before the west, and within each sub-box the same rule
-recursively. Blocks are then removed east to west, top down. On B at 1.0 m the first
-three cuts are the vertical plane x = 500 cm to full depth, the vertical plane y = 300
-cm across the east half, and x = 700 cm; the first block freed is a small block at
-x 800 to 950, y 300 to 600, 1.5 to 2.5 m down, followed by a large gangsaw block at
-x 700 to 900, y 0 to 300, 1.0 to 2.5 m down. B needs 57 cuts of which 21 are horizontal,
-C 58 (30 horizontal), A 36 (15 horizontal). Every horizontal cut needs a drilled hole at
-each end for the wire; the plan lists the depth and the extent of each. The full list,
-in order, with each block's marked size, position and depth, is in
-`tables/guillotine_packing.json` and in the Cutting view of the interface, which can
-also step through the cuts one by one.
+As drawn (best case):
+
+| block | chalked cracks assumed to reach | large | gangsaw | small | cutter | cuts | waste pieces | tonnes | of gross |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A | ignored | 1 | 1 | 12 | 1 | 43 | 29 | 101 | 38 % |
+| A | 0.5 m | 1 | 0 | 11 | 1 | 36 | 24 | 88 | 33 % |
+| A | 1.0 m | 1 | 0 | 10 | 1 | 39 | 28 | 85 | 32 % |
+| A | full depth | 0 | 0 | 7 | 2 | 45 | 37 | 41 | 15 % |
+| B | ignored | 13 | 3 | 2 | 0 | 33 | 16 | 342 | 67 % |
+| B | 0.5 m | 11 | 0 | 7 | 2 | 51 | 32 | 301 | 59 % |
+| B | 1.0 m | 10 | 0 | 8 | 1 | 53 | 35 | 281 | 55 % |
+| B | full depth | 4 | 0 | 13 | 0 | 58 | 42 | 187 | 37 % |
+| C | ignored | 7 | 0 | 12 | 1 | 41 | 18 | 273 | 54 % |
+| C | 0.5 m | 7 | 0 | 7 | 1 | 48 | 28 | 243 | 48 % |
+| C | 1.0 m | 3 | 1 | 16 | 1 | 82 | 50 | 221 | 44 % |
+| C | full depth | 0 | 1 | 17 | 1 | 93 | 73 | 118 | 23 % |
+
+The difference between the two tables is what the survey does not know. On B at 1.0 m
+it is 264 against 281 t; on C 183 against 221 t; on A 46 against 85 t. Block C
+loses its large gangsaw blocks to the uncertainty of its shallow sheet and of the cap;
+Block A loses most to the migration of its two dipping sheets.
+
+**Order of cutting and removal.** Cuts are numbered in tree order, root first, the
+east (larger x) sub-box before the west. Pieces, blocks and waste alike, are then
+sequenced under one rule: nothing is lifted before every piece above it that overlaps
+it in plan is out; among the pieces that are ready, east first, then top down. The
+sequence is checked after the solve: no piece is scheduled before a piece above it in
+any run. For every block the plan lists which pieces must be out first and which of its
+faces are free when its turn comes. What the plan does not judge is access: whether the
+wire can be threaded, whether the loader can reach, whether a face can be turned. Those
+are site decisions; the page says so where it lists the order. Horizontal cuts need a
+drilled hole at each end for the wire. On B at 1.0 m with uncertainty the plan has 59
+cuts, 20 blocks and 40 waste pieces; the first block out is number 3, a gangsaw large at x 800 to
+950 cm, y 0 to 300 cm, 1.45 to 2.95 m below the mean surface, after 1 piece(s) above it.
 
 **East** is taken as grid +x, the sense PARSAN's report uses on Block B ("dipping toward
 increasing X (east)"). No compass bearing of the grid was recorded; the crew should
 confirm with a compass before marking, and if east is another grid direction the
 removal order flips but the cuts do not change.
 
+### 7.3 How far each surface may be from where it is drawn
+
+The 15 cm clearance of the as-drawn case is the surfaces' fit residual, not their
+positional uncertainty. `scripts/uncertainty.py` builds a one-sigma vertical error at
+every node of every surface from three parts: pick scatter (the plane residual),
+velocity (4.2 % of depth, the largest alternative estimate in the record), and plan
+registration (0.07 m on A and C, 0.16 m on B, times tan dip). Migration is carried
+separately: the picks are unmigrated normal-incidence distances, and for a planar
+reflector at constant velocity the true reflection point lies up-dip of the antenna by
+depth x sin(dip). The migrated plane is computed for each surface and both positions
+are excluded in the uncertain case. Migration proper of the sections is PARSAN's to
+do; this is the geometric consequence for a planar reflector, used as an error, not as
+a correction.
+
+| surface | mean depth | σ pick | σ velocity | σ registration | σ total (1σ) | 2σ max | dip modelled → migrated | plan shift | vertical offset |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A1 | 1.37 m | 4 cm | 6 cm | 4 cm | 8 cm | 28 cm | 26.9° → 32.9° | 0.65 m | -0.65 to 0.03 m |
+| A2 | 1.11 m | 5 cm | 5 cm | 5 cm | 8 cm | 20 cm | 34.0° → 43.1° | 0.64 m | -0.69 to -0.07 m |
+| B1 | 0.71 m | 5 cm | 3 cm | 2 cm | 6 cm | 13 cm | 6.9° → 7.9° | 0.10 m | -0.13 to 0.11 m |
+| B2 | 2.80 m | 10 cm | 12 cm | 6 cm | 17 cm | 40 cm | 22.2° → 21.8° | 0.94 m | -0.45 to 0.09 m |
+| C1 | 0.70 m | 11 cm | 3 cm | 1 cm | 11 cm | 24 cm | 6.9° → 6.0° | 0.06 m | -0.16 to 0.23 m |
+| C2 | 3.08 m | 15 cm | 13 cm | 0 cm | 20 cm | 42 cm | 1.8° → 2.7° | 0.14 m | -0.31 to 0.38 m |
+
+B-2 and the two A sheets move the most under migration; their as-drawn positions
+should not be cut against. The velocity term alone is 12 to 13 cm at 3 m.
+
+![Straight-cut plan, Block B, with uncertainty](figs/WEB_v8_cut.png)
+
 ## 8. Verification, stage by stage
+
+Every row below is an internal-consistency check: parts of this model against each
+other or against the contractor's report. None is an independent validation; that
+needs a core, a trench or a sawn face. The C-2 crossings are used to adjust the lines
+and then to score the adjusted result; the corridor trackers end near the published
+endpoints by construction; the grid scale is set from the paint and then measured on
+the paint. The raw-trace tie search (`tie_check.py`) is limited to +/- 20 cm, so it
+cannot show that registration errors larger than 20 cm are absent: of 608 crossings, 66
+hit the search boundary and 180 had a nominal correlation below 0.3.
 
 | stage | test | result |
 | --- | --- | --- |
 | picks | C-2 at 230 line crossings | median 10.6 cm, 84 % within 20 cm |
 | picks vs report | every published endpoint (C-1, C-2, B-2, A-1) | three of the four inside 10 cm, all four inside 20 cm at the median, with C-2 Line 17 a named +25 cm edge outlier; the 8 to 12 cm residual equals the tracking corridor half-width, so their endpoints stand |
-| velocity | 114 well-focused diffraction apices below 0.6 m (`hyperbola_velocity.csv`, vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns |
+| velocity | 114 diffraction apices (`hyperbola_velocity.csv`, one rule: vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns; spread 0.088 to 0.172 (p10 to p90); block medians 0.112 / 0.1263 / 0.13; 22 at the search limits; uncalibrated |
 | registration | model drawn back into two photographs per block | lattice on paint on all three; origins on the crosses |
 | registration scale | painted spacing under the recovered scale | A 0.500 m, C 0.500 m, B 0.515 m (three marks only) |
 | bench surface | plane fit and roughness | 1 to 4 cm non-planar residual, 1 to 2 mm roughness at 30 cm |
 | sketches | trace length that could be grid ink | 4 to 9 per cent |
 | photo cracks | against the sketch, random null | 0.77 to 1.34x chance: rejected as a layer |
-| time zero | PARSAN's reply against the raw axis | raw SEG-Y is on the corrected axis; their picks land on it without offset |
+| time zero | PARSAN's email of 10 September against the raw axis | their picks land on the raw axis without offset; the statement that the files are already time-zero corrected is theirs and has not been checked independently |
+| daylight | each surface's trace on the bench against the chalked cracks, random-placement null (`daylight_test.py`) | B-1 and A-1 at chance; the others do not reach the bench |
+| straight-cut plan | every block's clearance to every surface, re-measured in the absolute frame after the solve; removal order checked for pieces scheduled before a piece above them | minimum clearance 0.15 m; zero order violations in all 24 runs |
 
 ## 9. PARSAN's reply of 10 September, tested
 
@@ -221,36 +322,43 @@ removal order flips but the cuts do not change.
 | Figure 2 vs Table 1 | 1.67 ns is time-zero corrected; 4.74 is the display; use corrected | closed; the model already was |
 | Block A lines 1 to 12 | fixed y | closed; matches the model |
 | A-2 depth | 0.50 to 1.35 m | consistent with the model |
-| B-1 depth | 0.997 to 1.953 m | **does not match** the report's own slice windows (0.47 to 1.02 m), Figure 12 (0.45 to 0.95 m), or the raw data, which tracks the sheet at 0.55 to 0.68 m on both channels with no seed. The 0.46 to 0.97 m surface stands; this is the one item to put back |
+| B-1 depth | 0.997 to 1.953 m | two readings stay side by side: PARSAN's 1.0 to 1.95 m, and the surface modelled here at about 0.4 to 1.0 m, which follows a stronger event and agrees with the report's own slice windows (0.47 to 1.02 m) and Figure 12. Tracking a stronger event does not make it the reflector PARSAN meant; the question to them is which line, channel and event they picked. Until then B-1 is carried as caution |
 
 ## 10. What the radar can and cannot do here, and what to do about the rest
 
-The GPR resolves layering at a quarter wavelength, 5 cm (HF) to 8 cm (LF) in this
-rock, and detects a thin open or wet joint well below that. What it cannot do is see a
-steep joint from the surface: a plane dipping more than about 45 degrees returns
-almost nothing to an antenna above it, and at 0.5 m line spacing anything steeper than
-7 degrees aliases in the slices. That is why all six surfaces PARSAN found are gently
-to moderately dipping, and why the steep NE-SW set in Block C is on the sketch only.
-The hairline, closed, dry fractures that decide whether a slab survives the gangsaw are
-below the detectability of any surface radar.
+The quarter-wavelength scale of this radar in this rock is about 4.8 cm (HF, 628 MHz)
+and 8.4 cm (LF, 358 MHz); those are theoretical resolution scales, not demonstrated
+accuracies or detection thresholds. A thin open or wet joint can return an echo well
+below that scale; a hairline, closed, dry fracture may return nothing. What this survey
+and processing do not reliably constrain is a steep fracture: a plane dipping more than
+about 45 degrees returns little to an antenna above it, and at 0.5 m line spacing the
+slice-to-slice sampling of a 628 MHz reflector is about 5.5 degrees of dip on the
+idealised quarter-wavelength argument. Dense full-resolution 3D surveys with migration
+have imaged sub-vertical fractures elsewhere; this survey is two-dimensional and
+unmigrated. That is why all six surfaces PARSAN found are gently to moderately dipping,
+and why the steep NE-SW set in Block C is on the sketch only. Whether the chalked cracks
+are steep, and how deep they run, has not been measured by anything here.
 
 What helps, in order of cost:
 
 1. **Chalk and photograph, properly.** The crew's chalking is already the best surface
    record. Wet the bench first: hairline cracks hold water and show dark for minutes.
    Chalk every one, then photograph each block from directly above with a scale bar
-   and the same phone. That turns a sketch with 10 to 30 cm of wobble into a map good
-   to a centimetre, and it costs an hour per block.
+   and the same phone, with control points. That would replace a sketch with 10 to 30
+   cm of wobble by a photo map whose accuracy can be checked, at the cost of an hour or
+   two per block.
 2. **Log every sawn face.** Each cut exposes the rock the model predicted. Photograph
-   the face against the grid and mark where the surfaces actually were. This is the
-   only way to learn how deep the chalked cracks run, which is the number that moves
-   the yield most.
+   the face against the grid and mark where the surfaces actually were. A sawn face, a
+   trench or a core are the ways to learn how deep the chalked cracks run, which is the
+   number that moves the yield most.
 3. **One core through C-2** near Line 22 or Line 11, as the report recommends three
-   times. It calibrates depth by measurement.
+   times. It calibrates the velocity by measurement, which nothing here has done.
+   Ask PARSAN to migrate the sections at the same time: the dipping surfaces move.
 4. **Tape, compass and a level** over the three grid origins. The blocks then sit in
    one frame with a common datum, which no amount of processing can supply.
-5. A 1 to 2 GHz surface scan of the top half metre, if the shallow stock matters:
-   2.5 cm resolution, and it sees the wet hairlines that 600 MHz does not.
+5. A 1 to 2 GHz surface scan of the top half metre, if the shallow stock matters: a
+   quarter-wavelength scale of 3 to 1.5 cm, which is closer to the hairline cracks that
+   matter; higher frequency does not by itself guarantee that they are seen.
 
 ## 11. Deliverables
 
@@ -259,8 +367,11 @@ What helps, in order of cost:
 | `dataset/bench_frame_m/Block_X/` | per block, one metric frame: point cloud (PLY), six surfaces v1 and v2 (OBJ, DXF), the lattice, the DEM, the chalked cracks on the DEM, `FRAME.json` |
 | `dataset/report_frame/` | the surfaces in PARSAN's own x, y for Rhino |
 | `dataset/picks/` | every per-trace pick with two-way time retained; the resolved geometry of all 89 lines |
-| `tables/block_packing.json` | every packed block, every scenario (free packing, the upper bound) |
-| `tables/guillotine_packing.json` | the straight-cut plan: every cut in order with its extent, every block with its removal order |
+| `tables/block_packing.json` | the free-packing heuristic estimate, every scenario and both clearance cases |
+| `tables/guillotine_packing.json` | the straight-cut plan in the absolute frame: every cut in order, every block and waste piece with its removal order, dependencies, free faces and clearances |
+| `tables/uncertainty.json`, `model/unc/` | per-surface positional uncertainty and migrated planes |
+| `tables/velocity_summary.json` | the velocity rule, spread and depth sensitivity |
+| `tables/sketch_vs_gpr_daylight.json`, `figs/DAYLIGHT_*.png` | the corrected daylight test with its null |
 | `web/site/index.html`, the GitHub Pages link above | the interface, one file, English and Tamil |
 | `web/panels/` | every raw radargram as a panel, HF and LF, for the Radar view |
 | `AUDIT.md`, `MODEL.md`, `VERIFICATION.md` | the working documents this report condenses |
@@ -270,8 +381,15 @@ What helps, in order of cost:
 - Bench height 3.0 m for A and B: no floor was surveyed. Change `MAXDEPTH` in
   `scripts/block_pack.py`.
 - Chalked cracks are vertical to the assumed depth. They may dip.
-- Safety margins 15 cm (GPR) and 10 cm (chalk) are the surfaces' own accuracies, not
-  a saw's tolerance; add whatever the sawyer wants.
-- Unmigrated positions: B-2 at 22 degrees sits up to 1.4 m from its true plan position
-  at depth, per the report's own convention.
+- The as-drawn clearances, 15 cm (GPR) and 10 cm (chalk), are fit residuals, not
+  positional uncertainty; the uncertain case is the one to plan on, and a saw's own
+  tolerance still comes on top.
+- Unmigrated positions: the migrated B-2 plane sits about 0.9 m up-dip and up to
+  0.45 m higher than the drawn one; the A sheets move 0.65 m.
 - Density 2.95 t/m3, unmeasured.
+- Velocity 0.1202 m/ns, uncalibrated: 4 % either way is 12 cm at 3 m.
+- The surfaces are unmigrated; the uncertain case excludes their migrated positions
+  but a migrated section from PARSAN would replace that with a measurement.
+- Registration of each grid to its mesh is good to 7 cm (A, C) and 16 cm (B) in plan;
+  it enters the uncertainty through the dip.
+- The three benches are not positioned relative to each other.

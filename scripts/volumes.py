@@ -7,13 +7,15 @@ def load(p):
     return a[:,0].reshape(m,n), a[:,1].reshape(m,n), a[:,2].reshape(m,n)
 GX2,GY2,Z2=load('model/C2_grid_10cm.xyz')
 GX1,GY1,Z1=load('model/C1_grid_10cm.xyz')
-cell=0.10*0.10   # m2 per 10 cm node
+cell=0.10*0.10   # m2 per 10 cm cell; volumes integrate CELLS (mean of the four corner nodes), not every node as a full cell
 RHO=2.95         # t/m3, dolerite
 
 print('BLOCK C, 7.0 x 8.0 m = 56.0 m2\n')
 print('C-2, the base cap')
 print('  depth  min %.2f  mean %.2f  max %.2f m'%(Z2.min(),Z2.mean(),Z2.max()))
-vol2=Z2.sum()*cell
+def cellint(Z):
+    Zc=0.25*(Z[:-1,:-1]+Z[1:,:-1]+Z[:-1,1:]+Z[1:,1:]); return np.nansum(Zc)*cell
+vol2=cellint(Z2)
 print('  volume above C-2 across the whole block: %.1f m3  = %.0f t'%(vol2,vol2*RHO))
 print('  if planned at the report band mid 3.16 m: %.1f m3'%(3.16*56.0))
 print('  difference against a flat plan at the mean: %+.1f m3'%(vol2-Z2.mean()*56.0))
@@ -34,9 +36,9 @@ print('\nC-1, the shallow fracture, footprint %.1f m2 of the 56'%area1)
 print('  depth  min %.2f  mean %.2f  max %.2f m'%(np.nanmin(Z1i),np.nanmean(Z1i),np.nanmax(Z1i)))
 print('  clearance C-1 to C-2:  min %.2f  mean %.2f m'%(np.nanmin(Z2-Z1i),np.nanmean(Z2-Z1i)))
 
-vA=np.nansum(np.where(np.isfinite(Z1i),Z1i,0))*cell
-vB=np.nansum(np.where(np.isfinite(Z1i),Z2-Z1i,0))*cell
-vC=np.nansum(np.where(np.isfinite(Z1i),0,Z2))*cell
+vA=cellint(np.where(np.isfinite(Z1i),Z1i,0))
+vB=cellint(np.where(np.isfinite(Z1i),Z2-Z1i,0))
+vC=cellint(np.where(np.isfinite(Z1i),0,Z2))
 print('\nthree extractable volumes, top down')
 for nm,v in (('above C-1 (west strip)',vA),('C-1 to C-2 (west strip)',vB),('above C-2 (rest of block)',vC)):
     print('  %-28s %6.1f m3  %5.0f t'%(nm,v,v*RHO))

@@ -1,4 +1,6 @@
 """Structural orientation data for a geologist, all in the GRID frame (no true north is known).
+C-2 uses the network-ADJUSTED picks (z_adj), the same version the modelled surface is built from; the other five use their
+final or raw picks. Dips are of the modelled, unmigrated surfaces (see uncertainty.py for the migrated planes).
 GPR planes: dip, dip direction (bearing from +y toward +x), plane residual, extent. Chalked cracks: strike rose and
 length-weighted strike statistics per block. Also the angle between each GPR plane's strike and the dominant
 chalked strike, and joint spacing along the two grid axes from the sketch."""
@@ -12,7 +14,7 @@ fig, axes = plt.subplots(1, 3, figsize=(15, 5), subplot_kw=dict(projection='pola
 for ax, blk in zip(axes, 'ABC'):
     W, H = DIMS[blk]; S[blk] = dict(planes={}, cracks={})
     for F in FEATS[blk]:
-        pf = next(p for p in (os.path.join(OUT, 'tables', n % F) for n in ('PICKS_%s_final.csv', 'PICKS_%s_raw.csv', 'PICKS_%s_adjusted.csv')) if os.path.exists(p))
+        pf = next(p for p in (os.path.join(OUT, 'tables', n % F) for n in ('PICKS_%s_final.csv', 'PICKS_%s_adjusted.csv', 'PICKS_%s_raw.csv')) if os.path.exists(p))
         rr = list(csv.DictReader(open(pf, encoding='utf-8'))); P = np.array([[float(q['x_cm']) / 100, float(q['y_cm']) / 100, float(q.get('z_adj') or q['depth_m'])] for q in rr])
         A = np.c_[P[:, 0], P[:, 1], np.ones(len(P))]; co, *_ = np.linalg.lstsq(A, P[:, 2], rcond=None); res = P[:, 2] - A @ co
         dip = np.degrees(np.arctan(np.hypot(co[0], co[1]))); ddir = np.degrees(np.arctan2(co[0], co[1])) % 360      # bearing from +y toward +x, of the DOWN-dip direction

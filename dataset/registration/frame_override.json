@@ -61,8 +61,8 @@
  },
  "C": {
   "origin_local_units": [
-   2.4484177133322227,
-   6.521257001072981
+   2.8455937859733207,
+   4.9454151364694034
   ],
   "xdir_local": [
    0.9728453247000254,
@@ -73,6 +73,6 @@
    -0.9728453247000255
   ],
   "scale_m_per_unit": 0.6745105008567356,
-  "source": "C0 circle-cross in 20260819_182441 back-projected to 1.1 m outside lattice corner k2; 7 m side to k1, 8 m side to k3"
+  "source": "C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; x toward k1 (7 m), y toward k3 (8 m); lattice angles and spacing unchanged"
  }
 }

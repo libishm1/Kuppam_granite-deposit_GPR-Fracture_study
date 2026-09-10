@@ -130,9 +130,14 @@ not state. A dipping plane's plan trace rotates with the depth you slice it at.
 **Not independent.** The corridor that recovered B-1 was seeded from the
 report's own description: x 650 to 950, deepening east at 8.3 degrees. The free
 tracker had failed, locking onto flat ringing. So **the dip magnitude is
-corroborated, not independently measured.** What is independent: the reflector
-exists on every line, it deepens east on every line, and two channels on
-orthogonal lines put it at the same depth to 10 cm.
+corroborated, not independently measured.** What is internally consistent: the
+reflector exists on every line, it deepens east on every line, and two channels on
+orthogonal lines put it at the same depth to 10 cm. What was claimed as an
+independent confirmation on the rock (66 % of its daylight along a chalked crack)
+rested on a wrong intersection formula and is withdrawn: the corrected test
+(`daylight_test.py`) puts B-1's surface trace at chance, and outside the area
+where it was picked. PARSAN's own reading of B-1 (1.0 to 1.95 m) stays on the
+table beside this one.
 
 **A new editorial finding from doing this.** The radargram in Figure 12 is
 inserted rotated 180 degrees relative to its caption. Depth reads 2.68 at the

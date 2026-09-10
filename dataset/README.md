@@ -79,14 +79,19 @@ here stands.
 
 Sketch digitisation, photo detection weeded of chalk lines, and each GPR plane's
 daylight line against the sketch with a random-line null (`sketch_vs_gpr_daylight.json`).
-Headline: **B-1 is confirmed on the rock** (66 % of its daylight within 30 cm of a
-sketched fracture, 2.4x chance); A-1 is no better than chance; Block C's main surface
-joint set is steep, NE-SW, and absent from the GPR. Details in `../MODEL.md`.
+Headline: no GPR surface is confirmed on the rock by the chalked cracks. The earlier
+"B-1 confirmed, 66 %" result used a wrong intersection and is withdrawn; the corrected
+test (`daylight_test.py`, null of random placements) puts B-1 and A-1 at chance and
+the other four never reach the bench inside the grid. Block C's main surface joint set
+is NE-SW, about 35 degrees from C-1, and absent from the GPR. Details in `../MODEL.md`.
 
 ## Other folders
 
-- `report_frame/`: the same surfaces in the report's own x, y (cm) with z
-  negative down, before any registration. Rhino-ready.
+- `report_frame/`: the same surfaces in the report's own frame, before any
+  registration. **Units differ by format**: the OBJ/DXF files are metres with z
+  negative down (Rhino-ready); the headerless `*_grid_10cm.xyz` files are x, y in
+  centimetres with a POSITIVE depth in metres as the third column, i.e. a depth
+  grid, not a Cartesian export. Do not mix them.
 - `picks/`: every per-trace pick with two-way time retained, and the resolved
   geometry of all 89 lines.
 - `registration/`: the detection JSONs, the figures that prove each one, and the

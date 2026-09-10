@@ -136,13 +136,13 @@
    "C2": {
     "n_picks": 9481,
     "lines": 32,
-    "dip_deg": 2.8,
-    "dip_direction_grid_deg": 279.0,
-    "strike_grid_deg": 9.0,
+    "dip_deg": 1.8,
+    "dip_direction_grid_deg": 288.0,
+    "strike_grid_deg": 18.0,
     "depth_min_m": 2.64,
-    "depth_max_m": 3.7,
-    "plane_rms_m": 0.186,
-    "plane_max_m": 0.533,
+    "depth_max_m": 3.65,
+    "plane_rms_m": 0.148,
+    "plane_max_m": 0.508,
     "footprint_x_m": [
      0.0,
      7.1
@@ -151,7 +151,7 @@
      0.0,
      8.2
     ],
-    "angle_to_dominant_crack_strike_deg": 77.0
+    "angle_to_dominant_crack_strike_deg": 68.0
    }
   },
   "cracks": {

@@ -47,7 +47,7 @@ Plane residuals are about the best-fit plane through all picks.
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | A-1 | 428 / 12 | 0.47–2.32 | 26.9° | 328° | 58° | 3.6 cm | 8 cm | both line families, but seeded |
 | A-2 | 565 / 9 | 0.44–1.81 | 34.0° | 1° | 91° | 4.9 cm | 13 cm | Y-lines, X-lines cross-check 0.9 cm |
-| B-1 | 1580 / 13 | 0.42–0.99 | 6.9° | 84° | 174° | 4.8 cm | 12 cm | X-lines HF, LF Y-lines agree 97 % within 20 cm |
+| B-1 | 1580 / 13 | 0.42–0.99 | 6.9° | 84° | 174° | 4.8 cm | 12 cm | X-lines HF, LF Y-lines agree 97 % within 20 cm (internal); not confirmed on the rock |
 | B-2 | 969 / 6 | 1.96–3.95 | 22.2° | 350° | 80° | 9.7 cm | 25 cm | **Y-lines only**; a cylinder along x |
 | C-1 | 1292 / 9 | 0.23–1.04 | 6.9° | 31° | 121° | 11.0 cm | 30 cm | Y-lines; X-lines "visually consistent" per report |
 | C-2 | 9481 / 32 | 2.64–3.70 | 2.8° | 279° | 9° | 18.6 cm | 53 cm | both families, 230 crossings |
@@ -83,9 +83,15 @@ mine said "at right angles" and was wrong.
    depths are reversed. The 8–12 cm residuals equal the corridor half-width: the
    tracker stops at peak energy where a human follows the fading event, so the
    report's endpoints stand.
-3. **Velocity.** Diffraction scan 0.1202; Proceq plate at 1.00 m 0.1174 (RDP 6.52);
-   Zond combined RDP 5.73 (0.1252); adopted 0.1200. All within ±2 %, ±6 cm at 3 m.
-4. **Time zero.** See §1. Closed.
+3. **Velocity.** Diffraction scan median 0.1202 (114 apices under one rule, 10th to 90th
+   percentile 0.088 to 0.172 m/ns, block medians 0.112 / 0.1263 / 0.13, 22 fits at the search limits);
+   Proceq plate at 1.00 m 0.1174 (RDP 6.52), which is 2.3 % low; Zond combined RDP 5.73
+   (0.1252), 4.2 % high; adopted 0.1200. At 3 m those alternatives are −7 and +12.5 cm.
+   The score in `hyperbola_velocity.csv` is an envelope-amplitude coherence, not a
+   normalised semblance. 0.1202 is a working assumption, uncalibrated; the uncertainty
+   model (`uncertainty.py`) carries 4.2 % of depth for it.
+4. **Time zero.** See §1. Closed on PARSAN's word (email of 10 September) and on the
+   internal consistency of their picks with the raw axis; not independently verified.
 5. **Registration to the photogrammetry.** The three Metashape projects have no
    markers, scale bars or GPS. The painted 0.5 m grid in the mesh vertex colours gave
    scale, rotation and position; origins from the crew's painted labels back-projected
@@ -93,24 +99,32 @@ mine said "at right angles" and was wrong.
    photographs per block (`figs/REPROJ_*.jpg`): on paint on all three. A 0.7281,
    C 0.6745 m per mesh unit, lattices rigid (families 89.9° and 90.0° apart); B 1.0138
    from three corner marks, 4 cm rms, the mesh itself sheared ~5° by the ultrawide lens.
-6. **Bench surface.** Relief 27–41 cm, tilt 1–3°, non-planar residual 1–4 cm, roughness
+6. **Bench surface.** Relief 22–41 cm (A 31, B 41, C 22), tilt 1–3°, non-planar residual 1–4 cm, roughness
    1–2 mm at 30 cm. The baked texture sits on its own lattice to within one 5 cm step
    in all three blocks (`tables/texture_orientation.json`).
-7. **Surface cracks against the planes** (`tables/sketch_vs_gpr_daylight.json`). Where
-   each plane reaches the surface, distance to the nearest chalked crack, with a null
-   from random lines (27–36 % within 30 cm): B-1 66 % on the DEM, 2.4× chance, with a
-   4 m chalked crack tracking its outcrop at x ≈ 2 m; A-1 31 %, chance; C-1 reaches no
-   chalked crack. A photo-based dark-line detector was also run on all 384 posed
+7. **Surface cracks against the planes** (`tables/sketch_vs_gpr_daylight.json`,
+   `scripts/daylight_test.py`). The earlier version of this test contoured plane depth
+   plus bench height, which is not the intersection of anything; its B-1 result (66 %,
+   "confirmed on the rock") is withdrawn. Each surface is now fitted as a plane in
+   absolute elevation and met with the DEM, and its daylight line scored against the
+   chalked cracks with a null of random placements of the same line: B-1 18 % within
+   30 cm (flat definition 31 %) against 27 % for chance, 95th percentile 59 %,
+   and 0 % of the line inside the area where B-1 was picked; A-1 30 % against 34 %.
+   Both at chance. The other four do not reach the bench inside the grid. A photo-based dark-line detector was also run on all 384 posed
    photographs and scored 0.77–1.34× chance against the sketches: **rejected**.
 
 ## 5. What the catalogue is biased toward
 
-All six GPR surfaces dip 3–34°. A surface antenna returns almost nothing from a plane
-steeper than about 45°, and at 0.5 m line spacing the depth slices alias any dip above
-6.9° at 628 MHz (Grasmueck's quarter-wavelength criterion), so the line-by-line picks
-are the only route to the moderate dips and the steep set is invisible. The chalked
-cracks are steep by construction (they daylight), and the two sets seen in every
-block do not appear in the GPR list. **The joint set that will control how a block
+All six GPR surfaces dip 2–34° as modelled (unmigrated; the migrated planes are
+steeper, up to 43° for A-2, `tables/uncertainty.json`). A surface antenna returns
+little from a plane steeper than about 45°, and at 0.5 m line spacing the slice
+sampling of a 628 MHz reflector on the idealised quarter-wavelength argument is about
+5.5° of dip (6.9° would be 500 MHz), so the line-by-line picks are the only route to the
+moderate dips and this survey does not reliably constrain the steep set; dense
+full-resolution 3D surveys with migration have imaged sub-vertical fractures elsewhere.
+The chalked cracks reach the surface; whether they are steep, and how far they persist,
+is not measured by anything here. The two sets seen in every sketch do not appear in
+the GPR list. **The joint set that will control how a block
 splits is the one this survey cannot see.** That is a property of the method, stated
 in the report's own Section 9, and it is the reason the block yield here ranges from
 65 % to 30 % on Block C depending on how deep those cracks are assumed to run.
@@ -130,8 +144,9 @@ in the report's own Section 9, and it is the reason the block yield here ranges 
 ## 7. What cannot be claimed
 
 - True north, absolute datum, or the position of one block relative to another.
-- Aperture or infill from polarity: the picks are local envelope maxima, which
-  presuppose sign, so polarity is not recoverable from these data.
+- Aperture or infill from polarity: the picks are envelope maxima and discard sign;
+  the signed raw samples are still in the SEG-Y, but reading polarity would need a
+  wavelet and phase calibration that has not been done.
 - Persistence beyond each grid.
 - The depth of any chalked crack.
 - That the C-2 undulation is structural rather than partly odometer error (median

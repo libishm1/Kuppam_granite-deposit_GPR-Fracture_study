@@ -1,0 +1,39 @@
+{
+ "rule": "vwidth <= 0.012 m/ns and apex time > 10 ns (the rule used for the working velocity)",
+ "n_candidates": 322,
+ "n_selected": 114,
+ "median": 0.1202,
+ "p10": 0.088,
+ "p90": 0.172,
+ "min": 0.085,
+ "max": 0.1735,
+ "search_limits": [
+  0.085,
+  0.1735
+ ],
+ "n_at_limits": 22,
+ "per_block_median": {
+  "A": 0.112,
+  "B": 0.1263,
+  "C": 0.13
+ },
+ "per_block_n": {
+  "A": 43,
+  "B": 36,
+  "C": 35
+ },
+ "working_velocity": 0.1202,
+ "score_note": "the \"semb\" column is an envelope-amplitude coherence along the hyperbola (mean envelope x sqrt(aperture)), not a normalised waveform semblance",
+ "alternatives": {
+  "0.1174 (report RDP 6.52)": -2.33,
+  "0.1252 (Zond RDP 5.73)": 4.16
+ },
+ "depth_sensitivity_cm": {
+  "per +/-1 % velocity at 3 m": 3.0,
+  "p10 vs working at 3 m": -80.4,
+  "p90 vs working at 3 m": 129.3,
+  "0.1174 at 3 m": -7.0,
+  "0.1252 at 3 m": 12.5
+ },
+ "statement": "0.1202 m/ns is a working assumption: the median of scattered, uncalibrated hyperbola fits; it has not been calibrated against a reflector of known depth"
+}

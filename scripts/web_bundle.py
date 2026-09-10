@@ -10,20 +10,22 @@ GUIL = json.load(open(os.path.join(OUT, 'tables', 'guillotine_packing.json')))
 PANELS = json.load(open(os.path.join(OUT, 'web', 'panels', 'index.json')))
 SPEC = json.load(open(os.path.join(OUT, 'tables', 'spectra.json')))
 STRUCT = json.load(open(os.path.join(OUT, 'tables', 'structural.json')))
+UNC = json.load(open(os.path.join(OUT, 'tables', 'uncertainty.json')))
+VEL = json.load(open(os.path.join(OUT, 'tables', 'velocity_summary.json')))
 VER = json.load(open(os.path.join(OUT, 'tables', 'VERIFY_all.json')))
 DAY = json.load(open(os.path.join(OUT, 'tables', 'sketch_vs_gpr_daylight.json')))
 DIMS = {'A': (5.5, 5.5), 'B': (9.5, 6.0), 'C': (7.0, 8.0)}
 FEATS = {'A': ('A1', 'A2'), 'B': ('B1', 'B2'), 'C': ('C1', 'C2')}
 NPTS = {'A': 45000, 'B': 45000, 'C': 70000}
 REL = {  # reliability chips, from VERIFICATION.md and the daylight test
- 'A1': ('caution', 'dip corroborated on 12 lines; position vs surface cracks no better than chance'),
- 'A2': ('good', 'orthogonal-line check 0.9 cm; never reaches the surface inside the grid'),
- 'B1': ('good', 'corridor seeded from the report, dip corroborated not independently measured; HF vs LF 97% within 20 cm; confirmed on the rock by a 4 m sketched crack'),
- 'B2': ('caution', 'one line direction only; unmigrated, up to 1.4 m plan shift at depth'),
- 'C1': ('good', 'ties the report to 8 cm; 11 cm plane'),
- 'C2': ('good', '230 crossings, 11 cm median; the base cap for Block C'),
+ 'A1': ('caution', 'dip corroborated on 12 lines (internal); where it would reach the surface is no better than chance against the chalked cracks'),
+ 'A2': ('good', 'orthogonal-line check 0.9 cm (internal); dips 34 degrees; never reaches the surface inside the grid'),
+ 'B1': ('caution', 'corridor seeded from the report; HF vs LF agree within 20 cm on 97% of picks (internal); NOT confirmed on the rock: its surface trace is at chance against the chalked cracks and lies outside the picks; PARSAN reads it at 1.0 to 1.95 m'),
+ 'B2': ('caution', 'one line direction only; unmigrated: the migrated plane sits up to 0.9 m up-dip and 0.45 m higher'),
+ 'C1': ('good', 'agrees with the report to 8 cm (internal); 11 cm plane'),
+ 'C2': ('good', '230 line crossings agree to 11 cm after adjustment (internal); the base cap for Block C'),
 }
-NAMES = {'A1': 'A-1 dipping sheet, NW', 'A2': 'A-2 steep E-W sheet', 'B1': 'B-1 shallow sheet, dips east', 'B2': 'B-2 deep wedge, west', 'C1': 'C-1 shallow sheet, west half', 'C2': 'C-2 base cap'}
+NAMES = {'A1': 'A-1 dipping sheet, NW', 'A2': 'A-2 inclined sheet, dips +y', 'B1': 'B-1 shallow sheet, dips east', 'B2': 'B-2 deep wedge, west', 'C1': 'C-1 shallow sheet, west half', 'C2': 'C-2 base cap'}
 DEPTHLIM = {'A': 'assumed 3.0 m bench, no floor was surveyed', 'B': 'assumed 3.0 m bench, no floor was surveyed', 'C': 'the C-2 cap from the GPR'}
 HAZ = {'A': [], 'B': ['metal in the top metre near x = 190 to 200 and 390 to 420 cm (report)'], 'C': ['shallow clutter, top metre, y = 350 to 750 cm across the width (PARSAN): treat the whole top metre as suspect for metal', 'a second reflector at 3.9 to 4.3 m below C-2, unpicked']}
 
@@ -57,7 +59,7 @@ def read_obj_lines(p):
     V = np.array(V); return [np.round(V[idx], 3).tolist() for idx in L]
 
 
-data = dict(blocks={}, generated='2026-09-10', spectra=SPEC, frame='bench frame: metres, z up, right-handed, bench plane = 0. Grid coordinates x, y in cm from the painted origin cross.')
+data = dict(blocks={}, generated='2026-09-11', spectra=SPEC, velocity=VEL, frame='bench frame: metres, z up, right-handed, bench plane = 0. Grid coordinates x, y in cm from the painted origin cross.')
 for blk in 'ABC':
     r = REG[blk]; sc = r['scale_m_per_unit']; corner = (np.array(r['origin_local_units']) * sc).tolist(); xd = r['xdir_local']; yd = r['ydir_local']
     W, H = DIMS[blk]
@@ -91,28 +93,28 @@ for blk in 'ABC':
     pcr = os.path.join(od, 'Block_%s_surface_cracks_v1.obj' % blk); B['photo'] = read_obj_lines(pcr) if os.path.exists(pcr) else []
     B['photo_lift'] = VER['photo'][blk]['lift']
     # blocks (boxes) per scenario, corners in bench frame at surface height minus depth
+    def corners_of(b):
+        c = []
+        for (x, y) in ((b['x0'], b['y0']), (b['x1'], b['y0']), (b['x1'], b['y1']), (b['x0'], b['y1'])):
+            bx_, by_ = to_bench(x * 100, y * 100); c.append([round(float(bx_), 3), round(float(by_), 3)])
+        return c
     B['packing'] = {}
     for sname, res in PACK[blk].items():
         boxes = []
         for b in res['boxes']:
             cx, cy = 50 * (b['x0'] + b['x1']), 50 * (b['y0'] + b['y1']); hs0 = float(fi([[cy, cx]])[0])
-            corners = []
-            for (x, y) in ((b['x0'], b['y0']), (b['x1'], b['y0']), (b['x1'], b['y1']), (b['x0'], b['y1'])):
-                bx_, by_ = to_bench(x * 100, y * 100); corners.append([round(float(bx_), 3), round(float(by_), 3)])
-            boxes.append(dict(cls=b['cls'], corners=corners, ztop=round(hs0 - b['z0'], 3), zbot=round(hs0 - b['z1'], 3), L=b['L'], W=b['Wd'], H=b['Hh'], t=b['t'], m3=b['vol_m3'],
-                              grid_x=[round(100 * b['x0']), round(100 * b['x1'])], grid_y=[round(100 * b['y0']), round(100 * b['y1'])], depth=[b['z0'], b['z1']]))
-        B['packing'][sname] = dict(boxes=boxes, classes=res['classes'], packed_t=res['packed_t'], gross_t=round(res['gross_rock_m3'] * 2.95), recovery=res['recovery_ratio'], depth_limit=res['depth_limit'])
+            boxes.append(dict(cls=b['cls'], corners=corners_of(b), ztop=b['z1'], zbot=b['z0'], L=b['L'], W=b['Wd'], H=b['Hh'], t=b['t'], m3=b['vol_m3'],
+                              grid_x=[round(100 * b['x0']), round(100 * b['x1'])], grid_y=[round(100 * b['y0']), round(100 * b['y1'])], depth=[round(hs0 - b['z1'], 2), round(hs0 - b['z0'], 2)]))
+        B['packing'][sname] = dict(boxes=boxes, classes=res['classes'], packed_t=res['packed_t'], gross_t=round(res['gross_rock_m3'] * 2.95), recovery=res['recovery_ratio'], floor=res['floor'], nature=res['nature'])
     # guillotine plan: cuttable blocks with removal order, and the cut planes in sequence
     B['guillotine'] = {}
     for sname, res in GUIL[blk].items():
         boxes = []
         for b in res['boxes']:
-            cx, cy = 50 * (b['x0'] + b['x1']), 50 * (b['y0'] + b['y1']); hs0 = float(fi([[cy, cx]])[0])
-            corners = []
-            for (x, y) in ((b['x0'], b['y0']), (b['x1'], b['y0']), (b['x1'], b['y1']), (b['x0'], b['y1'])):
-                bx_, by_ = to_bench(x * 100, y * 100); corners.append([round(float(bx_), 3), round(float(by_), 3)])
-            boxes.append(dict(cls=b['cls'], corners=corners, ztop=round(hs0 - b['z0'], 3), zbot=round(hs0 - b['z1'], 3), L=b['L'], W=b['Wd'], H=b['Hh'], t=b['t'], m3=b['vol_m3'], marked=b['marked'], seq=b['remove_seq'],
-                              grid_x=[round(100 * b['x0']), round(100 * b['x1'])], grid_y=[round(100 * b['y0']), round(100 * b['y1'])], depth=[b['z0'], b['z1']]))
+            boxes.append(dict(cls=b['cls'], corners=corners_of(b), ztop=b['z_top_usable'], zbot=b['z0'], L=b['L'], W=b['Wd'], H=b['Hh'], t=b['t'], m3=b['vol_m3'], marked=b['marked'], seq=b['remove_seq'],
+                              after=b['after'], faces=b['free_faces'], surface_top=b['surface_top'], clearance=b['min_clearance_m'],
+                              grid_x=[round(100 * b['x0']), round(100 * b['x1'])], grid_y=[round(100 * b['y0']), round(100 * b['y1'])], depth=[b['depth_top_m'], b['depth_bottom_m']]))
+        waste = [dict(corners=corners_of(w), ztop=w['z_top_usable'], zbot=w['z0'], seq=w['remove_seq'], after=w['after'], m3=w['rock_m3'], grid_x=[round(100 * w['x0']), round(100 * w['x1'])], grid_y=[round(100 * w['y0']), round(100 * w['y1'])]) for w in res['waste']]
         cuts = []
         for c_ in res['cuts']:
             e = c_['extent']
@@ -122,22 +124,25 @@ for blk in 'ABC':
             bp = []
             for (x, y) in pts:
                 bx_, by_ = to_bench(x * 100, y * 100); bp.append([round(float(bx_), 3), round(float(by_), 3), round(float(fi([[y * 100, x * 100]])[0]), 3)])
-            cuts.append(dict(seq=c_['seq'], level=c_['level'], axis=c_['axis'], pos=c_['pos'], extent=e, bench=bp, capped=c_.get('capped', False)))
-        B['guillotine'][sname] = dict(boxes=sorted(boxes, key=lambda b: b['seq']), cuts=cuts, classes=res['classes'], packed_t=res['packed_t'], gross_t=round(res['gross_rock_m3'] * 2.95), recovery=res['recovery_ratio'], n_cuts=res['n_cuts'], depth_limit=res['depth_limit'], east=res['east'])
+            cuts.append(dict(seq=c_['seq'], level=c_['level'], axis=c_['axis'], pos=c_['pos'], extent=e, bench=bp))
+        B['guillotine'][sname] = dict(boxes=sorted(boxes, key=lambda b: b['seq']), waste=sorted(waste, key=lambda w: w['seq']), cuts=cuts, classes=res['classes'], packed_t=res['packed_t'], gross_t=round(res['gross_rock_m3'] * 2.95),
+                                      recovery=res['recovery_ratio'], n_cuts=res['n_cuts'], n_waste=res['n_waste'], floor=res['floor'], bands=res['bands'], chalk_buffer_m=res['chalk_buffer_m'], uncertainty=res['uncertainty'], east=res['east'])
     # raw radargram panels for this block
     B['panels'] = []
     for pnl in PANELS:
         if pnl['block'] != blk: continue
         jp = os.path.join(OUT, 'web', 'panels', pnl['file'])
         B['panels'].append(dict(line=pnl['line'], ch=pnl['ch'], orientation=pnl['orientation'], fixed_axis=pnl['fixed_axis'], fixed_cm=pnl['fixed_cm'], run_axis=pnl['run_axis'], length_m=pnl['length_m'], depth_m=pnl['depth_m'], jpg=base64.b64encode(open(jp, 'rb').read()).decode('ascii')))
-    B['structural'] = STRUCT[blk]
+    B['structural'] = STRUCT[blk]; B['uncertainty'] = UNC[blk]; B['daylight'] = DAY[blk]
     # picks per line for the 2D radargram viewer: position along the run axis (cm) and depth (m), by feature
     B['picks'] = {}
     for F in FEATS[blk]:
         fp = glob.glob(os.path.join(OUT, 'dataset', 'picks', 'PICKS_%s_*.csv' % F))[0]
         for q in csv.DictReader(open(fp, encoding='utf-8')):
             ln = int(q['line']); s = float(q['x_cm']) if q['orientation'] == 'X-line' else float(q['y_cm'])
-            B['picks'].setdefault(str(ln), {}).setdefault(F, []).append([round(s), round(float(q['depth_m']), 2)])
+            rec = [round(s), round(float(q.get('z_adj') or q['depth_m']), 2)]
+            if q.get('z_adj'): rec.append(round(float(q['depth_m']), 2))          # C-2: [position, adjusted depth, raw depth]
+            B['picks'].setdefault(str(ln), {}).setdefault(F, []).append(rec)
     # accepted diffraction hyperbolae (velocity check): trace -> position, apex time -> depth at 0.1202
     B['hyp'] = {}
     for hrow in csv.DictReader(open(os.path.join(OUT, 'tables', 'hyperbola_velocity.csv'), encoding='utf-8')):
@@ -148,7 +153,7 @@ for blk in 'ABC':
     B['verify'] = dict(registration=VER['registration'][blk], dem=VER['dem'][blk], sketch=VER['sketch'][blk], photo=VER['photo'][blk])
     if blk == 'C': B['verify']['picks'] = VER['picks']
     data['blocks'][blk] = B
-    print('Block %s: cloud %d pts, %d surfaces, %d sketch traces, %d photo traces, %d scenarios, %d panels, guillotine 1.0 m: %d blocks %d cuts' % (blk, len(pc), len(B['surfaces']), len(B['sketch']), len(B['photo']), len(B['packing']), len(B['panels']), len(B['guillotine']['surface_1.0m']['boxes']), B['guillotine']['surface_1.0m']['n_cuts']))
+    print('Block %s: cloud %d pts, %d surfaces, %d sketch traces, %d scenarios, %d panels, straight cuts 1.0 m uncertain: %d blocks %d waste %d cuts' % (blk, len(pc), len(B['surfaces']), len(B['sketch']), len(B['packing']), len(B['panels']), len(B['guillotine']['surface_1.0m__uncertain']['boxes']), B['guillotine']['surface_1.0m__uncertain']['n_waste'], B['guillotine']['surface_1.0m__uncertain']['n_cuts']))
 js = json.dumps(data, separators=(',', ':'))
 open(os.path.join(WEB, 'data.json'), 'w').write(js); print('web/data.json %.1f MB' % (len(js) / 1e6))
 tp = os.path.join(WEB, 'index.template.html')
@@ -186,7 +191,7 @@ if os.path.exists(tp):
     open(os.path.join(SITE, 'sw.js'), 'w', encoding='utf-8').write("""'use strict';
 const V='%s';
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(['./','./index.html','./manifest.webmanifest'])).then(()=>self.skipWaiting()));});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k.startsWith('kbm-')).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);
   const isPage=u.origin===location.origin&&(u.pathname.endsWith('/')||u.pathname.endsWith('index.html'));
   if(isPage){e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(V).then(c=>c.put(e.request,cp));return r;}).catch(()=>caches.match(e.request,{ignoreSearch:true})));return;}
