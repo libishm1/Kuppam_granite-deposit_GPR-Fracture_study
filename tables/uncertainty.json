@@ -8,13 +8,14 @@
    "sigma_total_m_at_mean_depth": 0.077,
    "sigma_total_m_max": 0.141,
    "two_sigma_m_max": 0.282,
-   "dip_modelled_deg": 26.9,
+   "dip_modelled_deg": 28.9,
+   "dip_modelled_depthframe_deg": 26.9,
    "dip_migrated_deg": 32.9,
    "migration_plan_shift_median_m": 0.65,
    "migration_vertical_offset_m": {
-    "min": -0.65,
+    "min": -0.59,
     "median": -0.25,
-    "max": 0.03
+    "max": -0.01
    },
    "sig_xy_m": 0.07,
    "vel_frac": 0.042
@@ -27,13 +28,14 @@
    "sigma_total_m_at_mean_depth": 0.082,
    "sigma_total_m_max": 0.103,
    "two_sigma_m_max": 0.205,
-   "dip_modelled_deg": 34.0,
+   "dip_modelled_deg": 35.3,
+   "dip_modelled_depthframe_deg": 34.0,
    "dip_migrated_deg": 43.1,
    "migration_plan_shift_median_m": 0.64,
    "migration_vertical_offset_m": {
-    "min": -0.69,
-    "median": -0.4,
-    "max": -0.07
+    "min": -0.65,
+    "median": -0.39,
+    "max": -0.14
    },
    "sig_xy_m": 0.07,
    "vel_frac": 0.042
@@ -48,13 +50,14 @@
    "sigma_total_m_at_mean_depth": 0.06,
    "sigma_total_m_max": 0.066,
    "two_sigma_m_max": 0.132,
-   "dip_modelled_deg": 6.9,
+   "dip_modelled_deg": 7.9,
+   "dip_modelled_depthframe_deg": 6.9,
    "dip_migrated_deg": 7.9,
    "migration_plan_shift_median_m": 0.1,
    "migration_vertical_offset_m": {
-    "min": -0.13,
-    "median": -0.03,
-    "max": 0.11
+    "min": -0.01,
+    "median": -0.01,
+    "max": -0.01
    },
    "sig_xy_m": 0.16,
    "vel_frac": 0.042
@@ -67,13 +70,14 @@
    "sigma_total_m_at_mean_depth": 0.166,
    "sigma_total_m_max": 0.202,
    "two_sigma_m_max": 0.404,
-   "dip_modelled_deg": 22.2,
+   "dip_modelled_deg": 20.3,
+   "dip_modelled_depthframe_deg": 22.2,
    "dip_migrated_deg": 21.8,
    "migration_plan_shift_median_m": 0.94,
    "migration_vertical_offset_m": {
-    "min": -0.45,
-    "median": -0.22,
-    "max": 0.09
+    "min": -0.29,
+    "median": -0.21,
+    "max": -0.13
    },
    "sig_xy_m": 0.16,
    "vel_frac": 0.042
@@ -88,13 +92,14 @@
    "sigma_total_m_at_mean_depth": 0.114,
    "sigma_total_m_max": 0.121,
    "two_sigma_m_max": 0.243,
-   "dip_modelled_deg": 6.9,
+   "dip_modelled_deg": 6.0,
+   "dip_modelled_depthframe_deg": 6.9,
    "dip_migrated_deg": 6.0,
    "migration_plan_shift_median_m": 0.06,
    "migration_vertical_offset_m": {
-    "min": -0.16,
-    "median": 0.01,
-    "max": 0.23
+    "min": -0.0,
+    "median": -0.0,
+    "max": -0.0
    },
    "sig_xy_m": 0.07,
    "vel_frac": 0.042
@@ -107,13 +112,14 @@
    "sigma_total_m_at_mean_depth": 0.197,
    "sigma_total_m_max": 0.211,
    "two_sigma_m_max": 0.421,
-   "dip_modelled_deg": 1.8,
+   "dip_modelled_deg": 2.7,
+   "dip_modelled_depthframe_deg": 1.8,
    "dip_migrated_deg": 2.7,
    "migration_plan_shift_median_m": 0.14,
    "migration_vertical_offset_m": {
-    "min": -0.31,
-    "median": -0.02,
-    "max": 0.38
+    "min": -0.0,
+    "median": -0.0,
+    "max": -0.0
    },
    "sig_xy_m": 0.07,
    "vel_frac": 0.042

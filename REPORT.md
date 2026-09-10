@@ -93,7 +93,7 @@ contains another block's grid. A site survey is the only fix.
 
 ## 5. The bench is not flat: v2
 
-From the meshes, the bench surface has 27 to 41 cm of relief across each grid and
+From the meshes, the bench surface has 22 to 41 cm of relief across each grid and
 tilts 1 to 3 degrees. Version 1 of every surface (kept) puts depth below a flat
 bench; version 2 puts each pick below the real surface at its own (x, y). The
 correction is up to 20 cm either way. On B the surface rises 30 cm across 6 m, so
@@ -155,24 +155,26 @@ all its 10 cm voxels are), no requirement that any cut can reach a block, classe
 finished size. It is not a proven upper bound on the straight-cut plan and nothing in
 it can be cut as listed; it says roughly how much rock the surfaces leave. Earlier
 versions of this table rounded A to 5.6 m and B to 9.6 m and let boxes leave the
-footprint; the footprint is now exact.
+footprint; the footprint is now exact. A pooled cell's nominal top can sit up to 5 cm
+above the lowest surface point in it; the 5 cm kerf absorbs that, so no finished box
+protrudes.
 
 With uncertainty:
 
 | block | chalked cracks assumed to reach | large | gangsaw | small | cutter | tonnes | of gross |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A | ignored | 0 | 2 | 4 | 5 | 75 | 28 % |
-| A | 0.5 m | 0 | 1 | 4 | 5 | 62 | 23 % |
-| A | 1.0 m | 0 | 1 | 4 | 6 | 62 | 23 % |
-| A | full depth | 0 | 0 | 3 | 5 | 33 | 12 % |
-| B | ignored | 6 | 2 | 4 | 2 | 311 | 61 % |
-| B | 0.5 m | 6 | 0 | 5 | 3 | 284 | 56 % |
+| A | ignored | 0 | 2 | 4 | 8 | 81 | 30 % |
+| A | 0.5 m | 0 | 1 | 4 | 8 | 68 | 25 % |
+| A | 1.0 m | 0 | 1 | 4 | 9 | 68 | 25 % |
+| A | full depth | 0 | 0 | 3 | 6 | 36 | 13 % |
+| B | ignored | 5 | 3 | 4 | 2 | 307 | 60 % |
+| B | 0.5 m | 5 | 1 | 5 | 3 | 280 | 55 % |
 | B | 1.0 m | 4 | 1 | 7 | 6 | 264 | 52 % |
 | B | full depth | 2 | 0 | 4 | 9 | 181 | 36 % |
-| C | ignored | 4 | 2 | 5 | 4 | 251 | 49 % |
-| C | 0.5 m | 4 | 2 | 4 | 4 | 236 | 46 % |
-| C | 1.0 m | 0 | 5 | 7 | 4 | 217 | 43 % |
-| C | full depth | 0 | 2 | 3 | 7 | 106 | 21 % |
+| C | ignored | 4 | 3 | 4 | 5 | 254 | 50 % |
+| C | 0.5 m | 4 | 3 | 3 | 5 | 240 | 47 % |
+| C | 1.0 m | 0 | 6 | 6 | 5 | 222 | 44 % |
+| C | full depth | 0 | 2 | 3 | 7 | 109 | 22 % |
 
 As drawn:
 
@@ -218,7 +220,7 @@ With uncertainty (plan on this):
 | B | 1.0 m | 10 | 0 | 7 | 3 | 59 | 40 | 264 | 52 % |
 | B | full depth | 4 | 0 | 7 | 6 | 59 | 43 | 159 | 31 % |
 | C | ignored | 5 | 0 | 13 | 0 | 62 | 36 | 241 | 48 % |
-| C | 0.5 m | 5 | 1 | 11 | 0 | 77 | 47 | 207 | 41 % |
+| C | 0.5 m | 5 | 0 | 12 | 0 | 73 | 44 | 210 | 41 % |
 | C | 1.0 m | 0 | 1 | 21 | 1 | 93 | 56 | 183 | 36 % |
 | C | full depth | 0 | 1 | 12 | 2 | 82 | 59 | 89 | 18 % |
 
@@ -240,9 +242,7 @@ As drawn (best case):
 | C | full depth | 0 | 1 | 17 | 1 | 93 | 73 | 118 | 23 % |
 
 The difference between the two tables is what the survey does not know. On B at 1.0 m
-it is 264 against 281 t; on C 183 against 221 t; on A 46 against 85 t. Block C
-loses its large gangsaw blocks to the uncertainty of its shallow sheet and of the cap;
-Block A loses most to the migration of its two dipping sheets.
+it is 264 against 281 t; on C 183 against 221 t; on A 46 against 85 t.
 
 **Order of cutting and removal.** Cuts are numbered in tree order, root first, the
 east (larger x) sub-box before the west. Pieces, blocks and waste alike, are then
@@ -271,22 +271,26 @@ velocity (4.2 % of depth, the largest alternative estimate in the record), and p
 registration (0.07 m on A and C, 0.16 m on B, times tan dip). Migration is carried
 separately: the picks are unmigrated normal-incidence distances, and for a planar
 reflector at constant velocity the true reflection point lies up-dip of the antenna by
-depth x sin(dip). The migrated plane is computed for each surface and both positions
-are excluded in the uncertain case. Migration proper of the sections is PARSAN's to
-do; this is the geometric consequence for a planar reflector, used as an error, not as
-a correction.
+depth x sin(dip). The offset is taken plane to plane, migrated plane minus unmigrated
+plane, both fitted in absolute elevation, so it is migration alone and not the misfit
+of a plane to the gridded surface; the two dips in the table are in that same frame.
+The modelled surface shifted by that offset is excluded alongside the drawn one in the
+uncertain case. Migration proper of the sections is PARSAN's to do; this is the
+geometric consequence for a planar reflector, used as an error, not as a correction.
 
-| surface | mean depth | σ pick | σ velocity | σ registration | σ total (1σ) | 2σ max | dip modelled → migrated | plan shift | vertical offset |
+| surface | mean depth | σ pick | σ velocity | σ registration | σ total (1σ) | 2σ max | dip modelled → migrated (elevation frame) | plan shift | migration offset, vertical |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A1 | 1.37 m | 4 cm | 6 cm | 4 cm | 8 cm | 28 cm | 26.9° → 32.9° | 0.65 m | -0.65 to 0.03 m |
-| A2 | 1.11 m | 5 cm | 5 cm | 5 cm | 8 cm | 20 cm | 34.0° → 43.1° | 0.64 m | -0.69 to -0.07 m |
-| B1 | 0.71 m | 5 cm | 3 cm | 2 cm | 6 cm | 13 cm | 6.9° → 7.9° | 0.10 m | -0.13 to 0.11 m |
-| B2 | 2.80 m | 10 cm | 12 cm | 6 cm | 17 cm | 40 cm | 22.2° → 21.8° | 0.94 m | -0.45 to 0.09 m |
-| C1 | 0.70 m | 11 cm | 3 cm | 1 cm | 11 cm | 24 cm | 6.9° → 6.0° | 0.06 m | -0.16 to 0.23 m |
-| C2 | 3.08 m | 15 cm | 13 cm | 0 cm | 20 cm | 42 cm | 1.8° → 2.7° | 0.14 m | -0.31 to 0.38 m |
+| A1 | 1.37 m | 4 cm | 6 cm | 4 cm | 8 cm | 28 cm | 28.9° → 32.9° | 0.65 m | -0.59 to -0.01 m |
+| A2 | 1.11 m | 5 cm | 5 cm | 5 cm | 8 cm | 20 cm | 35.3° → 43.1° | 0.64 m | -0.65 to -0.14 m |
+| B1 | 0.71 m | 5 cm | 3 cm | 2 cm | 6 cm | 13 cm | 7.9° → 7.9° | 0.10 m | -0.01 to -0.01 m |
+| B2 | 2.80 m | 10 cm | 12 cm | 6 cm | 17 cm | 40 cm | 20.3° → 21.8° | 0.94 m | -0.29 to -0.13 m |
+| C1 | 0.70 m | 11 cm | 3 cm | 1 cm | 11 cm | 24 cm | 6.0° → 6.0° | 0.06 m | -0.00 to -0.00 m |
+| C2 | 3.08 m | 15 cm | 13 cm | 0 cm | 20 cm | 42 cm | 2.7° → 2.7° | 0.14 m | -0.00 to -0.00 m |
 
-B-2 and the two A sheets move the most under migration; their as-drawn positions
-should not be cut against. The velocity term alone is 12 to 13 cm at 3 m.
+The two A sheets and B-2 move the most under migration; their as-drawn positions
+should not be cut against. B-1, C-1 and C-2 are near flat and migration moves them by
+millimetres; their uncertainty is pick scatter and velocity. The velocity term alone is
+12 to 13 cm at 3 m.
 
 ![Straight-cut plan, Block B, with uncertainty](figs/WEB_v8_cut.png)
 
@@ -305,7 +309,7 @@ hit the search boundary and 180 had a nominal correlation below 0.3.
 | --- | --- | --- |
 | picks | C-2 at 230 line crossings | median 10.6 cm, 84 % within 20 cm |
 | picks vs report | every published endpoint (C-1, C-2, B-2, A-1) | three of the four inside 10 cm, all four inside 20 cm at the median, with C-2 Line 17 a named +25 cm edge outlier; the 8 to 12 cm residual equals the tracking corridor half-width, so their endpoints stand |
-| velocity | 114 diffraction apices (`hyperbola_velocity.csv`, one rule: vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns; spread 0.088 to 0.172 (p10 to p90); block medians 0.112 / 0.1263 / 0.13; 22 at the search limits; uncalibrated |
+| velocity | 114 diffraction apices (`hyperbola_velocity.csv`, one rule: vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns; spread 0.088 to 0.172 (p10 to p90); block medians 0.112 / 0.1263 / 0.13; 15 exactly at the search limits (22 within one search step); uncalibrated |
 | registration | model drawn back into two photographs per block | lattice on paint on all three; origins on the crosses |
 | registration scale | painted spacing under the recovered scale | A 0.500 m, C 0.500 m, B 0.515 m (three marks only) |
 | bench surface | plane fit and roughness | 1 to 4 cm non-planar residual, 1 to 2 mm roughness at 30 cm |

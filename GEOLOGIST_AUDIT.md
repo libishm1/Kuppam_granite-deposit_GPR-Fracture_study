@@ -84,7 +84,7 @@ mine said "at right angles" and was wrong.
    tracker stops at peak energy where a human follows the fading event, so the
    report's endpoints stand.
 3. **Velocity.** Diffraction scan median 0.1202 (114 apices under one rule, 10th to 90th
-   percentile 0.088 to 0.172 m/ns, block medians 0.112 / 0.1263 / 0.13, 22 fits at the search limits);
+   percentile 0.088 to 0.172 m/ns, block medians 0.112 / 0.1263 / 0.13, 15 fits exactly at the search limits, 22 within one step);
    Proceq plate at 1.00 m 0.1174 (RDP 6.52), which is 2.3 % low; Zond combined RDP 5.73
    (0.1252), 4.2 % high; adopted 0.1200. At 3 m those alternatives are −7 and +12.5 cm.
    The score in `hyperbola_velocity.csv` is an envelope-amplitude coherence, not a
@@ -110,7 +110,8 @@ mine said "at right angles" and was wrong.
    chalked cracks with a null of random placements of the same line: B-1 18 % within
    30 cm (flat definition 31 %) against 27 % for chance, 95th percentile 59 %,
    and 0 % of the line inside the area where B-1 was picked; A-1 30 % against 34 %.
-   Both at chance. The other four do not reach the bench inside the grid. A photo-based dark-line detector was also run on all 384 posed
+   Both at chance. The other four do not reach the bench inside the grid, apart from a
+   5 cm sliver of A-2 on the DEM definition, 0.95 m beyond its picks. A photo-based dark-line detector was also run on all 384 posed
    photographs and scored 0.77–1.34× chance against the sketches: **rejected**.
 
 ## 5. What the catalogue is biased toward

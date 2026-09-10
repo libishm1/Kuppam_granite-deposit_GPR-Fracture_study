@@ -11,7 +11,8 @@
   0.085,
   0.1735
  ],
- "n_at_limits": 22,
+ "n_at_limits": 15,
+ "n_within_one_step_of_limits": 22,
  "per_block_median": {
   "A": 0.112,
   "B": 0.1263,

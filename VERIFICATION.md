@@ -78,7 +78,7 @@ cm or better.
 
 **Against Ronak's answer.** "The adopted RDP is 6.25 for all blocks." Our
 hyperbola scan on 114 focused apices gave 6.22. The C-2 surface is built at
-0.1202 m/ns; at their 0.1200 it moves 5 mm. **Confirmed, and immaterial.**
+0.1202 m/ns; at their 0.1200 it moves 5 mm. **Internally consistent, and immaterial to the ties.** The velocity itself remains an uncalibrated working assumption (`tables/velocity_summary.json`).
 
 **Against the literature.** Best-fit plane residual 18.6 cm RMS, maximum 53 cm.
 The report calls the relief "gentle undulation rather than any systematic dip"
@@ -149,7 +149,7 @@ Read correctly the pick deepens east, as the text says. No number changes.
 
 | answer | test | result |
 | --- | --- | --- |
-| RDP 6.25 for all blocks | hyperbola scan, 114 apices below 0.6 m | **6.22, confirmed to 0.5 %** |
+| RDP 6.25 for all blocks | hyperbola scan, 114 apices below 0.6 m | **6.22, consistent to 0.5 % with the diffraction median, which is itself uncalibrated and spread 0.088 to 0.172 m/ns** |
 | lower TWT is the shallow end | every corridor was seeded that way; every one locked on | **confirmed** |
 | plan positions, use as reported | adopted; every surface here is unmigrated | adopted, with the caveat below |
 | Block C clutter y = 350-750 cm | 65 shallow focused apices; 54 % fall in that band, which is 50 % of the block | **not a concentration** |

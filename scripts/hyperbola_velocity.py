@@ -12,7 +12,8 @@ def env_agc(d, dt, w_ns=4.0):
     return e / (sm + 1e-12)
 
 def scan(E, dt, i0, j0, vlist, halfw=40):
-    """semblance of a diffraction hyperbola apex at trace i0, sample j0."""
+    """envelope-amplitude coherence of a diffraction hyperbola apex at trace i0, sample j0 (mean envelope along the
+    hyperbola times sqrt(aperture)); NOT a normalised waveform semblance, though the CSV column keeps the name semb."""
     n, ns = E.shape
     lo, hi = max(0, i0 - halfw), min(n, i0 + halfw + 1)
     off = (np.arange(lo, hi) - i0) * DX
@@ -50,7 +51,7 @@ for blk in ['A Block', 'B Block', 'C Block']:
                 if i < 45 or i > n - 45: continue
                 s, v = scan(E, dt, i, j, V)
                 if v is None: continue
-                # focusing quality: how peaked is the semblance in v
+                # focusing quality: how peaked is the coherence score in v
                 ss = [scan(E, dt, i, j, [vv])[0] for vv in V]
                 ss = np.array(ss); ss = ss / (ss.max() + 1e-12)
                 width = float((ss > 0.97).sum()) * (V[1] - V[0])

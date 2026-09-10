@@ -7,8 +7,10 @@ Components at each grid node (metres, 1 sigma):
   registration      the block's plan registration error times tan(dip): a plan shift moves a dipping surface up or down
   migration         the picks are unmigrated normal-incidence distances. For a planar reflector at constant velocity the
                     true reflection point lies up-dip of the antenna: shift each pick by d * n_hat (unit normal of the
-                    plane, into the rock) minus d straight down. The migrated plane's vertical offset from the
-                    unmigrated one at each node is carried as a separate, signed term; the packer excludes the union.
+                    plane, into the rock) minus d straight down. The offset is taken PLANE TO PLANE (migrated plane minus
+                    unmigrated plane, both fitted in absolute elevation), so it is migration alone and not the misfit of a
+                    plane to the gridded surface; the 'migrated surface' file is the gridded surface shifted by that offset.
+                    Dips are compared in the same (elevation) frame. The packer excludes the union of both positions.
 Outputs tables/uncertainty.json and model/unc/{F}_sig_10cm.xyz (x cm, y cm, sigma m) and {F}_mig_10cm.xyz
 (x cm, y cm, migrated absolute elevation m)."""
 import numpy as np, csv, os, json
@@ -46,21 +48,24 @@ for blk in 'ABC':
         d = P[:, 2]; Pm = np.c_[P[:, 0] + d * ndown[0], P[:, 1] + d * ndown[1], hp + d * ndown[2]]        # antenna position + d * n_hat (elevation frame)
         Am = np.c_[Pm[:, 0], Pm[:, 1], np.ones(len(Pm))]; cm, *_ = np.linalg.lstsq(Am, Pm[:, 2], rcond=None)
         Em = cm[0] * GX + cm[1] * GY + cm[2]                                                               # migrated plane at the grid nodes
+        Ep = ce[0] * GX + ce[1] * GY + ce[2]                                                               # the UNMIGRATED elevation plane at the same nodes
+        Emg = E + (Em - Ep)                                                                                # the modelled (gridded) surface shifted by the plane-to-plane migration offset
+        dip_e = float(np.degrees(np.arctan(np.hypot(ce[0], ce[1]))))                                        # modelled dip in the elevation frame, like for like with the migrated one
         dip_m = float(np.degrees(np.arctan(np.hypot(cm[0], cm[1])))); shift_plan = float(np.median(np.hypot(Pm[:, 0] - P[:, 0], Pm[:, 1] - P[:, 1])))
         sig = np.sqrt(rms ** 2 + (VEL_FRAC * Zd) ** 2 + (SIG_XY[blk] * np.tan(dip)) ** 2)
-        mig = Em - E                                                                                       # signed vertical offset, migrated minus modelled
+        mig = Em - Ep                                                                                      # signed vertical offset of migration alone: migrated plane minus unmigrated plane (not the grid-vs-plane misfit)
         ok = np.isfinite(Zd)
         np.savetxt(os.path.join(OUT, 'model', 'unc', '%s_sig_10cm.xyz' % F), np.c_[GX.ravel() * 100, GY.ravel() * 100, sig.ravel()], fmt='%.1f %.1f %.4f', header='x cm, y cm, 1-sigma vertical uncertainty m')
-        np.savetxt(os.path.join(OUT, 'model', 'unc', '%s_mig_10cm.xyz' % F), np.c_[GX.ravel() * 100, GY.ravel() * 100, Em.ravel()], fmt='%.1f %.1f %.4f', header='x cm, y cm, migrated plane absolute elevation m (bench frame)')
+        np.savetxt(os.path.join(OUT, 'model', 'unc', '%s_mig_10cm.xyz' % F), np.c_[GX.ravel() * 100, GY.ravel() * 100, Emg.ravel()], fmt='%.1f %.1f %.4f', header='x cm, y cm, modelled surface shifted by its planar migration offset, absolute elevation m (bench frame)')
         dm = float(np.nanmean(Zd))
         res[blk][F] = dict(mean_depth_m=round(dm, 2), sigma_pick_m=rms, sigma_vel_m_at_mean_depth=round(VEL_FRAC * dm, 3), sigma_reg_m=round(SIG_XY[blk] * float(np.tan(dip)), 3),
                            sigma_total_m_at_mean_depth=round(float(np.sqrt(rms ** 2 + (VEL_FRAC * dm) ** 2 + (SIG_XY[blk] * np.tan(dip)) ** 2)), 3),
                            sigma_total_m_max=round(float(np.nanmax(sig[ok])), 3), two_sigma_m_max=round(float(2 * np.nanmax(sig[ok])), 3),
-                           dip_modelled_deg=p['dip_deg'], dip_migrated_deg=round(dip_m, 1), migration_plan_shift_median_m=round(shift_plan, 2),
+                           dip_modelled_deg=round(dip_e, 1), dip_modelled_depthframe_deg=p['dip_deg'], dip_migrated_deg=round(dip_m, 1), migration_plan_shift_median_m=round(shift_plan, 2),
                            migration_vertical_offset_m=dict(min=round(float(np.nanmin(mig[ok])), 2), median=round(float(np.nanmedian(mig[ok])), 2), max=round(float(np.nanmax(mig[ok])), 2)),
                            sig_xy_m=SIG_XY[blk], vel_frac=VEL_FRAC)
         print('%s depth %.2f m: sigma pick %.3f vel %.3f reg %.3f -> total %.3f (max %.3f); migrated dip %.1f (modelled %.1f), plan shift %.2f m, vertical offset %.2f..%.2f m' % (
-            F, dm, rms, VEL_FRAC * dm, SIG_XY[blk] * np.tan(dip), res[blk][F]['sigma_total_m_at_mean_depth'], res[blk][F]['sigma_total_m_max'], dip_m, p['dip_deg'], shift_plan,
+            F, dm, rms, VEL_FRAC * dm, SIG_XY[blk] * np.tan(dip), res[blk][F]['sigma_total_m_at_mean_depth'], res[blk][F]['sigma_total_m_max'], dip_m, dip_e, shift_plan,
             res[blk][F]['migration_vertical_offset_m']['min'], res[blk][F]['migration_vertical_offset_m']['max']))
 json.dump(res, open(os.path.join(OUT, 'tables', 'uncertainty.json'), 'w'), indent=1)
 print('wrote tables/uncertainty.json and model/unc/')
