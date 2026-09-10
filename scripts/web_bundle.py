@@ -155,6 +155,7 @@ tp = os.path.join(WEB, 'index.template.html')
 if os.path.exists(tp):
     tpl = open(tp, encoding='utf-8').read()
     # 1. artifact: everything embedded (the artifact host allows no fetch)
+    import time; BUILD = time.strftime('%Y-%m-%d %H:%M'); tpl = tpl.replace('/*__BUILD__*/', 'window.KBUILD=' + json.dumps(BUILD) + ';')
     html = tpl.replace('/*__DATA__*/', 'window.KDATA=' + js + ';')
     open(os.path.join(WEB, 'index.html'), 'w', encoding='utf-8').write(html); print('web/index.html %.1f MB (embedded, artifact)' % (len(html) / 1e6))
     # 2. GitHub Pages: a small core page; point clouds, bench textures and radar panels are separate files fetched on demand
