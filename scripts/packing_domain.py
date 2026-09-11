@@ -23,7 +23,7 @@ def _grid(p):
     return RegularGridInterpolator((gy, gx), a[:, 2].reshape(len(gy), len(gx)), bounds_error=False, fill_value=np.nan)
 
 
-def build(blk, sdepth, unc):
+def build(blk, sdepth, unc, override=None, sig_scale=2.0):
     """returns dict: free, rock, cut (nz,ny,nx bool), zc (nz), xc, yc (cell centres m), dem, floor (ny,nx), surfaces {F: elevation (ny,nx)}, bands"""
     W, H = DIMS[blk]; nx, ny = int(round(W / VOX)), int(round(H / VOX))
     xc = (np.arange(nx) + 0.5) * VOX; yc = (np.arange(ny) + 0.5) * VOX; XC, YC = np.meshgrid(xc, yc); P = np.c_[YC.ravel(), XC.ravel()]
@@ -33,12 +33,13 @@ def build(blk, sdepth, unc):
     for F in FEATS[blk]:
         fz = _grid(os.path.join(OUT, 'model', '%s_grid_10cm.xyz' % F)); d = fz(P).reshape(ny, nx)
         surf[F] = dem - d                                                                   # absolute elevation of the modelled surface (NaN outside its footprint)
+        if override and F in override: surf[F] = override[F]                                # a Monte Carlo realisation of the surface, same grid
         sig[F] = _grid(os.path.join(OUT, 'model', 'unc', '%s_sig_10cm.xyz' % F))(P).reshape(ny, nx)
         mig[F] = _grid(os.path.join(OUT, 'model', 'unc', '%s_mig_10cm.xyz' % F))(P).reshape(ny, nx)
     # floor
     if BENCH[blk] is None:
         e2 = surf['C2']; e2 = np.where(np.isnan(e2), np.nanmedian(e2), e2)
-        band2 = BUF_GPR if unc == 'modelled' else np.maximum(BUF_GPR, 2 * np.where(np.isnan(sig['C2']), np.nanmax(sig['C2']), sig['C2']))
+        band2 = BUF_GPR if unc == 'modelled' else np.maximum(BUF_GPR, sig_scale * np.where(np.isnan(sig['C2']), np.nanmax(sig['C2']), sig['C2']))
         top2 = e2 if unc == 'modelled' else np.maximum(e2, np.where(np.isnan(mig['C2']), e2, mig['C2']))
         floor = e2; floor_desc = 'the C-2 cap (gross rock counts down to the cap; the cap band is forbidden)'
         cap_forbid_top = top2 + band2                                                       # usable rock stops above the cap and its band
@@ -59,7 +60,7 @@ def build(blk, sdepth, unc):
         if unc == 'modelled':
             band = np.full((ny, nx), BUF_GPR); lo = e - band; hi = e + band
         else:
-            s = np.where(np.isnan(sig[F]), 0, sig[F]); band = np.maximum(BUF_GPR, 2 * s); em = np.where(np.isnan(mig[F]), e, mig[F])
+            s = np.where(np.isnan(sig[F]), 0, sig[F]); band = np.maximum(BUF_GPR, sig_scale * s); em = np.where(np.isnan(mig[F]), e, mig[F])
             lo = np.minimum(e, em) - band; hi = np.maximum(e, em) + band                       # union of the modelled and migrated positions, each with its band
         lo = np.where(ok, lo, np.inf); hi = np.where(ok, hi, -np.inf)
         cut |= (Z >= lo[None] - VOX / 2) & (Z <= hi[None] + VOX / 2)

@@ -1,0 +1,8 @@
+source,target,test_condition,known_reflector_depth_m,picked_twt_ns,velocity_m_per_ns,rdp
+PARSAN report Table 1,steel pipe,0.10 m dolerite slab,0.10,1.67,0.120,6.24
+PARSAN report Table 1,steel pipe,1.00 m dolerite slab,1.00,16.80,0.119,6.35
+PARSAN report Table 1,iron plate,0.10 m dolerite slab,0.10,1.70,0.118,6.47
+PARSAN report Table 1,iron plate,1.00 m dolerite slab,1.00,17.03,0.1174,6.52
+PARSAN report Figure 4,Zond combined,as reported,,,0.1252,5.73
+PARSAN report adopted,,RDP 6.25,,,0.1200,6.25
+this work,114 diffraction hyperbolae on the benches,vwidth <= 0.012 and t0 > 10 ns,,,0.1202,6.22

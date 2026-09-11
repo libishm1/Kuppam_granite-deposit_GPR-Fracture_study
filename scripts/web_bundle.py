@@ -11,6 +11,7 @@ PANELS = json.load(open(os.path.join(OUT, 'web', 'panels', 'index.json')))
 SPEC = json.load(open(os.path.join(OUT, 'tables', 'spectra.json')))
 STRUCT = json.load(open(os.path.join(OUT, 'tables', 'structural.json')))
 UNC = json.load(open(os.path.join(OUT, 'tables', 'uncertainty.json')))
+MCP = os.path.join(OUT, 'tables', 'uncertainty_mc.json'); MC = json.load(open(MCP)) if os.path.exists(MCP) else {}
 VEL = json.load(open(os.path.join(OUT, 'tables', 'velocity_summary.json')))
 VER = json.load(open(os.path.join(OUT, 'tables', 'VERIFY_all.json')))
 DAY = json.load(open(os.path.join(OUT, 'tables', 'sketch_vs_gpr_daylight.json')))
@@ -59,12 +60,12 @@ def read_obj_lines(p):
     V = np.array(V); return [np.round(V[idx], 3).tolist() for idx in L]
 
 
-data = dict(blocks={}, generated='2026-09-11', spectra=SPEC, velocity=VEL, frame='bench frame: metres, z up, right-handed, bench plane = 0. Grid coordinates x, y in cm from the painted origin cross.')
+data = dict(blocks={}, generated='2026-09-11', spectra=SPEC, velocity=VEL, ladder=UNC.get('ladder', {}), frame='bench frame: metres, z up, right-handed, bench plane = 0. Grid coordinates x, y in cm from the painted origin cross.')
 for blk in 'ABC':
     r = REG[blk]; sc = r['scale_m_per_unit']; corner = (np.array(r['origin_local_units']) * sc).tolist(); xd = r['xdir_local']; yd = r['ydir_local']
     W, H = DIMS[blk]
     def to_bench(xg_cm, yg_cm): return corner[0] + np.asarray(xg_cm) / 100 * xd[0] + np.asarray(yg_cm) / 100 * yd[0], corner[1] + np.asarray(xg_cm) / 100 * xd[1] + np.asarray(yg_cm) / 100 * yd[1]
-    od = os.path.join(DS, 'Block_' + blk); B = dict(name='Block %s' % blk, dims_m=[W, H], origin=corner, xdir=xd, ydir=yd, depth_limit=DEPTHLIM[blk], hazards=HAZ[blk])
+    od = os.path.join(DS, 'Block_' + blk); B = dict(name='Block %s' % blk, dims_m=[W, H], origin=corner, xdir=xd, ydir=yd, depth_limit=DEPTHLIM[blk], hazards=HAZ[blk], east_axis=GUIL[blk][next(iter(GUIL[blk]))].get('east_axis', '+x'))
     # cloud
     pc = read_ply(os.path.join(od, 'Block_%s_pointcloud.ply' % blk), NPTS[blk])
     B['cloud'] = dict(n=len(pc), xyz=b64(pc[:, :3].astype(np.float32)), rgb=b64(pc[:, 3:6].astype(np.uint8)))
@@ -126,7 +127,7 @@ for blk in 'ABC':
                 bx_, by_ = to_bench(x * 100, y * 100); bp.append([round(float(bx_), 3), round(float(by_), 3), round(float(fi([[y * 100, x * 100]])[0]), 3)])
             cuts.append(dict(seq=c_['seq'], level=c_['level'], axis=c_['axis'], pos=c_['pos'], extent=e, bench=bp))
         B['guillotine'][sname] = dict(boxes=sorted(boxes, key=lambda b: b['seq']), waste=sorted(waste, key=lambda w: w['seq']), cuts=cuts, classes=res['classes'], packed_t=res['packed_t'], gross_t=round(res['gross_rock_m3'] * 2.95),
-                                      recovery=res['recovery_ratio'], n_cuts=res['n_cuts'], n_waste=res['n_waste'], floor=res['floor'], bands=res['bands'], chalk_buffer_m=res['chalk_buffer_m'], uncertainty=res['uncertainty'], east=res['east'])
+                                      recovery=res['recovery_ratio'], n_cuts=res['n_cuts'], n_waste=res['n_waste'], floor=res['floor'], bands=res['bands'], chalk_buffer_m=res['chalk_buffer_m'], uncertainty=res['uncertainty'], east=res['east'], east_axis=res.get('east_axis', '+x'))
     # raw radargram panels for this block
     B['panels'] = []
     for pnl in PANELS:
@@ -134,6 +135,12 @@ for blk in 'ABC':
         jp = os.path.join(OUT, 'web', 'panels', pnl['file'])
         B['panels'].append(dict(line=pnl['line'], ch=pnl['ch'], orientation=pnl['orientation'], fixed_axis=pnl['fixed_axis'], fixed_cm=pnl['fixed_cm'], run_axis=pnl['run_axis'], length_m=pnl['length_m'], depth_m=pnl['depth_m'], jpg=base64.b64encode(open(jp, 'rb').read()).decode('ascii')))
     B['structural'] = STRUCT[blk]; B['uncertainty'] = UNC[blk]; B['daylight'] = DAY[blk]
+    if blk in MC:
+        m = MC[blk]; B['mc'] = dict(n_risk=m['n_risk'], n_yield=m['n_yield'], plan_t=m['plan_t'], plan_risk_weighted_t=m['plan_risk_weighted_t'], mean_risk=m['mean_risk'], blocks_over_20pct=m['blocks_over_20pct'], replan_t={k: v for k, v in m['replan_t'].items() if k != 'draws'})
+        for u in ('modelled', 'uncertain'):
+            key = 'surface_1.0m__' + u
+            if key in B['guillotine']:
+                for b, rk in zip(sorted(B['guillotine'][key]['boxes'], key=lambda q: q['seq']), sorted(range(len(m['block_risk'][u])), key=lambda i: GUIL[blk][key]['boxes'][i]['remove_seq'])): b['risk'] = m['block_risk'][u][rk]
     # picks per line for the 2D radargram viewer: position along the run axis (cm) and depth (m), by feature
     B['picks'] = {}
     for F in FEATS[blk]:

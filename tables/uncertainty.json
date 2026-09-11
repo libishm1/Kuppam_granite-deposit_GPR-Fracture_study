@@ -1,13 +1,54 @@
 {
+ "ladder": {
+  "sigma_v_over_v": 0.0316,
+  "delta_eps": 0.395,
+  "eps_adopted": 6.25,
+  "eps_calibrations": {
+   "PARSAN Table 1 steel pipe 0.10 m slab": 6.24,
+   "PARSAN Table 1 steel pipe 1.00 m slab": 6.35,
+   "PARSAN Table 1 iron plate 0.10 m slab": 6.47,
+   "PARSAN Table 1 iron plate 1.00 m slab": 6.52,
+   "PARSAN Zond combined": 5.73,
+   "this work, 114 diffraction hyperbolae": 6.22
+  },
+  "lambda4_m": {
+   "HF": 0.0479,
+   "LF": 0.0839
+  },
+  "sigma_t0_ns": {
+   "HF": 0.27351400987292784,
+   "LF": 1.749904774872356
+  },
+  "sigma_t0_depth_m": {
+   "HF": 0.0164,
+   "LF": 0.1052
+  },
+  "sig_xy_m": {
+   "A": 0.07,
+   "B": 0.16,
+   "C": 0.07
+  },
+  "v0": 0.1202,
+  "formula": "sigma_total^2 = (d sigma_v/v)^2 + (lambda/4)^2 + (v sigma_t0/2)^2 + sigma_interp^2 + sigma_mesh^2 + sigma_reg^2; C_pos(T) = erf(T/(sigma sqrt2))"
+ },
  "A": {
   "A1": {
+   "channel": "HF",
    "mean_depth_m": 1.37,
-   "sigma_pick_m": 0.036,
-   "sigma_vel_m_at_mean_depth": 0.058,
+   "sigma_vel_m": 0.043,
+   "lambda4_m": 0.048,
+   "sigma_t0_m": 0.016,
+   "sigma_recon_m": 0.069,
+   "sigma_interp_m": 0.036,
+   "sigma_mesh_m": 0.0,
    "sigma_reg_m": 0.036,
-   "sigma_total_m_at_mean_depth": 0.077,
-   "sigma_total_m_max": 0.141,
-   "two_sigma_m_max": 0.282,
+   "sigma_total_m_at_mean_depth": 0.087,
+   "sigma_total_m_max": 0.122,
+   "two_sigma_m_max": 0.244,
+   "sigma_total_pct_depth": 6.3,
+   "C_pos_15cm": 0.916,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 28.9,
    "dip_modelled_depthframe_deg": 26.9,
    "dip_migrated_deg": 32.9,
@@ -18,16 +59,25 @@
     "max": -0.01
    },
    "sig_xy_m": 0.07,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   },
   "A2": {
+   "channel": "HF",
    "mean_depth_m": 1.11,
-   "sigma_pick_m": 0.049,
-   "sigma_vel_m_at_mean_depth": 0.047,
+   "sigma_vel_m": 0.035,
+   "lambda4_m": 0.048,
+   "sigma_t0_m": 0.016,
+   "sigma_recon_m": 0.063,
+   "sigma_interp_m": 0.049,
+   "sigma_mesh_m": 0.001,
    "sigma_reg_m": 0.047,
-   "sigma_total_m_at_mean_depth": 0.082,
+   "sigma_total_m_at_mean_depth": 0.093,
    "sigma_total_m_max": 0.103,
    "two_sigma_m_max": 0.205,
+   "sigma_total_pct_depth": 8.4,
+   "C_pos_15cm": 0.894,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 35.3,
    "dip_modelled_depthframe_deg": 34.0,
    "dip_migrated_deg": 43.1,
@@ -38,18 +88,27 @@
     "max": -0.14
    },
    "sig_xy_m": 0.07,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   }
  },
  "B": {
   "B1": {
+   "channel": "HF",
    "mean_depth_m": 0.71,
-   "sigma_pick_m": 0.048,
-   "sigma_vel_m_at_mean_depth": 0.03,
+   "sigma_vel_m": 0.022,
+   "lambda4_m": 0.048,
+   "sigma_t0_m": 0.016,
+   "sigma_recon_m": 0.055,
+   "sigma_interp_m": 0.048,
+   "sigma_mesh_m": 0.001,
    "sigma_reg_m": 0.019,
-   "sigma_total_m_at_mean_depth": 0.06,
-   "sigma_total_m_max": 0.066,
-   "two_sigma_m_max": 0.132,
+   "sigma_total_m_at_mean_depth": 0.076,
+   "sigma_total_m_max": 0.079,
+   "two_sigma_m_max": 0.157,
+   "sigma_total_pct_depth": 10.7,
+   "C_pos_15cm": 0.952,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 7.9,
    "dip_modelled_depthframe_deg": 6.9,
    "dip_migrated_deg": 7.9,
@@ -60,16 +119,25 @@
     "max": -0.01
    },
    "sig_xy_m": 0.16,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   },
   "B2": {
+   "channel": "LF",
    "mean_depth_m": 2.8,
-   "sigma_pick_m": 0.097,
-   "sigma_vel_m_at_mean_depth": 0.118,
+   "sigma_vel_m": 0.088,
+   "lambda4_m": 0.084,
+   "sigma_t0_m": 0.105,
+   "sigma_recon_m": 0.162,
+   "sigma_interp_m": 0.097,
+   "sigma_mesh_m": 0.001,
    "sigma_reg_m": 0.065,
-   "sigma_total_m_at_mean_depth": 0.166,
-   "sigma_total_m_max": 0.202,
-   "two_sigma_m_max": 0.404,
+   "sigma_total_m_at_mean_depth": 0.2,
+   "sigma_total_m_max": 0.217,
+   "two_sigma_m_max": 0.434,
+   "sigma_total_pct_depth": 7.1,
+   "C_pos_15cm": 0.547,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 20.3,
    "dip_modelled_depthframe_deg": 22.2,
    "dip_migrated_deg": 21.8,
@@ -80,18 +148,27 @@
     "max": -0.13
    },
    "sig_xy_m": 0.16,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   }
  },
  "C": {
   "C1": {
+   "channel": "HF",
    "mean_depth_m": 0.7,
-   "sigma_pick_m": 0.11,
-   "sigma_vel_m_at_mean_depth": 0.029,
+   "sigma_vel_m": 0.022,
+   "lambda4_m": 0.048,
+   "sigma_t0_m": 0.016,
+   "sigma_recon_m": 0.056,
+   "sigma_interp_m": 0.11,
+   "sigma_mesh_m": 0.001,
    "sigma_reg_m": 0.008,
-   "sigma_total_m_at_mean_depth": 0.114,
-   "sigma_total_m_max": 0.121,
-   "two_sigma_m_max": 0.243,
+   "sigma_total_m_at_mean_depth": 0.124,
+   "sigma_total_m_max": 0.127,
+   "two_sigma_m_max": 0.254,
+   "sigma_total_pct_depth": 17.7,
+   "C_pos_15cm": 0.775,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 6.0,
    "dip_modelled_depthframe_deg": 6.9,
    "dip_migrated_deg": 6.0,
@@ -102,16 +179,25 @@
     "max": -0.0
    },
    "sig_xy_m": 0.07,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   },
   "C2": {
+   "channel": "LF",
    "mean_depth_m": 3.08,
-   "sigma_pick_m": 0.148,
-   "sigma_vel_m_at_mean_depth": 0.13,
+   "sigma_vel_m": 0.097,
+   "lambda4_m": 0.084,
+   "sigma_t0_m": 0.105,
+   "sigma_recon_m": 0.166,
+   "sigma_interp_m": 0.148,
+   "sigma_mesh_m": 0.001,
    "sigma_reg_m": 0.002,
-   "sigma_total_m_at_mean_depth": 0.197,
-   "sigma_total_m_max": 0.211,
-   "two_sigma_m_max": 0.421,
+   "sigma_total_m_at_mean_depth": 0.223,
+   "sigma_total_m_max": 0.23,
+   "two_sigma_m_max": 0.459,
+   "sigma_total_pct_depth": 7.2,
+   "C_pos_15cm": 0.5,
+   "C_pos_1sigma": 0.683,
+   "C_pos_2sigma": 0.954,
    "dip_modelled_deg": 2.7,
    "dip_modelled_depthframe_deg": 1.8,
    "dip_migrated_deg": 2.7,
@@ -122,7 +208,7 @@
     "max": -0.0
    },
    "sig_xy_m": 0.07,
-   "vel_frac": 0.042
+   "sigma_v_over_v": 0.0316
   }
  }
 }

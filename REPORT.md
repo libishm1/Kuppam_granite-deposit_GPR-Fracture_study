@@ -27,7 +27,7 @@ chalked on the rock, and packed saleable blocks between everything.
 | six GPR surfaces | all six rebuilt from raw data; of the four with published picks, three tie to the report inside 10 cm and all four inside 20 cm; B-1 and A-2 had no published depths and are checked indirectly |
 | position on the rock | each grid found in its mesh to a few cm (A, C) or ~10 cm (B); origins on the crew's painted marks; proven by drawing the model back into the photographs |
 | surface cracks | 78 chained traces from the field sketches, 15 to 34 m per block; the photo-based detector was tested and found no better than chance, so it is not relied on |
-| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A 46 t, B 264 t, C 183 t; as drawn (best case) A 85, B 281, C 221 t. Not a promise: section 7 |
+| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A 46 t, B 254 t, C 170 t; as drawn (best case) A 85, B 281, C 221 t. Not a promise: section 7 |
 | the biggest unknowns | how deep the chalked cracks go, and how far each surface really is from where it is drawn: the uncertain and as-drawn cases in section 7 bracket it |
 | the biggest finding | the steep joint set that will control how blocks split is on the sketches and not in the radar; this survey (0.5 m lines, 2D, unmigrated) does not constrain steep fractures |
 
@@ -49,7 +49,7 @@ Picks were made on the raw radargrams: C-2 by dynamic-programming tracking on al
 lines with a least-squares adjustment across 230 line crossings; the others by
 corridor tracking between PARSAN's published endpoints, so their interpretation sets
 the ends and the data fills in between. Velocity 0.1202 m/ns is a working assumption: the median of 114 diffraction-hyperbola fits
-on the blocks themselves (one rule: vwidth <= 0.012, t0 > 10 ns, of 322 candidates in `tables/hyperbola_velocity.csv`), whose 10th to 90th percentiles run 0.088 to 0.172 m/ns and whose block medians are A 0.112, B 0.1263, C 0.13; PARSAN used 0.1200. It has not been calibrated against a reflector of known depth (`tables/velocity_summary.json`).
+on the blocks themselves (one rule: vwidth <= 0.012, t0 > 10 ns, of 322 candidates in `tables/hyperbola_velocity.csv`), whose 10th to 90th percentiles run 0.088 to 0.172 m/ns and whose block medians are A 0.112, B 0.1263, C 0.13; PARSAN adopted 0.1200 from their own known-depth calibration in dolerite slabs (Table 1 of their report: 0.1174 to 0.120 m/ns; `dataset/velocity/`). The two agree; the calibration spread, halved about RDP 6.25, gives the 3.2 % velocity term of the uncertainty ladder (section 7.3). Not done: a calibration in the benches themselves against a reflector of known depth (`tables/velocity_summary.json`).
 
 | surface | what it is | picks (report) | tie to the report | internal consistency check | carry as |
 | --- | --- | --- | --- | --- | --- |
@@ -165,16 +165,16 @@ With uncertainty:
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | A | ignored | 0 | 2 | 4 | 8 | 81 | 30 % |
 | A | 0.5 m | 0 | 1 | 4 | 8 | 68 | 25 % |
-| A | 1.0 m | 0 | 1 | 4 | 9 | 68 | 25 % |
-| A | full depth | 0 | 0 | 3 | 6 | 36 | 13 % |
-| B | ignored | 5 | 3 | 4 | 2 | 307 | 60 % |
-| B | 0.5 m | 5 | 1 | 5 | 3 | 280 | 55 % |
-| B | 1.0 m | 4 | 1 | 7 | 6 | 264 | 52 % |
-| B | full depth | 2 | 0 | 4 | 9 | 181 | 36 % |
-| C | ignored | 4 | 3 | 4 | 5 | 254 | 50 % |
-| C | 0.5 m | 4 | 3 | 3 | 5 | 240 | 47 % |
-| C | 1.0 m | 0 | 6 | 6 | 5 | 222 | 44 % |
-| C | full depth | 0 | 2 | 3 | 7 | 109 | 22 % |
+| A | 1.0 m | 0 | 1 | 4 | 9 | 67 | 25 % |
+| A | full depth | 0 | 0 | 3 | 6 | 35 | 13 % |
+| B | ignored | 5 | 1 | 6 | 3 | 283 | 56 % |
+| B | 0.5 m | 4 | 2 | 5 | 2 | 262 | 52 % |
+| B | 1.0 m | 4 | 1 | 7 | 6 | 259 | 51 % |
+| B | full depth | 2 | 0 | 3 | 9 | 165 | 32 % |
+| C | ignored | 3 | 1 | 9 | 1 | 234 | 46 % |
+| C | 0.5 m | 3 | 1 | 7 | 3 | 219 | 43 % |
+| C | 1.0 m | 0 | 3 | 9 | 4 | 200 | 40 % |
+| C | full depth | 0 | 2 | 4 | 8 | 104 | 20 % |
 
 As drawn:
 
@@ -215,14 +215,14 @@ With uncertainty (plan on this):
 | A | 0.5 m | 0 | 0 | 7 | 1 | 39 | 32 | 48 | 18 % |
 | A | 1.0 m | 0 | 0 | 6 | 1 | 36 | 30 | 46 | 17 % |
 | A | full depth | 0 | 0 | 4 | 1 | 39 | 35 | 24 | 9 % |
-| B | ignored | 12 | 4 | 1 | 0 | 36 | 20 | 329 | 65 % |
-| B | 0.5 m | 11 | 0 | 5 | 1 | 48 | 32 | 283 | 56 % |
-| B | 1.0 m | 10 | 0 | 7 | 3 | 59 | 40 | 264 | 52 % |
-| B | full depth | 4 | 0 | 7 | 6 | 59 | 43 | 159 | 31 % |
-| C | ignored | 5 | 0 | 13 | 0 | 62 | 36 | 241 | 48 % |
-| C | 0.5 m | 5 | 0 | 12 | 0 | 73 | 44 | 210 | 41 % |
-| C | 1.0 m | 0 | 1 | 21 | 1 | 93 | 56 | 183 | 36 % |
-| C | full depth | 0 | 1 | 12 | 2 | 82 | 59 | 89 | 18 % |
+| B | ignored | 11 | 3 | 1 | 0 | 33 | 19 | 316 | 62 % |
+| B | 0.5 m | 10 | 1 | 5 | 1 | 51 | 35 | 273 | 54 % |
+| B | 1.0 m | 9 | 1 | 6 | 2 | 58 | 41 | 254 | 50 % |
+| B | full depth | 4 | 0 | 7 | 5 | 55 | 40 | 154 | 30 % |
+| C | ignored | 5 | 0 | 12 | 0 | 62 | 37 | 234 | 46 % |
+| C | 0.5 m | 5 | 0 | 12 | 0 | 74 | 46 | 202 | 40 % |
+| C | 1.0 m | 0 | 1 | 22 | 1 | 87 | 59 | 170 | 34 % |
+| C | full depth | 0 | 1 | 11 | 2 | 87 | 62 | 88 | 17 % |
 
 As drawn (best case):
 
@@ -242,10 +242,10 @@ As drawn (best case):
 | C | full depth | 0 | 1 | 17 | 1 | 93 | 73 | 118 | 23 % |
 
 The difference between the two tables is what the survey does not know. On B at 1.0 m
-it is 264 against 281 t; on C 183 against 221 t; on A 46 against 85 t.
+it is 254 against 281 t; on C 170 against 221 t; on A 46 against 85 t.
 
 **Order of cutting and removal.** Cuts are numbered in tree order, root first, the
-east (larger x) sub-box before the west. Pieces, blocks and waste alike, are then
+east sub-box before the west. Pieces, blocks and waste alike, are then
 sequenced under one rule: nothing is lifted before every piece above it that overlaps
 it in plan is out; among the pieces that are ready, east first, then top down. The
 sequence is checked after the solve: no piece is scheduled before a piece above it in
@@ -253,44 +253,76 @@ any run. For every block the plan lists which pieces must be out first and which
 faces are free when its turn comes. What the plan does not judge is access: whether the
 wire can be threaded, whether the loader can reach, whether a face can be turned. Those
 are site decisions; the page says so where it lists the order. Horizontal cuts need a
-drilled hole at each end for the wire. On B at 1.0 m with uncertainty the plan has 59
-cuts, 20 blocks and 40 waste pieces; the first block out is number 3, a gangsaw large at x 800 to
-950 cm, y 0 to 300 cm, 1.45 to 2.95 m below the mean surface, after 1 piece(s) above it.
+drilled hole at each end for the wire. On B at 1.0 m with uncertainty the plan has 58
+cuts, 18 blocks and 41 waste pieces; the first block out is number 5, a cutter block at x 200 to
+300 cm, y 500 to 600 cm, 0.03 to 1.14 m below the mean surface, after 0 piece(s) above it.
 
-**East** is taken as grid +x, the sense PARSAN's report uses on Block B ("dipping toward
-increasing X (east)"). No compass bearing of the grid was recorded; the crew should
-confirm with a compass before marking, and if east is another grid direction the
-removal order flips but the cuts do not change.
+**East** is set per block from the registered photographs and the client's satellite
+view (`ORIENTATION.md`): every origin corner is the north-western corner of its block
+and every bench looks east toward the ramp end of the pit. Block B's grid was painted
+with its 9.5 m side across the trench, so on B east is grid +y (from B0 toward B1); on A
+and C east is grid +x. PARSAN's report reads increasing x as east on B, which the
+photographs contradict. No compass bearing was recorded; a compass on site confirms it
+in a minute, and if east is another grid direction the removal order flips but the cuts
+do not change.
 
 ### 7.3 How far each surface may be from where it is drawn
 
 The 15 cm clearance of the as-drawn case is the surfaces' fit residual, not their
 positional uncertainty. `scripts/uncertainty.py` builds a one-sigma vertical error at
-every node of every surface from three parts: pick scatter (the plane residual),
-velocity (4.2 % of depth, the largest alternative estimate in the record), and plan
-registration (0.07 m on A and C, 0.16 m on B, times tan dip). Migration is carried
-separately: the picks are unmigrated normal-incidence distances, and for a planar
-reflector at constant velocity the true reflection point lies up-dip of the antenna by
-depth x sin(dip). The offset is taken plane to plane, migrated plane minus unmigrated
-plane, both fitted in absolute elevation, so it is migration alone and not the misfit
-of a plane to the gridded surface; the two dips in the table are in that same frame.
-The modelled surface shifted by that offset is excluded alongside the drawn one in the
-uncertain case. Migration proper of the sections is PARSAN's to do; this is the
-geometric consequence for a planar reflector, used as an error, not as a correction.
+every node of every surface on the tolerance ladder of the author's paper under review
+(Murugean 2026, Bulletin of Engineering Geology and the Environment), combined in
+quadrature: reconstruction (velocity share of depth with σv/v = 3.2 %, half the spread
+of the calibrated permittivities 5.73 to 6.52 about the adopted 6.25; the quarter-wavelength
+floor, HF 4.8 cm and LF 8.4 cm; the time-zero scatter of the first breaks, HF 0.27 ns
+and LF 1.75 ns), interpolation (the pick scatter about the surface), mesh (h²κ/8,
+negligible on a 10 cm grid), and a site term the paper does not need, the registration
+of the painted grid to the mesh (0.07 m on A and C, 0.16 m on B) through the dip.
+C(15 cm) = erf(0.15 / (σ√2)) is the confidence that the surface lies within the
+as-drawn clearance. Migration is carried separately: the picks are unmigrated
+normal-incidence distances, and for a planar reflector at constant velocity the true
+reflection point lies up-dip of the antenna by depth × sin(dip); the offset is taken
+plane to plane, both fitted in absolute elevation, so it is migration alone, and the
+two dips are in that frame. The modelled surface shifted by that offset is excluded
+alongside the drawn one in the uncertain case. Migration proper of the sections is
+PARSAN's to do; this is the geometric consequence for a planar reflector, used as an
+error, not as a correction.
 
-| surface | mean depth | σ pick | σ velocity | σ registration | σ total (1σ) | 2σ max | dip modelled → migrated (elevation frame) | plan shift | migration offset, vertical |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| A1 | 1.37 m | 4 cm | 6 cm | 4 cm | 8 cm | 28 cm | 28.9° → 32.9° | 0.65 m | -0.59 to -0.01 m |
-| A2 | 1.11 m | 5 cm | 5 cm | 5 cm | 8 cm | 20 cm | 35.3° → 43.1° | 0.64 m | -0.65 to -0.14 m |
-| B1 | 0.71 m | 5 cm | 3 cm | 2 cm | 6 cm | 13 cm | 7.9° → 7.9° | 0.10 m | -0.01 to -0.01 m |
-| B2 | 2.80 m | 10 cm | 12 cm | 6 cm | 17 cm | 40 cm | 20.3° → 21.8° | 0.94 m | -0.29 to -0.13 m |
-| C1 | 0.70 m | 11 cm | 3 cm | 1 cm | 11 cm | 24 cm | 6.0° → 6.0° | 0.06 m | -0.00 to -0.00 m |
-| C2 | 3.08 m | 15 cm | 13 cm | 0 cm | 20 cm | 42 cm | 2.7° → 2.7° | 0.14 m | -0.00 to -0.00 m |
+| surface | channel | mean depth | d·σv/v | λ/4 | v·σt0/2 | σ recon | σ interp | σ reg | σ total (1σ) | % of depth | C(15 cm) | dip → migrated | migration offset |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| A1 | HF | 1.37 m | 4.3 | 4.8 | 1.6 | 6.9 | 3.6 | 3.6 | **8.7 cm** | 6 % | 92 % | 28.9° → 32.9° | -0.59 to -0.01 m |
+| A2 | HF | 1.11 m | 3.5 | 4.8 | 1.6 | 6.3 | 4.9 | 4.7 | **9.3 cm** | 8 % | 89 % | 35.3° → 43.1° | -0.65 to -0.14 m |
+| B1 | HF | 0.71 m | 2.2 | 4.8 | 1.6 | 5.5 | 4.8 | 1.9 | **7.6 cm** | 11 % | 95 % | 7.9° → 7.9° | -0.01 to -0.01 m |
+| B2 | LF | 2.80 m | 8.8 | 8.4 | 10.5 | 16.2 | 9.7 | 6.5 | **20.0 cm** | 7 % | 55 % | 20.3° → 21.8° | -0.29 to -0.13 m |
+| C1 | HF | 0.70 m | 2.2 | 4.8 | 1.6 | 5.6 | 11.0 | 0.8 | **12.4 cm** | 18 % | 78 % | 6.0° → 6.0° | -0.00 to -0.00 m |
+| C2 | LF | 3.08 m | 9.7 | 8.4 | 10.5 | 16.6 | 14.8 | 0.2 | **22.3 cm** | 7 % | 50 % | 2.7° → 2.7° | -0.00 to -0.00 m |
 
-The two A sheets and B-2 move the most under migration; their as-drawn positions
-should not be cut against. B-1, C-1 and C-2 are near flat and migration moves them by
-millimetres; their uncertainty is pick scatter and velocity. The velocity term alone is
-12 to 13 cm at 3 m.
+The deep surfaces (B-2, C-2) carry about 20 cm of one-sigma error, so the as-drawn
+15 cm clearance covers them with only 50 to 55 % confidence; the shallow HF surfaces
+are covered at 78 to 95 %. The two A sheets and B-2 move the most under migration;
+B-1, C-1 and C-2 are near flat and move by millimetres.
+
+### 7.4 Monte Carlo: what the plans risk
+
+`scripts/uncertainty_mc.py` draws random truths from the same ladder terms (velocity
+factor, time-zero shift per channel, a whole-surface scatter shift, plan registration,
+and a migration fraction between 0 and 1), chalked cracks assumed to reach 1.0 m. For
+each planned block of both cases, the risk is the share of truths in which a fracture
+passes through it; the risk-weighted tonnage discounts each block by its risk. A
+smaller set of truths is re-planned from scratch with the as-drawn clearance to give
+the spread of what any plan could yield (`tables/uncertainty_mc.json`,
+`figs/UNCERTAINTY_mc.png`).
+
+| block | plan | planned t | risk-weighted t | mean block risk | blocks over 20 % risk | re-planned P10 / P50 / P90 t |
+| --- | --- | --- | --- | --- | --- | --- |
+| A | with uncertainty | 46 | 46 | 0 % | 0 | 65 / 68 / 86 |
+| A | as drawn | 85 | 64 | 27 % | 5 | 65 / 68 / 86 |
+| B | with uncertainty | 254 | 217 | 11 % | 5 | 266 / 277 / 291 |
+| B | as drawn | 281 | 240 | 12 % | 5 | 266 / 277 / 291 |
+| C | with uncertainty | 170 | 163 | 5 % | 3 | 192 / 217 / 256 |
+| C | as drawn | 221 | 197 | 9 % | 5 | 192 / 217 / 256 |
+
+![Re-planned tonnage over random truths](figs/UNCERTAINTY_mc.png)
 
 ![Straight-cut plan, Block B, with uncertainty](figs/WEB_v8_cut.png)
 
@@ -309,7 +341,7 @@ hit the search boundary and 180 had a nominal correlation below 0.3.
 | --- | --- | --- |
 | picks | C-2 at 230 line crossings | median 10.6 cm, 84 % within 20 cm |
 | picks vs report | every published endpoint (C-1, C-2, B-2, A-1) | three of the four inside 10 cm, all four inside 20 cm at the median, with C-2 Line 17 a named +25 cm edge outlier; the 8 to 12 cm residual equals the tracking corridor half-width, so their endpoints stand |
-| velocity | 114 diffraction apices (`hyperbola_velocity.csv`, one rule: vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns; spread 0.088 to 0.172 (p10 to p90); block medians 0.112 / 0.1263 / 0.13; 15 exactly at the search limits (22 within one search step); uncalibrated |
+| velocity | 114 diffraction apices (`hyperbola_velocity.csv`, one rule: vwidth <= 0.012 and t0 > 10 ns, of 322 candidates) | median 0.1202 vs adopted 0.1200 m/ns; spread 0.088 to 0.172 (p10 to p90); block medians 0.112 / 0.1263 / 0.13; 15 exactly at the search limits (22 within one search step); agrees with PARSAN's slab calibration (0.1174 to 0.120) |
 | registration | model drawn back into two photographs per block | lattice on paint on all three; origins on the crosses |
 | registration scale | painted spacing under the recovered scale | A 0.500 m, C 0.500 m, B 0.515 m (three marks only) |
 | bench surface | plane fit and roughness | 1 to 4 cm non-planar residual, 1 to 2 mm roughness at 30 cm |
@@ -373,11 +405,17 @@ What helps, in order of cost:
 | `dataset/picks/` | every per-trace pick with two-way time retained; the resolved geometry of all 89 lines |
 | `tables/block_packing.json` | the free-packing heuristic estimate, every scenario and both clearance cases |
 | `tables/guillotine_packing.json` | the straight-cut plan in the absolute frame: every cut in order, every block and waste piece with its removal order, dependencies, free faces and clearances |
-| `tables/uncertainty.json`, `model/unc/` | per-surface positional uncertainty and migrated planes |
+| `tables/uncertainty.json`, `model/unc/` | the tolerance ladder per surface, confidence in the clearances, migrated planes |
+| `tables/uncertainty_mc.json`, `figs/UNCERTAINTY_mc.png` | Monte Carlo block risk and re-planned yield spread |
+| `dataset/velocity/` | PARSAN's slab calibration (Table 1), the diffraction scan, the first-break times |
+| `dataset/site/` | the client's satellite screenshot used for orientation |
 | `tables/velocity_summary.json` | the velocity rule, spread and depth sensitivity |
 | `tables/sketch_vs_gpr_daylight.json`, `figs/DAYLIGHT_*.png` | the corrected daylight test with its null |
 | `web/site/index.html`, the GitHub Pages link above | the interface, one file, English and Tamil |
 | `web/panels/` | every raw radargram as a panel, HF and LF, for the Radar view |
+| `UNCERTAINTY.md` | the uncertainty analysis in full, in the structure of the BoEGE paper |
+| `ORIENTATION.md`, `figs/ORIENTATION_evidence.png` | where east is and which corner each origin is, with the evidence |
+| `AUDIT_RESPONSE.md` | the independent audit and what changed |
 | `AUDIT.md`, `MODEL.md`, `VERIFICATION.md` | the working documents this report condenses |
 
 ## 12. Assumptions that should be revisited
@@ -388,10 +426,11 @@ What helps, in order of cost:
 - The as-drawn clearances, 15 cm (GPR) and 10 cm (chalk), are fit residuals, not
   positional uncertainty; the uncertain case is the one to plan on, and a saw's own
   tolerance still comes on top.
-- Unmigrated positions: the migrated B-2 plane sits about 0.9 m up-dip and up to
-  0.45 m higher than the drawn one; the A sheets move 0.65 m.
+- Unmigrated positions: B-2's reflection points sit about 0.9 m up-dip of where they
+  are drawn and its migrated plane 13 to 29 cm lower at a given position; the A sheets
+  move 0.65 m up-dip and their planes sit up to 0.65 m lower.
 - Density 2.95 t/m3, unmeasured.
-- Velocity 0.1202 m/ns, uncalibrated: 4 % either way is 12 cm at 3 m.
+- Velocity 0.1202 m/ns, calibrated on slabs by PARSAN and by diffractions here, not in the benches: the 3.2 % ladder term is 10 cm at 3 m.
 - The surfaces are unmigrated; the uncertain case excludes their migrated positions
   but a migrated section from PARSAN would replace that with a measurement.
 - Registration of each grid to its mesh is good to 7 cm (A, C) and 16 cm (B) in plan;

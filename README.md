@@ -20,9 +20,11 @@ cutting, the verification of every stage, and the web interface that shows all o
 | [REPORT.md](REPORT.md) ([PDF](REPORT.pdf)) | the consolidated report: data, the six fracture surfaces, registration, candidate blocks with and without uncertainty, the cut plan and its order, verification, what the radar can and cannot do |
 | [AUDIT_RESPONSE.md](AUDIT_RESPONSE.md) | the independent read-only audit of 10 September, item by item, and what was changed in answer |
 | [GEOLOGIST_AUDIT.md](GEOLOGIST_AUDIT.md) | frame and conventions, picking methods, dip / dip direction / strike, checks, discrepancies with the contractor's report, open questions |
+| [UNCERTAINTY.md](UNCERTAINTY.md) | the uncertainty analysis: tolerance ladder per surface, confidence in the clearances, migration, what the survey cannot see, the cost of an uncertainty-safe clearance, and the Monte Carlo risk of every planned block |
+| [ORIENTATION.md](ORIENTATION.md) | where east is and which corner each origin is, proven from the registered photographs and the satellite view |
 | [VERIFICATION.md](VERIFICATION.md) | per-line ties to the contractor's report; orientation audit of the interface |
 | [MODEL.md](MODEL.md), [AUDIT.md](AUDIT.md) | the working documents: raw-data audit and the block-by-block model |
-| [dataset/README.md](dataset/README.md) | the metric dataset: point clouds, surfaces (OBJ, DXF), picks with two-way time, frames |
+| [dataset/README.md](dataset/README.md) | the metric dataset: point clouds, surfaces (OBJ, DXF), picks with two-way time, frames, the velocity calibration (contractor's slab table and the diffraction scan) |
 
 ## The interface
 
@@ -33,7 +35,7 @@ the picks on it, dip and strike, spectra and velocity). Every number on the page
 from the tables in `tables/`. The page states what is checked and what is not.
 
 State can be linked: `index.html#block=B&role=geo&tab=radar&ch=LF&line=5`
-(`block`, `role`, `tab`, `lang=ta`, `ch`, `line`, `scen`).
+(`block`, `role`, `tab`, `lang=ta`, `ch`, `line`, `scen`, `unc`, `sel`).
 
 ## What is and is not here
 
@@ -42,10 +44,13 @@ State can be linked: `index.html#block=B&role=geo&tab=radar&ch=LF&line=5`
   the raw survey data.
 - The three blocks are not positioned relative to each other; each is in its own
   metric frame tied to its painted grid.
-- Depths are at 0.1202 m/ns, from 114 diffraction hyperbolae in the data. The contractor
-  used 0.1200 m/ns.
-- "East" in the cutting order is taken as grid +x, the sense the contractor's report uses
-  on Block B. It has not been checked with a compass.
+- Depths are at 0.1202 m/ns, the median of 114 diffraction hyperbolae in the data. The
+  contractor calibrated 0.1200 m/ns on dolerite slabs over targets of known depth; both
+  are in `dataset/velocity/`. Neither is a calibration in the benches themselves.
+- "East" in the cutting order is set per block from the registered photographs and the
+  satellite view ([ORIENTATION.md](ORIENTATION.md)): every origin is the north-western
+  corner, every bench looks east; on Block B east is grid +y, on A and C grid +x. The
+  contractor's report reads +x as east on B. A compass on site still confirms it.
 - The block plan is a model, not a promise: the chalked surface cracks have not been
   measured for depth, the surfaces carry the uncertainty stated on the page, and this
   survey does not reliably constrain steep cracks.

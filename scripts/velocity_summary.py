@@ -13,6 +13,6 @@ out = dict(rule='vwidth <= 0.012 m/ns and apex time > 10 ns (the rule used for t
  working_velocity=V0, score_note='the "semb" column is an envelope-amplitude coherence along the hyperbola (mean envelope x sqrt(aperture)), not a normalised waveform semblance',
  alternatives={'0.1174 (report RDP 6.52)': round(100 * (0.1174 / V0 - 1), 2), '0.1252 (Zond RDP 5.73)': round(100 * (0.1252 / V0 - 1), 2)},
  depth_sensitivity_cm={'per +/-1 % velocity at 3 m': 3.0, 'p10 vs working at 3 m': round(300 * (float(np.percentile(v, 10)) / V0 - 1), 1), 'p90 vs working at 3 m': round(300 * (float(np.percentile(v, 90)) / V0 - 1), 1), '0.1174 at 3 m': round(300 * (0.1174 / V0 - 1), 1), '0.1252 at 3 m': round(300 * (0.1252 / V0 - 1), 1)},
- statement='0.1202 m/ns is a working assumption: the median of scattered, uncalibrated hyperbola fits; it has not been calibrated against a reflector of known depth')
+ statement='0.1202 m/ns is the median of the diffraction fits and agrees with PARSAN known-depth slab calibration (Table 1: 0.1174 to 0.120 m/ns, adopted 0.1200); the residual uncertainty is half the spread of all calibrated permittivities (3.2 percent); no calibration exists in the benches themselves')
 json.dump(out, open(os.path.join(OUT, 'tables', 'velocity_summary.json'), 'w'), indent=1)
 print('n selected %d, median %.4f, p10-p90 %.4f-%.4f, at limits %d (within one step %d)' % (out['n_selected'], out['median'], out['p10'], out['p90'], out['n_at_limits'], out['n_within_one_step_of_limits']))

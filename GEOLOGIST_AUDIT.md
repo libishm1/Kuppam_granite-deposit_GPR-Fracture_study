@@ -88,8 +88,10 @@ mine said "at right angles" and was wrong.
    Proceq plate at 1.00 m 0.1174 (RDP 6.52), which is 2.3 % low; Zond combined RDP 5.73
    (0.1252), 4.2 % high; adopted 0.1200. At 3 m those alternatives are −7 and +12.5 cm.
    The score in `hyperbola_velocity.csv` is an envelope-amplitude coherence, not a
-   normalised semblance. 0.1202 is a working assumption, uncalibrated; the uncertainty
-   model (`uncertainty.py`) carries 4.2 % of depth for it.
+   normalised semblance. PARSAN's Table 1 is a known-depth calibration in dolerite slabs
+   (pipe and plate under 0.10 and 1.00 m: 0.1174 to 0.120 m/ns), transcribed in
+   `dataset/velocity/`; 0.1202 agrees with it. The uncertainty ladder carries half the
+   spread of all calibrated permittivities (5.73 to 6.52 about 6.25) as sigma_v/v = 3.2 %.
 4. **Time zero.** See §1. Closed on PARSAN's word (email of 10 September) and on the
    internal consistency of their picks with the raw axis; not independently verified.
 5. **Registration to the photogrammetry.** The three Metashape projects have no

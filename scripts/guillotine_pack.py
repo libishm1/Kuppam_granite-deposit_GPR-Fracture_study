@@ -5,8 +5,8 @@ by dynamic programming over every sub-box, maximising class-weighted tonnage. A 
 forbidden voxel (fracture bands, chalked prisms, below the floor); its usable height runs from the cut below it up to
 the LOWEST surface point over its footprint (relief is real: the top of the first lift is the rough bench). Every
 other leaf holding rock is waste that still has to be lifted. The removal order respects dependencies: nothing is
-lifted before every piece above it (block or waste); the priority among ready pieces is east (+x) first, then top
-down. A piece's free faces at its own removal time are recorded. Two uncertainty cases per chalk scenario: 'modelled'
+lifted before every piece above it (block or waste); the priority among ready pieces is east first (EAST, per block), then
+top down. A piece's free faces at its own removal time are recorded. Two uncertainty cases per chalk scenario: 'modelled'
 (15 cm from the surfaces as drawn) and 'uncertain' (2 sigma of the surface's positional uncertainty, joined with its
 migrated position, 20 cm from chalked cracks)."""
 import numpy as np, os, json, sys, time
@@ -17,6 +17,11 @@ OUT = PD.OUT; VOX = PD.VOX; STEP = 0.5; RHO = 2.95; KERF = 0.05
 CLASSES = [('gangsaw_large', 2.7, 1.5, 1.5, 1.00), ('gangsaw_standard', 2.1, 1.2, 1.2, 0.85), ('small_block', 1.5, 0.9, 0.9, 0.55), ('cutter_block', 0.9, 0.6, 0.6, 0.30)]
 MAXCAP = (3.3, 2.0, 2.0)   # L, W, H handling cap
 MINH = 0.30                # a leaf with less usable height than this is waste
+# East on the painted grid. The client, who laid the grids, reads east along the short side of Block B from B0 toward B1,
+# i.e. grid +y, and the same painting convention and orientation on A and C. PARSAN's report reads increasing x as east.
+# Carried as the client's reading; a compass on site settles it. Changing this flips the order, not the cuts.
+EAST = {'A': '+x', 'B': '+y', 'C': '+x'}
+EAST_NOTE = "from the registered photographs and the satellite view (ORIENTATION.md): origin at the north-western corner, bench looking east to the ramp; B has +y east, A and C +x east; PARSAN's report reads +x on B; not compass-checked"
 blocks = sys.argv[1:] or ['A', 'B', 'C']
 
 
@@ -28,12 +33,10 @@ def classify(dx, dy, dz):
     return None, 0.0
 
 
-results = {}
-for blk in blocks:
-    results[blk] = {}
-    for unc in PD.UNC:
-        for sname, sdepth in PD.SCEN.items():
-            t0 = time.time(); D = PD.build(blk, sdepth, unc)
+def solve(blk, D, sdepth=1.0, unc='modelled', quiet=False):
+    if True:
+        if True:
+            t0 = time.time()
             nx, ny, nz = D['nx'], D['ny'], D['nz']; zc = D['zc']; dem = D['dem']; zbot = D['zbot']
             NX, NY = int(round(nx * VOX / STEP)), int(round(ny * VOX / STEP)); NZ = int(round(nz * VOX / STEP)); r = int(round(STEP / VOX))
             bad = (D['cut'] | ~D['rock']) & (zc[:, None, None] < dem[None])          # forbidden or below-floor voxels under the surface; air above the surface is not 'bad'
@@ -76,7 +79,7 @@ for blk in blocks:
                     e = dict(x=[i0 * STEP, i1 * STEP], y=[j0 * STEP, j1 * STEP], z=[zbot + k0 * STEP, zbot + k1 * STEP])
                     cuts.append(dict(seq=len(cuts) + 1, level=depth, axis=plan[1], pos=round(plan[2], 3), extent=e))
                     A, B = plan[3], plan[4]; pa, pb = best(*A)[2], best(*B)[2]
-                    first, second = ((B, pb), (A, pa)) if plan[1] == 'x' else ((A, pa), (B, pb))
+                    first, second = ((B, pb), (A, pa)) if plan[1] == EAST[blk][1] else ((A, pa), (B, pb))      # the east sub-box first
                     walk(first[0], first[1], depth + 1); walk(second[0], second[1], depth + 1)
                 else:
                     rk = box_sum(R, i0, i1, j0, j1, k0, k1)
@@ -101,7 +104,8 @@ for blk in blocks:
             while len(order) < n:
                 ready = [i for i in range(n) if not done[i] and all(done[d] for d in deps[i])]
                 if not ready: ready = [i for i in range(n) if not done[i]]              # cannot happen for a guillotine tree, kept as a guard
-                i = min(ready, key=lambda q: (-pieces[q]['x1'], -pieces[q]['z1'], pieces[q]['y0']))
+                ek = 'y1' if EAST[blk] == '+y' else 'x1'; ok_ = 'x0' if EAST[blk] == '+y' else 'y0'
+                i = min(ready, key=lambda q: (-pieces[q][ek], -pieces[q]['z1'], pieces[q][ok_]))        # east first, then top down
                 p = pieces[i]; a0, a1, b0, b1 = int(round(p['x0'] / VOX)), int(round(p['x1'] / VOX)), int(round(p['y0'] / VOX)), int(round(p['y1'] / VOX))
                 c0, c1 = int(round((p['z0'] - zbot) / VOX)), int(round((p['z1'] - zbot) / VOX)); c1 = min(c1, nz)
                 faces = []
@@ -124,14 +128,23 @@ for blk in blocks:
                     cl[F] = round(float(np.min(np.where(above > 0, above, np.where(below > 0, below, 0)))), 2)
                 p['min_clearance_m'] = cl
             summ = {nm: dict(n=sum(1 for b in blocks_ if b['cls'] == nm), m3=round(sum(b['vol_m3'] for b in blocks_ if b['cls'] == nm), 1), t=round(sum(b['t'] for b in blocks_ if b['cls'] == nm), 0)) for nm, *_ in CLASSES}
-            key = sname + '__' + unc
-            results[blk][key] = dict(surface_trace_depth_m=sdepth, uncertainty=unc, gross_rock_m3=D['gross_rock_m3'], free_rock_m3=D['free_rock_m3'], packed_m3=round(sum(b['vol_m3'] for b in blocks_), 1), packed_t=round(tons, 0),
+            res = dict(surface_trace_depth_m=sdepth, uncertainty=unc, gross_rock_m3=D['gross_rock_m3'], free_rock_m3=D['free_rock_m3'], packed_m3=round(sum(b['vol_m3'] for b in blocks_), 1), packed_t=round(tons, 0),
                                      recovery_ratio=round(sum(b['vol_m3'] for b in blocks_) / D['gross_rock_m3'], 3), classes=summ, boxes=blocks_, waste=waste, cuts=cuts, n_cuts=len(cuts), n_waste=len(waste),
                                      cut_step_m=STEP, floor=D['floor_desc'], bands=D['bands'], chalk_buffer_m=D['chalk_buffer_m'], z_range=[D['zbot'], D['ztop']], class_weights={nm: wt for nm, _, _, _, wt in CLASSES},
-                                     frame='bench-frame absolute elevation, metres, z up; x, y on the painted grid', east='grid +x, as the report reads it on Block B; not checked with a compass')
-            print('Block %s %-16s %-9s cuts %3d blocks %2d waste %2d  %5.0f t (%2.0f%% of %.0f m3)  %s  [%.0f s, %d states]' % (
-                blk, sname, unc, len(cuts), len(blocks_), len(waste), tons, 100 * results[blk][key]['recovery_ratio'], D['gross_rock_m3'],
+                                     frame='bench-frame absolute elevation, metres, z up; x, y on the painted grid', east=EAST_NOTE, east_axis=EAST[blk])
+            if not quiet: print('Block %s %-16s %-9s cuts %3d blocks %2d waste %2d  %5.0f t (%2.0f%% of %.0f m3)  %s  [%.0f s, %d states]' % (
+                blk, str(sdepth), unc, len(cuts), len(blocks_), len(waste), tons, 100 * res['recovery_ratio'], D['gross_rock_m3'],
                 ' '.join('%s:%d' % (nm.split('_')[0][:5] + ('L' if 'large' in nm else 'S' if 'standard' in nm else ''), summ[nm]['n']) for nm, *_ in CLASSES), time.time() - t0, best.cache_info().currsize))
             best.cache_clear()
-json.dump(results, open(os.path.join(OUT, 'tables', 'guillotine_packing.json'), 'w'), indent=1)
-print('wrote tables/guillotine_packing.json')
+            return res
+
+
+if __name__ == '__main__':
+    results = {}
+    for blk in blocks:
+        results[blk] = {}
+        for unc in PD.UNC:
+            for sname, sdepth in PD.SCEN.items():
+                results[blk][sname + '__' + unc] = solve(blk, PD.build(blk, sdepth, unc), sdepth, unc)
+    json.dump(results, open(os.path.join(OUT, 'tables', 'guillotine_packing.json'), 'w'), indent=1)
+    print('wrote tables/guillotine_packing.json')

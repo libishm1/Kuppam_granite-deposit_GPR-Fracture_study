@@ -85,6 +85,16 @@ test (`daylight_test.py`, null of random placements) puts B-1 and A-1 at chance 
 the other four never reach the bench inside the grid. Block C's main surface joint set
 is NE-SW, about 35 degrees from C-1, and absent from the GPR. Details in `../MODEL.md`.
 
+## Velocity: `velocity/`
+
+PARSAN's known-depth calibration (their Table 1, transcribed), this work's 322 diffraction
+fits and the one-rule summary, and the first-break times whose scatter is the time-zero
+term of the uncertainty. See `velocity/README.md`.
+
+## Site: `site/`
+
+`satellite_google_maps_client_2026-09-11.jpg`: the client's Google Maps screenshot (north up) used in `ORIENTATION.md` to place the ramp on the north rim at the east end of the pit. No coordinates are attached.
+
 ## Other folders
 
 - `report_frame/`: the same surfaces in the report's own frame, before any
