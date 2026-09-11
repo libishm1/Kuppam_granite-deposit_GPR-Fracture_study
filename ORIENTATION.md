@@ -98,22 +98,38 @@ close to flat, and C-2's local dip directions scatter over 101 degrees.
 The surface names carried an older reading and are corrected: B-1 was labelled "dips east" and dips
 south; A-1 was labelled "NW" although it covers the whole bench and dips SSW; A-2's "+y" is south.
 
-### What still disagrees, and why the compass matters
+### The registration was read wrongly, and now confirms the reading
 
-Three geometric indications point the other way and are recorded here rather than buried:
+An earlier draft of this note recorded that registering the three models into one frame contradicted
+the +y reading on Block B. That was an error of mine, not a disagreement in the data, and it is
+withdrawn.
 
-1. Registering the Block A and Block B models into Block C's frame (`outputs/2026-09-11/joint_mapping`,
-   4.9 and 4.3 cm rms, 90 and 96 per cent of points within 10 cm) puts A's +x and B's +x 14 degrees
-   apart, where this reading needs A's +x and B's +y to be parallel.
-2. Block B's own model has its floor elongated along +x, and Block C's pit, which the satellite view
-   shows running east to west, is elongated along +x in its own frame too.
-3. Of the three surfaces whose dip direction is well determined, A-1, A-2 and B-2 span 45 degrees
-   under this reading and 17 degrees under the other, where they would form one set across two
-   benches.
+The mistake: a block's mesh frame is **not** its painted grid frame. Each `FRAME.json` carries the
+grid's own origin and axis directions inside the mesh frame, and a grid corner at (X, Y) metres sits
+at `origin x scale + X * x_dir + Y * y_dir`. Those axes are rotated differently in each block, by
+16 degrees on A, 272 on B and 347 on C. I had compared mesh axes and called them grid axes.
 
-None of these is decisive on its own. Blocks A and B were modelled from separate photo sets with no
-common control, Block B's model is shallow and its few large faces are the bench's own sawn sides,
-and three benches need not share one joint set. The client's direct reading of the mesh is taken as
-authoritative here. **A compass bearing on the B0 to B1 line closes the question in one minute and
-should be taken on the next visit.** Nothing about the cuts depends on it; the order of removal and
-every compass direction in these documents do.
+The mapping is confirmed against the paint itself. Block A's grid is white lime: points within 4 cm
+of a predicted grid line are 10.9 brightness units lighter than points between the lines, and under
+the mesh-axis assumption that signal drops to 0.2.
+
+Read correctly, the registration agrees with the client:
+
+| block | painted east axis, expressed in the site frame | corner picked by hand in the model |
+| --- | --- | --- |
+| A, +x east | 342.2 deg | 343.4 deg |
+| B, +y east | 342.3 deg | 343.3 deg |
+| C, +x east | 346.6 deg | 346.2 deg |
+
+The three east axes span 4.4 degrees, so they are parallel on the ground, which is what the client
+said from the start: the same convention and the same orientation on all three benches. The corners
+clicked by hand in the site model land within 1.2 degrees of the axes the frame files predict, on
+every block, which is independent of both the registration and the photographs.
+
+One indication still points the other way and is kept here: of the three surfaces whose dip
+direction is well determined, A-1, A-2 and B-2 span 45 degrees under this reading and 17 degrees
+under the other. Three benches need not share one joint set, so this is weak, but it is unexplained.
+
+**A compass bearing on the B0 to B1 line would still close the question outright**, and costs a
+minute on the next visit. Nothing about the cuts depends on it; the order of removal and every
+compass direction in these documents do.
