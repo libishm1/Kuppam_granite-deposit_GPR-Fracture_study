@@ -70,3 +70,50 @@ if a compass says otherwise the order flips and the cuts do not change.
 | A | +x | A0 north-west | left | photo 113557 |
 | B | +y | B0 north-west | right | photos 181244, 180430 |
 | C | +x | C0 north-west | left | photo 182338 |
+
+## Confirmed by the client on the mesh, 11 September
+
+Asked directly which side of Block B runs east, the client confirms from the photogrammetry mesh
+that **the shorter, 6 m side runs east**: B0 to B1 is the east direction, so +y is east on B and
++x is south. That is the reading already used everywhere here and in the cutting order, and it is
+unchanged. Note that B0 sitting at the north-western corner is true under either reading and does
+not by itself decide the question; the length of the side that runs east does.
+
+### What the dip directions become
+
+| surface | grid bearing of dip | azimuth | reading |
+| --- | --- | --- | --- |
+| A-1 | 328 | 212 | dips SSW at 29 deg |
+| A-2 | 359 | 181 | dips S at 35 deg |
+| B-1 | 094 | 184 | dips S at 8 deg, direction poorly determined |
+| B-2 | 347 | 077 | dips ENE at 20 deg |
+| C-1 | 026 | 154 | dips SSE at 7 deg, direction poorly determined |
+| C-2 | 179 | 269 | dips 2.5 deg, direction not determined at all |
+
+Grid bearing runs 0 at +y and 90 at +x. It becomes an azimuth through the handedness: on A and C
++x is east and +y south, so azimuth = 180 minus bearing; on B +y is east and +x south, so azimuth =
+bearing plus 90. Only A-1, A-2 and B-2 have a dip direction worth quoting; the other three are too
+close to flat, and C-2's local dip directions scatter over 101 degrees.
+
+The surface names carried an older reading and are corrected: B-1 was labelled "dips east" and dips
+south; A-1 was labelled "NW" although it covers the whole bench and dips SSW; A-2's "+y" is south.
+
+### What still disagrees, and why the compass matters
+
+Three geometric indications point the other way and are recorded here rather than buried:
+
+1. Registering the Block A and Block B models into Block C's frame (`outputs/2026-09-11/joint_mapping`,
+   4.9 and 4.3 cm rms, 90 and 96 per cent of points within 10 cm) puts A's +x and B's +x 14 degrees
+   apart, where this reading needs A's +x and B's +y to be parallel.
+2. Block B's own model has its floor elongated along +x, and Block C's pit, which the satellite view
+   shows running east to west, is elongated along +x in its own frame too.
+3. Of the three surfaces whose dip direction is well determined, A-1, A-2 and B-2 span 45 degrees
+   under this reading and 17 degrees under the other, where they would form one set across two
+   benches.
+
+None of these is decisive on its own. Blocks A and B were modelled from separate photo sets with no
+common control, Block B's model is shallow and its few large faces are the bench's own sawn sides,
+and three benches need not share one joint set. The client's direct reading of the mesh is taken as
+authoritative here. **A compass bearing on the B0 to B1 line closes the question in one minute and
+should be taken on the next visit.** Nothing about the cuts depends on it; the order of removal and
+every compass direction in these documents do.

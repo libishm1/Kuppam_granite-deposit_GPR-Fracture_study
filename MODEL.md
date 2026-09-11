@@ -173,7 +173,7 @@ relative to its caption.** Depth reads 2.68 at the top and 0 at the bottom, the
 distance axis runs right to left, and the axis text is upside down. Rotating the
 image back puts depth 0 at the top and turns the caption upside down, which
 confirms it. Read correctly the pick runs from about x = 7.5 m at 0.45 m to
-x = 9.3 m at 0.95 m, deepening east, exactly as the text describes.
+x = 9.3 m at 0.95 m, deepening toward increasing x, exactly as the text describes (that axis is south under ORIENTATION.md; the report reads it as east).
 
 Re-tracked with the corridor seeded from the report's own description, x 650 to
 950 deepening at their stated mean of 8.3 degrees:

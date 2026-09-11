@@ -55,10 +55,10 @@ on the blocks themselves (one rule: vwidth <= 0.012, t0 > 10 ns, of 322 candidat
 | --- | --- | --- | --- | --- | --- |
 | C-2 | base cap under Block C, 2.77 to 3.57 m | 9,481 (8 ranges) | median 3 cm on their 8 lines | 230 crossings, median 11 cm, 84 % within 20 cm | **good** |
 | C-1 | shallow sheet, west half of C, dips 7 deg SE | 1,292 (18) | 8 cm at every end | plane residual 11 cm | **good** |
-| B-2 | deep wedge, west of B, dips 22 deg | 969 (12) | 12 cm; dips to 0.3 deg | none possible: one line direction only | caution |
-| B-1 | shallow sheet, east of B, dips 7 deg east | 1,580 (none) | five indirect checks pass | HF vs LF on orthogonal lines, 97 % within 20 cm. **Not confirmed on the rock**: where its plane would reach the bench it follows the chalked cracks no better than a random line (section 6), and that line lies outside the area where it was picked. PARSAN read it at 1.0 to 1.95 m (section 9) | caution |
-| A-2 | inclined sheet in A, dips 34 deg toward +y | 565 (none) | matches described geometry | orthogonal-line check, 0.9 cm median | **good** |
-| A-1 | dipping sheet in A, NW, 27 deg | 428 (4) | dip matches once one printed depth order is reversed | position vs chalked cracks no better than chance | caution |
+| B-2 | deep wedge, west of B, dips 20 deg ENE | 969 (12) | 12 cm; dips to 0.3 deg | none possible: one line direction only | caution |
+| B-1 | shallow sheet, south side of B, dips 8 deg south | 1,580 (none) | five indirect checks pass | HF vs LF on orthogonal lines, 97 % within 20 cm. **Not confirmed on the rock**: where its plane would reach the bench it follows the chalked cracks no better than a random line (section 6), and that line lies outside the area where it was picked. PARSAN read it at 1.0 to 1.95 m (section 9) | caution |
+| A-2 | inclined sheet in the north half of A, dips 35 deg south | 565 (none) | matches described geometry | orthogonal-line check, 0.9 cm median | **good** |
+| A-1 | dipping sheet across A, dips 29 deg SSW | 428 (4) | dip matches once one printed depth order is reversed | position vs chalked cracks no better than chance | caution |
 
 Two corrections to the report came out of this: Line 10's two A-1 depths are printed in
 the wrong order (reversing them makes the four published picks coplanar to under a

@@ -26,7 +26,7 @@ REL = {  # reliability chips, from VERIFICATION.md and the daylight test
  'C1': ('good', 'agrees with the report to 8 cm (internal); 11 cm plane'),
  'C2': ('good', '230 line crossings agree to 11 cm after adjustment (internal); the base cap for Block C'),
 }
-NAMES = {'A1': 'A-1 dipping sheet, NW', 'A2': 'A-2 inclined sheet, dips +y', 'B1': 'B-1 shallow sheet, dips east', 'B2': 'B-2 deep wedge, west', 'C1': 'C-1 shallow sheet, west half', 'C2': 'C-2 base cap'}
+NAMES = {'A1': 'A-1 dipping sheet, dips SSW', 'A2': 'A-2 inclined sheet, dips south', 'B1': 'B-1 shallow sheet, dips south', 'B2': 'B-2 deep wedge, dips ENE', 'C1': 'C-1 shallow sheet, west half', 'C2': 'C-2 base cap'}
 DEPTHLIM = {'A': 'assumed 3.0 m bench, no floor was surveyed', 'B': 'assumed 3.0 m bench, no floor was surveyed', 'C': 'the C-2 cap from the GPR'}
 HAZ = {'A': [], 'B': ['metal in the top metre near x = 190 to 200 and 390 to 420 cm (report)'], 'C': ['shallow clutter, top metre, y = 350 to 750 cm across the width (PARSAN): treat the whole top metre as suspect for metal', 'a second reflector at 3.9 to 4.3 m below C-2, unpicked']}
 

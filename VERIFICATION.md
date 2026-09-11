@@ -118,7 +118,7 @@ can improve that; only oblique or X-oriented lines over the western half can.**
 | check | report | ours | tie |
 | --- | --- | --- | --- |
 | slice windows where it shows | HF 0.52-0.59 and 0.95-1.02; LF 0.47-0.61 and 0.75-0.88 | 0.42-0.99 m | crosses all four |
-| dip direction | "consistently dipping toward increasing x" | 13 of 13 lines deepen east | exact |
+| dip direction | "consistently dipping toward increasing x" | 13 of 13 lines deepen toward increasing x, which is south under ORIENTATION.md | exact |
 | apparent dip | 5.1-14.4, mean 8.3 | 4.8-10.7, mean 6.9 | 12 of 13 inside their range |
 | plan trace rotation | 3.8 degrees, 40 cm across 6 m | 9.7 degrees, 103 cm | same sense, 2.5x the magnitude |
 | HF against LF | "also visible on Y-lines in the LF channel" | 1,662 comparisons, median 9.8 cm, 97 % within 20 cm | the best cross-check in the survey |
@@ -128,7 +128,7 @@ can improve that; only oblique or X-oriented lines over the western half can.**
 not state. A dipping plane's plan trace rotates with the depth you slice it at.
 
 **Not independent.** The corridor that recovered B-1 was seeded from the
-report's own description: x 650 to 950, deepening east at 8.3 degrees. The free
+report's own description: x 650 to 950, deepening toward increasing x at 8.3 degrees (south under ORIENTATION.md; the report reads that axis as east). The free
 tracker had failed, locking onto flat ringing. So **the dip magnitude is
 corroborated, not independently measured.** What is internally consistent: the
 reflector exists on every line, it deepens east on every line, and two channels on
