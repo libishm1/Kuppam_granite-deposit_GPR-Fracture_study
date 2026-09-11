@@ -49,7 +49,8 @@ def mctable():
 
 
 g = lambda b, k, u='uncertain': G[b][k + '__' + u]
-first = min(g('B', 'surface_1.0m')['boxes'], key=lambda q: q['remove_seq'])
+SKEY = 'surface_0.5m'
+first = min(g('B', SKEY)['boxes'], key=lambda q: q['remove_seq'])
 sec7 = """## 7. Block yield
 
 Two questions are kept apart here: how much rock lies between the surfaces (section
@@ -132,8 +133,8 @@ photographs contradict. No compass bearing was recorded; a compass on site confi
 in a minute, and if east is another grid direction the removal order flips but the cuts
 do not change.
 
-""" % (g('B', 'surface_1.0m')['packed_t'], g('B', 'surface_1.0m', 'modelled')['packed_t'], g('C', 'surface_1.0m')['packed_t'], g('C', 'surface_1.0m', 'modelled')['packed_t'], g('A', 'surface_1.0m')['packed_t'], g('A', 'surface_1.0m', 'modelled')['packed_t'],
-       g('B', 'surface_1.0m')['n_cuts'], len(g('B', 'surface_1.0m')['boxes']), g('B', 'surface_1.0m')['n_waste'],
+""" % (g('B', SKEY)['packed_t'], g('B', SKEY, 'modelled')['packed_t'], g('C', SKEY)['packed_t'], g('C', SKEY, 'modelled')['packed_t'], g('A', SKEY)['packed_t'], g('A', SKEY, 'modelled')['packed_t'],
+       g('B', SKEY)['n_cuts'], len(g('B', SKEY)['boxes']), g('B', SKEY)['n_waste'],
        first['remove_seq'], first['cls'].replace('_', ' '), int(100 * first['x0']), int(100 * first['x1']), int(100 * first['y0']), int(100 * first['y1']), first['depth_top_m'], first['depth_bottom_m'], len(first['after'])) 
 SEC73 = """### 7.3 How far each surface may be from where it is drawn
 
@@ -188,6 +189,6 @@ t = t[:i7] + sec7 + t[i8:]
 import re
 t = re.sub(r"\| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty \| A \d+ t, B \d+ t, C \d+ t; as drawn \(best case\) A \d+, B \d+, C \d+ t\. Not a promise: section 7 \|",
            "| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A %.0f t, B %.0f t, C %.0f t; as drawn (best case) A %.0f, B %.0f, C %.0f t. Not a promise: section 7 |" % (
-               g('A', 'surface_1.0m')['packed_t'], g('B', 'surface_1.0m')['packed_t'], g('C', 'surface_1.0m')['packed_t'], g('A', 'surface_1.0m', 'modelled')['packed_t'], g('B', 'surface_1.0m', 'modelled')['packed_t'], g('C', 'surface_1.0m', 'modelled')['packed_t']), t)
+               g('A', SKEY)['packed_t'], g('B', SKEY)['packed_t'], g('C', SKEY)['packed_t'], g('A', SKEY, 'modelled')['packed_t'], g('B', SKEY, 'modelled')['packed_t'], g('C', SKEY, 'modelled')['packed_t']), t)
 io.open(p, 'w', encoding='utf-8').write(t)
-print('REPORT.md section 7 regenerated; 1.0 m uncertain A %.0f B %.0f C %.0f t' % (g('A', 'surface_1.0m')['packed_t'], g('B', 'surface_1.0m')['packed_t'], g('C', 'surface_1.0m')['packed_t']))
+print('REPORT.md section 7 regenerated; 0.5 m uncertain A %.0f B %.0f C %.0f t' % (g('A', SKEY)['packed_t'], g('B', SKEY)['packed_t'], g('C', SKEY)['packed_t']))

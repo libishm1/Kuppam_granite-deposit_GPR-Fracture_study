@@ -18,7 +18,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 import packing_domain as PD, guillotine_pack as GP
 OUT = PD.OUT; VOX = PD.VOX
 U = json.load(open(os.path.join(OUT, 'tables', 'uncertainty.json'))); G = json.load(open(os.path.join(OUT, 'tables', 'guillotine_packing.json')))
-N_RISK = int(os.environ.get('N_RISK', 200)); N_YIELD = int(os.environ.get('N_YIELD', 30)); SDEPTH = 1.0
+N_RISK = int(os.environ.get('N_RISK', 200)); N_YIELD = int(os.environ.get('N_YIELD', 30))
+SDEPTH = float(os.environ.get('CHALK_DEPTH', 0.5))          # the scenario the plan defaults to
+SKEY = 'surface_%.1fm' % SDEPTH
 rng = np.random.default_rng(11)
 CHAN = {'A1': 'HF', 'A2': 'HF', 'B1': 'HF', 'B2': 'LF', 'C1': 'HF', 'C2': 'LF'}
 SIG_VV = U['ladder']['sigma_v_over_v']; SIG_T0 = U['ladder']['sigma_t0_ns']; V0 = U['ladder']['v0']
@@ -58,7 +60,7 @@ for ax, blk in zip(axes, 'ABC'):
         base['d'][F] = grid_interp(os.path.join(OUT, 'model', '%s_grid_10cm.xyz' % F))
         base['mig'][F] = grid_interp(os.path.join(OUT, 'model', 'unc', '%s_mig_10cm.xyz' % F))
     # (a) block risk for the two plans
-    plans = {u: G[blk]['surface_1.0m__' + u]['boxes'] for u in ('modelled', 'uncertain')}
+    plans = {u: G[blk][SKEY + '__' + u]['boxes'] for u in ('modelled', 'uncertain')}
     hits = {u: np.zeros(len(plans[u])) for u in plans}
     for it in range(N_RISK):
         E = realisation(blk, base, draw(blk))
@@ -79,7 +81,7 @@ for ax, blk in zip(axes, 'ABC'):
     tons = np.array(tons); p10, p50, p90 = np.percentile(tons, [10, 50, 90])
     tw = {u: sum(b['t'] * (1 - risk[u][i]) for i, b in enumerate(plans[u])) for u in plans}
     results[blk] = dict(n_risk=N_RISK, n_yield=N_YIELD, chalk_depth_m=SDEPTH, block_risk=risk,
-                        plan_t={u: G[blk]['surface_1.0m__' + u]['packed_t'] for u in plans}, plan_risk_weighted_t={u: round(tw[u], 0) for u in tw},
+                        plan_t={u: G[blk][SKEY + '__' + u]['packed_t'] for u in plans}, plan_risk_weighted_t={u: round(tw[u], 0) for u in tw},
                         blocks_over_20pct={u: int(sum(1 for r_ in risk[u] if r_ > 0.2)) for u in risk}, mean_risk={u: round(float(np.mean(risk[u])), 3) if risk[u] else 0 for u in risk},
                         replan_t=dict(p10=round(float(p10), 0), p50=round(float(p50), 0), p90=round(float(p90), 0), min=round(float(tons.min()), 0), max=round(float(tons.max()), 0), draws=[float(x) for x in tons]))
     ax.hist(tons, bins=12, color='#1F8A80', alpha=.8); ax.axvline(results[blk]['plan_t']['modelled'], color='#C8452B', ls='--', label='as-drawn plan'); ax.axvline(results[blk]['plan_t']['uncertain'], color='#D98E1E', ls='-', label='uncertain plan')

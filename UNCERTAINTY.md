@@ -82,13 +82,13 @@ surface, 10 cm from a chalked crack. **With uncertainty**: 2σ of the ladder (95
 coverage), joined with the migrated position, 20 cm from a chalked crack. The paper's
 convention is a clearance of one sigma; both C(1σ) = 68 % and C(2σ) = 95 % are in the
 table above, and the packer takes 2σ because a block that meets a fracture is lost, not
-merely mis-sized. Chalked cracks assumed to reach 1.0 m:
+merely mis-sized. Chalked cracks assumed to reach 0.5 m:
 
 | block | as drawn (15 / 10 cm) | with uncertainty (2σ + migrated, 20 cm chalk) | free heuristic, as drawn | free heuristic, uncertain |
 | --- | --- | --- | --- | --- |
-| A | 85 t, 12 blocks | 46 t, 7 blocks | 99 t | 67 t |
-| B | 281 t, 19 blocks | 254 t, 18 blocks | 287 t | 259 t |
-| C | 221 t, 21 blocks | 170 t, 24 blocks | 273 t | 200 t |
+| A | 88 t, 13 blocks | 48 t, 8 blocks | 99 t | 68 t |
+| B | 301 t, 20 blocks | 273 t, 17 blocks | 290 t | 262 t |
+| C | 243 t, 15 blocks | 202 t, 17 blocks | 289 t | 219 t |
 
 ## 6. Monte Carlo: what each plan risks
 
@@ -102,12 +102,12 @@ as-drawn clearance to show the spread of what any plan could yield.
 
 | block | plan | planned t | risk-weighted t | mean block risk | blocks over 20 % | re-planned P10 / P50 / P90 |
 | --- | --- | --- | --- | --- | --- | --- |
-| A | as drawn | 85 | 64 | 27 % | 5 of 12 | 65 / 68 / 86 |
-| A | with uncertainty | 46 | 46 | 0 % | 0 of 7 | 65 / 68 / 86 |
-| B | as drawn | 281 | 240 | 12 % | 5 of 19 | 266 / 277 / 291 |
-| B | with uncertainty | 254 | 217 | 11 % | 5 of 18 | 266 / 277 / 291 |
-| C | as drawn | 221 | 197 | 9 % | 5 of 21 | 192 / 217 / 256 |
-| C | with uncertainty | 170 | 163 | 5 % | 3 of 24 | 192 / 217 / 256 |
+| A | as drawn | 88 | 68 | 25 % | 5 of 13 | 71 / 74 / 89 |
+| A | with uncertainty | 48 | 48 | 0 % | 0 of 8 | 71 / 74 / 89 |
+| B | as drawn | 301 | 267 | 10 % | 4 of 20 | 279 / 292 / 314 |
+| B | with uncertainty | 273 | 247 | 9 % | 4 of 17 | 279 / 292 / 314 |
+| C | as drawn | 243 | 214 | 12 % | 6 of 15 | 216 / 247 / 281 |
+| C | with uncertainty | 202 | 187 | 8 % | 3 of 17 | 216 / 247 / 281 |
 
 ![Re-planned tonnage over random truths](figs/UNCERTAINTY_mc.png)
 

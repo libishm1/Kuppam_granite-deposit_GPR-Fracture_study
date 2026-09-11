@@ -138,7 +138,7 @@ for blk in 'ABC':
     if blk in MC:
         m = MC[blk]; B['mc'] = dict(n_risk=m['n_risk'], n_yield=m['n_yield'], plan_t=m['plan_t'], plan_risk_weighted_t=m['plan_risk_weighted_t'], mean_risk=m['mean_risk'], blocks_over_20pct=m['blocks_over_20pct'], replan_t={k: v for k, v in m['replan_t'].items() if k != 'draws'})
         for u in ('modelled', 'uncertain'):
-            key = 'surface_1.0m__' + u
+            key = 'surface_%.1fm__' % float(m.get('chalk_depth_m', 1.0)) + u   # the scenario the risk was computed for
             if key in B['guillotine']:
                 for b, rk in zip(sorted(B['guillotine'][key]['boxes'], key=lambda q: q['seq']), sorted(range(len(m['block_risk'][u])), key=lambda i: GUIL[blk][key]['boxes'][i]['remove_seq'])): b['risk'] = m['block_risk'][u][rk]
     # picks per line for the 2D radargram viewer: position along the run axis (cm) and depth (m), by feature

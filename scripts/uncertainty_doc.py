@@ -8,7 +8,8 @@ MC = json.load(open(os.path.join(OUT, 'tables', 'uncertainty_mc.json')))
 V = json.load(open(os.path.join(OUT, 'tables', 'velocity_summary.json')))
 G = json.load(open(os.path.join(OUT, 'tables', 'guillotine_packing.json')))
 P = json.load(open(os.path.join(OUT, 'tables', 'block_packing.json')))
-g = lambda b, u: G[b]['surface_1.0m__' + u]
+SKEY = 'surface_0.5m'
+g = lambda b, u: G[b][SKEY + '__' + u]
 
 lad = '| surface | ch. | mean depth | d·σv/v | λ/4 | v·σt0/2 | σ recon | σ interp | σ mesh | σ reg | **σ total** | % depth | C(15 cm) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n'
 for b in 'ABC':
@@ -22,7 +23,7 @@ for b in 'ABC':
         mig += '| %s | %.1f° → %.1f° | %.2f m | %.2f to %.2f m |\n' % (F, u['dip_modelled_deg'], u['dip_migrated_deg'], u['migration_plan_shift_median_m'], u['migration_vertical_offset_m']['min'], u['migration_vertical_offset_m']['max'])
 yt = '| block | as drawn (15 / 10 cm) | with uncertainty (2σ + migrated, 20 cm chalk) | free heuristic, as drawn | free heuristic, uncertain |\n| --- | --- | --- | --- | --- |\n'
 for b in 'ABC':
-    yt += '| %s | %.0f t, %d blocks | %.0f t, %d blocks | %.0f t | %.0f t |\n' % (b, g(b, 'modelled')['packed_t'], len(g(b, 'modelled')['boxes']), g(b, 'uncertain')['packed_t'], len(g(b, 'uncertain')['boxes']), P[b]['surface_1.0m__modelled']['packed_t'], P[b]['surface_1.0m__uncertain']['packed_t'])
+    yt += '| %s | %.0f t, %d blocks | %.0f t, %d blocks | %.0f t | %.0f t |\n' % (b, g(b, 'modelled')['packed_t'], len(g(b, 'modelled')['boxes']), g(b, 'uncertain')['packed_t'], len(g(b, 'uncertain')['boxes']), P[b][SKEY + '__modelled']['packed_t'], P[b][SKEY + '__uncertain']['packed_t'])
 mct = '| block | plan | planned t | risk-weighted t | mean block risk | blocks over 20 % | re-planned P10 / P50 / P90 |\n| --- | --- | --- | --- | --- | --- | --- |\n'
 for b in 'ABC':
     m = MC[b]
@@ -96,7 +97,7 @@ surface, 10 cm from a chalked crack. **With uncertainty**: 2σ of the ladder (95
 coverage), joined with the migrated position, 20 cm from a chalked crack. The paper's
 convention is a clearance of one sigma; both C(1σ) = 68 %% and C(2σ) = 95 %% are in the
 table above, and the packer takes 2σ because a block that meets a fracture is lost, not
-merely mis-sized. Chalked cracks assumed to reach 1.0 m:
+merely mis-sized. Chalked cracks assumed to reach 0.5 m:
 
 """ + yt + """
 ## 6. Monte Carlo: what each plan risks

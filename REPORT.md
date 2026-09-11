@@ -27,7 +27,7 @@ chalked on the rock, and packed saleable blocks between everything.
 | six GPR surfaces | all six rebuilt from raw data; of the four with published picks, three tie to the report inside 10 cm and all four inside 20 cm; B-1 and A-2 had no published depths and are checked indirectly |
 | position on the rock | each grid found in its mesh to a few cm (A, C) or ~10 cm (B); origins on the crew's painted marks; proven by drawing the model back into the photographs |
 | surface cracks | 78 chained traces from the field sketches, 15 to 34 m per block; the photo-based detector was tested and found no better than chance, so it is not relied on |
-| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A 46 t, B 254 t, C 170 t; as drawn (best case) A 85, B 281, C 221 t. Not a promise: section 7 |
+| candidate blocks in straight cuts, chalked cracks assumed 1 m deep, surfaces kept clear by their uncertainty | A 48 t, B 273 t, C 202 t; as drawn (best case) A 88, B 301, C 243 t. Not a promise: section 7 |
 | the biggest unknowns | how deep the chalked cracks go, and how far each surface really is from where it is drawn: the uncertain and as-drawn cases in section 7 bracket it |
 | the biggest finding | the steep joint set that will control how blocks split is on the sketches and not in the radar; this survey (0.5 m lines, 2D, unmigrated) does not constrain steep fractures |
 
@@ -242,7 +242,7 @@ As drawn (best case):
 | C | full depth | 0 | 1 | 17 | 1 | 93 | 73 | 118 | 23 % |
 
 The difference between the two tables is what the survey does not know. On B at 1.0 m
-it is 254 against 281 t; on C 170 against 221 t; on A 46 against 85 t.
+it is 273 against 301 t; on C 202 against 243 t; on A 48 against 88 t.
 
 **Order of cutting and removal.** Cuts are numbered in tree order, root first, the
 east sub-box before the west. Pieces, blocks and waste alike, are then
@@ -253,9 +253,9 @@ any run. For every block the plan lists which pieces must be out first and which
 faces are free when its turn comes. What the plan does not judge is access: whether the
 wire can be threaded, whether the loader can reach, whether a face can be turned. Those
 are site decisions; the page says so where it lists the order. Horizontal cuts need a
-drilled hole at each end for the wire. On B at 1.0 m with uncertainty the plan has 58
-cuts, 18 blocks and 41 waste pieces; the first block out is number 5, a cutter block at x 200 to
-300 cm, y 500 to 600 cm, 0.03 to 1.14 m below the mean surface, after 0 piece(s) above it.
+drilled hole at each end for the wire. On B at 1.0 m with uncertainty the plan has 51
+cuts, 17 blocks and 35 waste pieces; the first block out is number 3, a cutter block at x 200 to
+300 cm, y 500 to 600 cm, 0.03 to 0.64 m below the mean surface, after 0 piece(s) above it.
 
 **East** is set per block from the registered photographs and the client's satellite
 view (`ORIENTATION.md`): every origin corner is the north-western corner of its block
@@ -306,7 +306,7 @@ B-1, C-1 and C-2 are near flat and move by millimetres.
 
 `scripts/uncertainty_mc.py` draws random truths from the same ladder terms (velocity
 factor, time-zero shift per channel, a whole-surface scatter shift, plan registration,
-and a migration fraction between 0 and 1), chalked cracks assumed to reach 1.0 m. For
+and a migration fraction between 0 and 1), chalked cracks assumed to reach 0.5 m. For
 each planned block of both cases, the risk is the share of truths in which a fracture
 passes through it; the risk-weighted tonnage discounts each block by its risk. A
 smaller set of truths is re-planned from scratch with the as-drawn clearance to give
@@ -315,12 +315,12 @@ the spread of what any plan could yield (`tables/uncertainty_mc.json`,
 
 | block | plan | planned t | risk-weighted t | mean block risk | blocks over 20 % risk | re-planned P10 / P50 / P90 t |
 | --- | --- | --- | --- | --- | --- | --- |
-| A | with uncertainty | 46 | 46 | 0 % | 0 | 65 / 68 / 86 |
-| A | as drawn | 85 | 64 | 27 % | 5 | 65 / 68 / 86 |
-| B | with uncertainty | 254 | 217 | 11 % | 5 | 266 / 277 / 291 |
-| B | as drawn | 281 | 240 | 12 % | 5 | 266 / 277 / 291 |
-| C | with uncertainty | 170 | 163 | 5 % | 3 | 192 / 217 / 256 |
-| C | as drawn | 221 | 197 | 9 % | 5 | 192 / 217 / 256 |
+| A | with uncertainty | 48 | 48 | 0 % | 0 | 71 / 74 / 89 |
+| A | as drawn | 88 | 68 | 25 % | 5 | 71 / 74 / 89 |
+| B | with uncertainty | 273 | 247 | 9 % | 4 | 279 / 292 / 314 |
+| B | as drawn | 301 | 267 | 10 % | 4 | 279 / 292 / 314 |
+| C | with uncertainty | 202 | 187 | 8 % | 3 | 216 / 247 / 281 |
+| C | as drawn | 243 | 214 | 12 % | 6 | 216 / 247 / 281 |
 
 ![Re-planned tonnage over random truths](figs/UNCERTAINTY_mc.png)
 
