@@ -133,3 +133,42 @@ under the other. Three benches need not share one joint set, so this is weak, bu
 **A compass bearing on the B0 to B1 line would still close the question outright**, and costs a
 minute on the next visit. Nothing about the cuts depends on it; the order of removal and every
 compass direction in these documents do.
+
+## Block C was turned ninety degrees in the site model, 12 September
+
+The verdict above is unchanged and was never in doubt. This is an error downstream of it, in the
+whole-pit model rather than in the orientation reading, and it was live on the published page.
+
+**What happened.** When the three benches were pinned to corners clicked by hand on the point
+cloud, a helper had to decide which grid axis the first clicked side ran along. It decided by
+length: the side that came closest to the grid's x extent was called x, and the side closest to the
+y extent was called y, with the frame file consulted only to break a tie on Block A, which is
+square. On Block C the clicked corners are loose — the three clicked sides measure 8.83, 9.20 and
+9.12 m against a painted grid of 7.0 by 8.0 — and 8.83 is nearer 8 than 7, so the side that is
+really the 7 m side was labelled y. Block C's grid was thereby transposed, and with it the fifteen
+planned blocks, the survey lines, the picked points and the two C surfaces, all rotated ninety
+degrees on the bench in the site view.
+
+**How it was caught.** By asking a question the data must answer the same way twice: one crew
+painted all three grids, so the three east axes have to be parallel on the ground. Read through the
+frame files they are, at 103.4, 107.7 and 107.8 degrees in the site frame. Read through the pinned
+rings, Block C came out perpendicular to the other two. That is not a disagreement about where east
+is; it is one grid lying on its side.
+
+**The fix.** The frame file now decides the axis labelling on every block, not only on a square one.
+The clicked corners still supply where the grid sits and how it is turned, which is what they are
+good for; they no longer name the axes, which they are not. A clicked length a metre out cannot be
+asked to choose between axes a metre apart.
+
+**After the fix**, the three east axes read 105.0, 103.3 and 103.0 degrees in the site frame — a
+spread of 2.1 degrees, tighter than the 4.4 of the frame files alone, because the clicked corners
+supply the rotation. Block C's outline maps to a clean 7 by 8 rectangle, all 42 planned blocks fall
+inside their benches, and all six surfaces sit wholly within the bench they belong to, C-2 filling
+its own 7 by 8 exactly.
+
+**What was affected and what was not.** Nothing in the plan itself: the blocks are planned in grid
+coordinates and the tonnages, classes, cut counts and clearances are unchanged, as are the dips,
+the dip directions and the stereonet, which are computed per block in that block's own frame. What
+was wrong was where Block C's grid was drawn in the combined site model: the whole-pit view on the
+page, the standalone viewer, and the three films. All have been rebuilt. The per-block A, B and C
+views on the page never used the site frame and were never affected.
