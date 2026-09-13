@@ -27,7 +27,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DEPOSIT = os.path.join(os.path.dirname(HERE), 'deposit_v1.0.0')
 API = 'https://api.figshare.com/v2'
 SKIP = {'MANIFEST_sha256.txt', '.zenodo.json'}
-LICENSE_CC_BY_40 = 1                              # figshare licence id (GET /licenses)
+LICENSE_ID = 6                                    # figshare licence id 6 = GPL 3.0+ (GET /licenses); GPL-3.0-only is what the files say
 CATEGORIES = [25846, 25834, 26833, 26635]         # Applied geophysics; Structural geology and tectonics; Mining engineering; Photogrammetry and remote sensing
 WAIT = (10, 30, 60, 120, 240, 480)
 
@@ -51,7 +51,7 @@ def figshare_metadata(meta):
         i = r['identifier']; refs.append(i if i.startswith('http') else 'https://doi.org/' + i)
     m = dict(title=meta['title'], description=desc, defined_type='dataset',
              authors=[dict(name='Libish Murugesan', orcid_id=c.get('orcid', '')) for c in meta['creators']],
-             categories=CATEGORIES, keywords=meta['keywords'], license=LICENSE_CC_BY_40, references=refs)
+             categories=CATEGORIES, keywords=meta['keywords'], license=LICENSE_ID, references=refs)
     rel = {'isSupplementTo': 'IsSupplementTo', 'isDocumentedBy': 'IsDocumentedBy', 'references': 'References'}
     m['related_materials'] = [dict(identifier=r['identifier'], title=r['identifier'], relation=rel.get(r['relation'], 'References'),
                                    identifier_type='URL' if r['identifier'].startswith('http') else 'DOI', is_linkout=False)
@@ -71,8 +71,8 @@ def main():
     fm = figshare_metadata(meta)
     files = sorted(f for f in os.listdir(DEPOSIT) if f not in SKIP and not f.startswith('.'))
     total = sum(os.path.getsize(os.path.join(DEPOSIT, f)) for f in files)
-    print('deposit : %s\nfiles   : %d, %.1f MB\ntitle   : %s\nlicence : CC BY 4.0 (id %d)\ncategories: %s\nkeywords: %d\nreferences: %d' %
-          (DEPOSIT, len(files), total / 1e6, fm['title'], LICENSE_CC_BY_40, CATEGORIES, len(fm['keywords']), len(fm['references'])))
+    print('deposit : %s\nfiles   : %d, %.1f MB\ntitle   : %s\nlicence : GPL 3.0+ (id %d)\ncategories: %s\nkeywords: %d\nreferences: %d' %
+          (DEPOSIT, len(files), total / 1e6, fm['title'], LICENSE_ID, CATEGORIES, len(fm['keywords']), len(fm['references'])))
     for f in files:
         print('   %8.1f MB  %s' % (os.path.getsize(os.path.join(DEPOSIT, f)) / 1e6, f))
     if a.dry_run:
@@ -110,9 +110,11 @@ def main():
     # ---- draft
     if a.article:
         r = call('GET', '%s/account/articles/%d' % (API, a.article)); r.raise_for_status(); art = r.json()
+        aid = a.article
         if art.get('is_public'):
-            sys.exit('article %d is already published; make a new version from the web page first.' % a.article)
-        aid = a.article; print('\nrefreshing draft %d' % aid)
+            print('\narticle %d is PUBLISHED (version %s): these changes become pending edits; publishing again makes the next version' % (aid, art.get('version')))
+        else:
+            print('\nrefreshing draft %d' % aid)
         r = call('PUT', '%s/account/articles/%d' % (API, aid), json=fm)
         if r.status_code == 400 and 'related_materials' in fm:
             print('   400 %s; retrying without related_materials' % r.text[:120])
@@ -171,6 +173,12 @@ def main():
         ok = remote == local
         print('   %s  %-40s %7.1f MB  %5.0f s  %d parts  md5 %s' % ('ok ' if ok else 'BAD', f, size / 1e6, time.time() - t0, len(up['parts']), remote[:12]))
         if not ok: sys.exit('checksum mismatch on %s: local %s, figshare %s' % (f, local, remote))
+
+    # ---- files on the record that the deposit no longer has
+    for name, f in existing.items():
+        if name not in files:
+            rd = call('DELETE', '%s/account/articles/%d/files/%d' % (API, aid, f['id']))
+            print('   %s  %s (no longer in the deposit)' % ('removed' if rd.status_code < 400 else 'COULD NOT REMOVE', name))
 
     art = call('GET', '%s/account/articles/%d' % (API, aid)).json()
     print('\nDRAFT ready, not published.\n  article id   : %d\n  private link : %s\n  reserved DOI : %s  (resolves only after publishing)\n'

@@ -183,8 +183,7 @@ def main():
         'README.md': os.path.join(TOP, 'README_deposit.md'),
         'PUBLIC_AUDIT.md': os.path.join(TOP, 'PUBLIC_AUDIT.md'),
         'NOTICE.md': os.path.join(TOP, 'NOTICE.md'),
-        'LICENSE-data-CC-BY-4.0.txt': os.path.join(TOP, 'LICENSE-data-CC-BY-4.0.txt'),
-        'LICENSE-code-GPL-3.0.txt': os.path.join(TOP, 'LICENSE-code-GPL-3.0.txt'),
+        'LICENSE-GPL-3.0.txt': os.path.join(TOP, 'LICENSE-GPL-3.0.txt'),
     }
     for dst, src in root_files.items():
         if not os.path.exists(src): sys.exit('missing root file %s' % src)
@@ -202,7 +201,7 @@ def main():
         "version": VERSION,
         "language": "eng",
         "access_right": "open",
-        "license": "cc-by-4.0",
+        "license": "gpl-3.0",
         "creators": [{"name": "Murugesan, Libish", "orcid": "0009-0004-3238-4202"}],
         "contributors": [
             {"name": "PARSAN Overseas Pvt Ltd", "type": "DataCollector"},
@@ -225,14 +224,14 @@ def main():
         "dates": [{"start": "2026-08-18", "end": "2026-08-20", "type": "Collected", "description": "GPR survey and photogrammetry on site"}],
         "locations": [{"place": "Kuppam, Chittoor district, Andhra Pradesh, India",
                        "description": "Nearest town. The quarry's position is withheld at the owner's discretion."}],
-        "notes": ("Data licence CC BY 4.0. The code in 08_code.zip is GPL-3.0-only, as in the linked repository. "
+        "notes": ("Everything in this deposit is licensed GPL-3.0-only, as in the linked repository. "
                   "The contractor's report, the raw SEG-Y records, the full photogrammetry meshes, photographs of people, "
                   "correspondence and commercial figures are not part of this deposit; see PUBLIC_AUDIT.md."),
     }
     json.dump(meta, io.open(os.path.join(ROOT, '.zenodo.json'), 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
     cff = ('cff-version: 1.2.0\ntitle: "%s"\nmessage: "If you use this dataset, please cite it using this metadata. The DOI is on the figshare record page."\n'
            'type: dataset\nauthors:\n  - given-names: Libish\n    family-names: Murugesan\n'
-           '    orcid: "https://orcid.org/0009-0004-3238-4202"\ndoi: "%s"\nversion: "%s"\ndate-released: "%s"\nlicense: CC-BY-4.0\n'
+           '    orcid: "https://orcid.org/0009-0004-3238-4202"\ndoi: "%s"\nversion: "%s"\ndate-released: "%s"\nlicense: GPL-3.0-only\n'
            'repository-code: "%s"\nurl: "%s"\nkeywords:\n  - ground-penetrating radar\n  - dimension stone\n  - dolerite\n'
            '  - fracture mapping\n  - block planning\n') % (TITLE, DOI, VERSION, date.today().isoformat(), REPO, SITE)
     io.open(os.path.join(ROOT, 'CITATION.cff'), 'w', encoding='utf-8').write(cff)
