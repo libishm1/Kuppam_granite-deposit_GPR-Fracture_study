@@ -1,0 +1,48 @@
+{
+ "window_ns": [
+  24.0,
+  38.0
+ ],
+ "edge_m": 0.3,
+ "dedup_m": 0.15,
+ "peak": 1.45,
+ "tol_m": 0.2,
+ "shift_m": [
+  1.3413004622909905,
+  0.43375717939581926
+ ],
+ "results": {
+  "as drawn, along-track from the start": {
+   "n_pred": 118,
+   "precision": 0.153,
+   "null_precision": 0.149,
+   "null_sd": 0.031,
+   "z": 0.11,
+   "recall": 0.261
+  },
+  "as drawn, along-track reversed": {
+   "n_pred": 118,
+   "precision": 0.144,
+   "null_precision": 0.149,
+   "null_sd": 0.035,
+   "z": -0.15,
+   "recall": 0.348
+  },
+  "transposed, along-track from the start": {
+   "n_pred": 119,
+   "precision": 0.118,
+   "null_precision": 0.158,
+   "null_sd": 0.032,
+   "z": -1.25,
+   "recall": 0.239
+  },
+  "transposed, along-track reversed": {
+   "n_pred": 119,
+   "precision": 0.134,
+   "null_precision": 0.157,
+   "null_sd": 0.033,
+   "z": -0.69,
+   "recall": 0.261
+  }
+ }
+}

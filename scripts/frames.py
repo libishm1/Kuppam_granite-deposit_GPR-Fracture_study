@@ -67,10 +67,21 @@ OV['B'] = dict(origin_local_units=o.tolist(), xdir_local=xh.tolist(), ydir_local
 # ------------------------------------------------------------------ C
 g = json.load(open(T('grid_Cfull_red.json'))); K = np.array(g['corners_xy']); sc = g['scale_m_per_unit']
 k2, k1, k3 = K[2], K[1], K[3]
-xd = (k1 - k2) / np.linalg.norm(k1 - k2); yd = (k3 - k2) / np.linalg.norm(k3 - k2)
-print('C: origin k2 (%.2f, %.2f); x toward k1, %.2f m; y toward k3, %.2f m; angle between %.1f deg; %s-handed with z up'
-      % (*k2, np.linalg.norm(k1 - k2) * sc, np.linalg.norm(k3 - k2) * sc, np.degrees(np.arccos(xd @ yd)),
+# 12 September: the lattice fit has its 7 m and 8 m sides the wrong way round. On the live Block C
+# page the overlay falls a metre short along C0-C1 (the 8 m side, client's observation) and, in the
+# site model, the ring pinned to corners clicked on the rock has its 8 m side along the k2->k1
+# direction and its 7 m side along k2->k3; with the axes assigned that way the frame's four corners
+# land on the pinned ring to 0.2 m (they were 10-11 m off before) and C's east side comes out
+# parallel to A's and B's. So: y (8 m) runs toward k1, x (7 m) toward k3. Origin k2 is unchanged;
+# the grid is right-handed with z up, like B.
+xd = (k3 - k2) / np.linalg.norm(k3 - k2); yd = (k1 - k2) / np.linalg.norm(k1 - k2)
+print('C: origin k2 (%.2f, %.2f); x toward k3 (7 m side), %.2f m in the fit; y toward k1 (8 m side), %.2f m in the fit; angle between %.1f deg; %s-handed with z up'
+      % (*k2, np.linalg.norm(k3 - k2) * sc, np.linalg.norm(k1 - k2) * sc, np.degrees(np.arccos(xd @ yd)),
          'right' if xd[0] * yd[1] - xd[1] * yd[0] > 0 else 'LEFT'))
-OV['C'] = dict(origin_local_units=k2.tolist(), xdir_local=xd.tolist(), ydir_local=yd.tolist(), scale_m_per_unit=sc,
-               source='C0 circle-cross in 20260819_182441 back-projected to 1.1 m outside lattice corner k2; 7 m side to k1, 8 m side to k3')
+# The origin is ON the C0 circle-cross, back-projected from 20260819_182441 (px 470,3350): 1.10 m from lattice
+# corner k2 at azimuth 165.8 in local units, as committed in 10bd340e and as B0 sits on its own cross. It is
+# 0.22 m from the C0 corner the client clicked on the rock in the site model.
+c0 = np.array([2.8455937859733207, 4.9454151364694034])
+OV['C'] = dict(origin_local_units=c0.tolist(), xdir_local=xd.tolist(), ydir_local=yd.tolist(), scale_m_per_unit=sc,
+               source='C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; y (8 m side) toward k1, x (7 m side) toward k3 - corrected 12 Sep from the live-page overlay falling a metre short along C0-C1 and the pinned ring; the lattice fit had the two sides transposed')
 json.dump(OV, open(T('frame_override.json'), 'w'), indent=1); print('wrote tables/frame_override.json')

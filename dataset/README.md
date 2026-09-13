@@ -93,7 +93,7 @@ term of the uncertainty. See `velocity/README.md`.
 
 ## Site: `site/`
 
-`satellite_google_maps_client_2026-09-11.jpg`: the client's Google Maps screenshot (north up) used in `ORIENTATION.md` to place the ramp on the north rim at the east end of the pit. No coordinates are attached.
+The client's Google Maps screenshot (north up) was used in `ORIENTATION.md` to place the ramp on the north rim at the east end of the pit. It is third-party imagery and is not redistributed; the folder is empty in the public copies (removed 13 September 2026). No coordinates were attached to it.
 
 ## Other folders
 

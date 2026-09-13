@@ -89,7 +89,7 @@ for blk in 'ABC':
                    report_origin_xy=corner.tolist(), report_x_dir=xd.tolist(), report_y_dir=yd.tolist(),
                    grid_m=[W, H], scale_m_per_mesh_unit=sc, mesh_units_to_bench='L = ((P - plane_c) @ plane_R.T) * scale',
                    plane_R=R.tolist(), plane_c=c.tolist(), placement=r['placement'], n_valid_placements=r['n_valid_placements'],
-                   origin_corner_ambiguity={'A': '4-fold (square), unverified', 'B': '2-fold (180 deg), unverified', 'C': '2-fold, k3=C0 chosen from paint density, likely'}[blk]),
+                   origin_corner_ambiguity={'A': '4-fold (square), unverified', 'B': '2-fold (180 deg), unverified', 'C': 'resolved 12 Sep: origin on the C0 cross, y (8 m side) along the ramp-facing C0-C1 edge, x (7 m) perpendicular; right-handed; the lattice fit had the sides transposed, corrected in frames.py'}[blk]),
               open(os.path.join(od, 'FRAME.json'), 'w'), indent=1)
     summary.append((blk, len(Q), nv, sc))
     print('Block %s: %d cloud points, surfaces %s, scale %.4f' % (blk, len(Q), nv, sc))
@@ -104,7 +104,7 @@ pk = os.path.join(DS, 'picks'); os.makedirs(pk, exist_ok=True)
 for f in ('PICKS_C2_adjusted.csv', 'PICKS_C1_raw.csv', 'PICKS_B1_raw.csv', 'PICKS_B2_raw.csv', 'PICKS_A1_final.csv', 'PICKS_A2_final.csv', 'GEOMETRY_resolved.csv', 'line_inventory.csv'):
     shutil.copy(os.path.join(OUT, 'tables', f), pk)
 rg = os.path.join(DS, 'registration'); os.makedirs(rg, exist_ok=True)
-for f in ('registration.json', 'grid_A_paint.json', 'grid_B_lum.json', 'grid_Cfull_red.json'): shutil.copy(os.path.join(OUT, 'tables', f), rg)
+for f in ('registration.json', 'frame_override.json', 'grid_A_paint.json', 'grid_B_lum.json', 'grid_Cfull_red.json'): shutil.copy(os.path.join(OUT, 'tables', f), rg)   # frame_override added 13 Sep: it was drifting from tables/
 for f in ('REGISTERED_A.png', 'REGISTERED_B.png', 'REGISTERED_C.png', 'grid_A_paint.png', 'grid_B_lum.png', 'grid_Cfull_red.png', 'MODEL_overview.png'): shutil.copy(os.path.join(OUT, 'figs', f), rg)
 json.dump({'A': 0, 'B': 0, 'C': 0}, open(os.path.join(rg, 'registration_choice.json'), 'w'), indent=1)
 

@@ -1,0 +1,154 @@
+{
+ "block": "B",
+ "px_m": 0.02,
+ "slab_m": 0.15,
+ "sigmas_px": [
+  2,
+  3,
+  5,
+  8
+ ],
+ "thr": [
+  0.06,
+  0.12
+ ],
+ "note": "a trace on a single flat face fixes a line, not a plane; pairing across faces is done in traces_to_planes.py",
+ "faces": [
+  {
+   "face": 0,
+   "area_m2": 18.74,
+   "dip_deg": 89.7,
+   "dip_dir_azimuth_deg": 91.4,
+   "centre": [
+    2.04,
+    -9.33,
+    1.79
+   ],
+   "normal": [
+    0.0248,
+    0.9997,
+    0.0051
+   ],
+   "raster": {
+    "W": 610,
+    "H": 176,
+    "px": 0.02,
+    "fill": 0.43,
+    "n_points": 97751
+   },
+   "n_traces": 0,
+   "traces": []
+  },
+  {
+   "face": 1,
+   "area_m2": 11.88,
+   "dip_deg": 89.5,
+   "dip_dir_azimuth_deg": 271.2,
+   "centre": [
+    3.87,
+    -9.35,
+    2.77
+   ],
+   "normal": [
+    -0.0209,
+    -0.9997,
+    0.0081
+   ],
+   "raster": {
+    "W": 596,
+    "H": 179,
+    "px": 0.02,
+    "fill": 0.434,
+    "n_points": 97851
+   },
+   "n_traces": 1,
+   "traces": [
+    {
+     "source": "relief",
+     "length_m": 0.81,
+     "npx": 99,
+     "straightness": 0.893,
+     "rms_m": 0.114,
+     "p0": [
+      -0.384,
+      -9.273,
+      1.261
+     ],
+     "p1": [
+      0.323,
+      -9.291,
+      0.87
+     ]
+    }
+   ]
+  },
+  {
+   "face": 2,
+   "area_m2": 8.88,
+   "dip_deg": 87.2,
+   "dip_dir_azimuth_deg": 273.5,
+   "centre": [
+    8.44,
+    -9.97,
+    2.07
+   ],
+   "normal": [
+    0.0606,
+    0.9969,
+    -0.0494
+   ],
+   "raster": {
+    "W": 667,
+    "H": 167,
+    "px": 0.02,
+    "fill": 0.247,
+    "n_points": 60198
+   },
+   "n_traces": 0,
+   "traces": []
+  },
+  {
+   "face": 3,
+   "area_m2": 7.78,
+   "dip_deg": 89.5,
+   "dip_dir_azimuth_deg": 270.8,
+   "centre": [
+    -3.12,
+    -8.84,
+    1.99
+   ],
+   "normal": [
+    0.0143,
+    0.9999,
+    -0.0093
+   ],
+   "raster": {
+    "W": 697,
+    "H": 183,
+    "px": 0.02,
+    "fill": 0.139,
+    "n_points": 37247
+   },
+   "n_traces": 1,
+   "traces": [
+    {
+     "source": "colour",
+     "length_m": 0.85,
+     "npx": 46,
+     "straightness": 0.998,
+     "rms_m": 0.019,
+     "p0": [
+      -1.845,
+      -8.857,
+      2.148
+     ],
+     "p1": [
+      -2.655,
+      -8.843,
+      2.419
+     ]
+    }
+   ]
+  }
+ ]
+}

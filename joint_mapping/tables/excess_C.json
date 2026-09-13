@@ -1,0 +1,45 @@
+{
+ "block": "C",
+ "gap_max_m": 8.0,
+ "n_observed": 22,
+ "null_draws": 200,
+ "null_per_draw": 8.27,
+ "dip_bands": [
+  {
+   "dip_from": 0,
+   "dip_to": 20,
+   "observed": 4,
+   "null_per_draw": 1.52,
+   "excess": 2.5
+  },
+  {
+   "dip_from": 20,
+   "dip_to": 40,
+   "observed": 4,
+   "null_per_draw": 1.96,
+   "excess": 2.0
+  },
+  {
+   "dip_from": 40,
+   "dip_to": 60,
+   "observed": 9,
+   "null_per_draw": 1.82,
+   "excess": 7.2
+  },
+  {
+   "dip_from": 60,
+   "dip_to": 75,
+   "observed": 0,
+   "null_per_draw": 1.48,
+   "excess": -1.5
+  },
+  {
+   "dip_from": 75,
+   "dip_to": 90,
+   "observed": 5,
+   "null_per_draw": 1.48,
+   "excess": 3.5
+  }
+ ],
+ "note": "the excess is the part of the observed count that the null does not explain; individual planes are still not separable into real and accidental"
+}

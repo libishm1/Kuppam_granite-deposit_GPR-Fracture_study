@@ -13,6 +13,8 @@ import io, re, sys, os
 
 P = 'D:/code_ws/outputs/2026-09-09/gpr_raw_audit/web/index.template.html'
 SHEET = 'D:/code_ws/outputs/2026-09-09/gpr_raw_audit/TAMIL_review.md'
+BOUND = chr(39) + '],'          # the end of one string and the start of the next key
+OPEN = ":['"
 PAT = re.compile(r"([A-Za-z_0-9]+):\['(.*?)','(.*?)'\](?=,|\n|\})", re.S)
 
 # where each key shows up, so a reviewer can find it on screen
@@ -68,9 +70,18 @@ def out():
 def back():
     t = io.open(P, encoding='utf-8').read()
     sheet = io.open(SHEET, encoding='utf-8').read()
-    new = {}
+    new, skipped = {}, []
     for m in re.finditer(r'^\| `([A-Za-z_0-9]+)` \| (.*?) \| (.*?) \|$', sheet, re.M):
-        new[m.group(1)] = m.group(3).replace('\\|', '|')
+        k, en, ta = m.group(1), m.group(2), m.group(3).replace('\\|', '|')
+        # a row that runs across a string boundary came from a bad extraction, and
+        # writing it back would rewrite the neighbouring keys as well. An escaped
+        # apostrophe inside one string is fine and must not trip this.
+        if BOUND in ta or BOUND in en or OPEN in ta or OPEN in en:
+            skipped.append(k)
+            continue
+        new[k] = ta
+    if skipped:
+        print('skipped %d malformed row(s): %s' % (len(skipped), ', '.join(skipped)))
     changed = 0
     def repl(m):
         global changed

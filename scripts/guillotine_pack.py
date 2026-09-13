@@ -20,8 +20,8 @@ MINH = 0.30                # a leaf with less usable height than this is waste
 # East on the painted grid. The client, who laid the grids, reads east along the short side of Block B from B0 toward B1,
 # i.e. grid +y, and the same painting convention and orientation on A and C. PARSAN's report reads increasing x as east.
 # Carried as the client's reading; a compass on site settles it. Changing this flips the order, not the cuts.
-EAST = {'A': '+x', 'B': '+y', 'C': '+x'}
-EAST_NOTE = "from the registered photographs and the satellite view (ORIENTATION.md): origin at the north-western corner, bench looking east to the ramp; B has +y east, A and C +x east; PARSAN's report reads +x on B; not compass-checked"
+EAST = {'A': '+x', 'B': '+y', 'C': '+y'}   # 12 Sep. Origin is the north-west corner on every bench and both axes run into the bench, but which axis runs east differs: on A the X-line numerals run down the WEST edge from A0 (client, from the site: '9, 12...' from the NW to the SW corner), so X-lines are stacked north-south and run east, +x east, +y south, left-handed. On B and C +y is east (6 m and 8 m sides, verified). See ORIENTATION.md.
+EAST_NOTE = "from the site photographs, the surveyors' sketch correlated to the photogrammetry mesh, and the satellite view (ORIENTATION.md): origin at the north-western corner, bench looking east to the ramp; A has +x east, B and C +y east; corner 0 to 1 runs east on all three benches; PARSAN's report reads +x on B; not compass-checked"
 blocks = sys.argv[1:] or ['A', 'B', 'C']
 
 

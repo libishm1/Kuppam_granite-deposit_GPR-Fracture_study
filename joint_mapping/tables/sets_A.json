@@ -1,0 +1,100 @@
+{
+ "all": {
+  "n_sets": 2,
+  "silhouette": 0.811,
+  "sets": [
+   {
+    "set": 2,
+    "n_facets": 175,
+    "area_m2": 287.7,
+    "dip_deg": 9.4,
+    "dip_dir_grid_bearing_deg": 12.5,
+    "dip_dir_azimuth_deg": 167.5,
+    "strike_azimuth_deg": 77.5,
+    "fisher_K": 13.9,
+    "cone95_deg": 3.0,
+    "tightness": 0.872,
+    "largest_facet_m2": 62.85,
+    "median_normal_spacing_m": 0.06,
+    "spacing_pairs": 175,
+    "mean_pole": [
+     0.0356,
+     0.1601,
+     0.9865
+    ]
+   },
+   {
+    "set": 1,
+    "n_facets": 48,
+    "area_m2": 77.1,
+    "dip_deg": 80.2,
+    "dip_dir_grid_bearing_deg": 345.8,
+    "dip_dir_azimuth_deg": 194.2,
+    "strike_azimuth_deg": 104.2,
+    "fisher_K": 10.1,
+    "cone95_deg": 6.8,
+    "tightness": 0.828,
+    "largest_facet_m2": 28.36,
+    "median_normal_spacing_m": 0.06,
+    "spacing_pairs": 48,
+    "mean_pole": [
+     -0.2424,
+     0.9551,
+     0.1701
+    ]
+   }
+  ]
+ },
+ "joints_only": {
+  "n_sets": 2,
+  "silhouette": 0.803,
+  "sets": [
+   {
+    "set": 2,
+    "n_facets": 168,
+    "area_m2": 81.3,
+    "dip_deg": 10.0,
+    "dip_dir_grid_bearing_deg": 12.7,
+    "dip_dir_azimuth_deg": 167.3,
+    "strike_azimuth_deg": 77.3,
+    "fisher_K": 13.5,
+    "cone95_deg": 3.1,
+    "tightness": 0.868,
+    "largest_facet_m2": 3.94,
+    "median_normal_spacing_m": 0.06,
+    "spacing_pairs": 168,
+    "mean_pole": [
+     0.0381,
+     0.1697,
+     0.9848
+    ]
+   },
+   {
+    "set": 1,
+    "n_facets": 45,
+    "area_m2": 20.5,
+    "dip_deg": 79.3,
+    "dip_dir_grid_bearing_deg": 345.5,
+    "dip_dir_azimuth_deg": 194.5,
+    "strike_azimuth_deg": 104.5,
+    "fisher_K": 9.5,
+    "cone95_deg": 7.3,
+    "tightness": 0.819,
+    "largest_facet_m2": 3.48,
+    "median_normal_spacing_m": 0.06,
+    "spacing_pairs": 45,
+    "mean_pole": [
+     -0.2464,
+     0.9514,
+     0.185
+    ]
+   }
+  ]
+ },
+ "flagged_cut_faces": 10,
+ "cut_face_rule": "area > 4.0 m2 and rms < 25 mm",
+ "block": "A",
+ "east_axis": "+x",
+ "dip_frame": "from this block's bench plane, not gravity; the bench tilts 1 to 2 deg",
+ "azimuth_note": "via the east axis of ORIENTATION.md; not compass-measured"
+}

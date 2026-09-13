@@ -1,0 +1,10 @@
+{
+ "raster_px_m": 0.25,
+ "w": 196,
+ "h": 192,
+ "floor_cells": 12067,
+ "long_axis_grid_bearing_deg": 101.9,
+ "elongation": 1.6,
+ "ramp_offset_along_long_axis_m": 1.4,
+ "note": "grid bearing 0 = +y, 90 = +x in Block C frame"
+}

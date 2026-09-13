@@ -1,0 +1,45 @@
+{
+ "frame": "Block A bench frame; grid bearings, 0 = +y, 90 = +x; +x is east per the field (faces west of A at -x dip toward +x)",
+ "selection": "planar (top half by planarity), dip 25-60 deg",
+ "faces_west_of_A": {
+  "pct_by_dip_direction": {
+   "+y": 0.0,
+   "+x+y": 0.4,
+   "+x": 73.2,
+   "+x-y": 17.4,
+   "-y": 8.6,
+   "-x-y": 0.3,
+   "-x": 0.0,
+   "-x+y": 0.0
+  },
+  "n": 942,
+  "median_dip": 38.65494486673207
+ },
+ "faces_around_A": {
+  "pct_by_dip_direction": {
+   "+y": 5.0,
+   "+x+y": 5.6,
+   "+x": 27.0,
+   "+x-y": 17.6,
+   "-y": 26.3,
+   "-x-y": 4.5,
+   "-x": 5.1,
+   "-x+y": 8.9
+  },
+  "n": 8361,
+  "median_dip": 33.79135534372117
+ },
+ "gpr_sheets": {
+  "A-1": {
+   "dip": 28.8,
+   "grid_bearing": 328.0,
+   "grid_bearing_if_picks_transposed": 122.0
+  },
+  "A-2": {
+   "dip": 35.1,
+   "grid_bearing": 358.6,
+   "grid_bearing_if_picks_transposed": 91.39999999999998
+  }
+ },
+ "reading": "rock faces dip toward +x / +x-y; GPR sheets as drawn dip toward +y / -x+y; transposing the picks puts the sheets on the rock"
+}

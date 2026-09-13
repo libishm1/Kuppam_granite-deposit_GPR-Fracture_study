@@ -1,0 +1,224 @@
+{
+ "A": {
+  "n_facets": 223,
+  "facet_z_range": [
+   -0.26,
+   5.48
+  ],
+  "features": [
+   {
+    "feature": "A1",
+    "dip_deg": 28.8,
+    "dip_dir_azimuth_deg": 212.0,
+    "plane_rms_m": 0.018,
+    "picked_z_range": [
+     -3.29,
+     0.03
+    ],
+    "n_facets": 223,
+    "orientation_match": 28,
+    "orientation_null_mean": 12.0,
+    "orientation_p": 0.114,
+    "proximity_match": 17,
+    "proximity_null_mean": 10.5,
+    "proximity_p": 0.282,
+    "continuation_match": 1,
+    "continuation_area_m2": 0.64,
+    "continuation_spin_null_mean": 0.61,
+    "continuation_spin_p": 0.386,
+    "continuation_shift_null_mean": 0.82,
+    "continuation_shift_p": 0.354,
+    "where": {
+     "n": 1,
+     "on_floor": 1,
+     "on_wall": 0,
+     "inside_footprint": 0,
+     "wall_area_m2": 0.0,
+     "z_min": -0.06,
+     "z_max": -0.06
+    }
+   },
+   {
+    "feature": "A2",
+    "dip_deg": 35.1,
+    "dip_dir_azimuth_deg": 181.4,
+    "plane_rms_m": 0.025,
+    "picked_z_range": [
+     -1.85,
+     -0.28
+    ],
+    "n_facets": 223,
+    "orientation_match": 29,
+    "orientation_null_mean": 7.8,
+    "orientation_p": 0.064,
+    "proximity_match": 1,
+    "proximity_null_mean": 6.7,
+    "proximity_p": 0.724,
+    "continuation_match": 0,
+    "continuation_area_m2": 0.0,
+    "continuation_spin_null_mean": 0.27,
+    "continuation_spin_p": 1.0,
+    "continuation_shift_null_mean": 0.38,
+    "continuation_shift_p": 1.0,
+    "where": {
+     "n": 0,
+     "on_floor": 0,
+     "on_wall": 0,
+     "inside_footprint": 0,
+     "wall_area_m2": 0.0
+    }
+   }
+  ]
+ },
+ "B": {
+  "n_facets": 279,
+  "facet_z_range": [
+   -0.32,
+   3.64
+  ],
+  "features": [
+   {
+    "feature": "B1",
+    "dip_deg": 7.8,
+    "dip_dir_azimuth_deg": 183.8,
+    "plane_rms_m": 0.061,
+    "picked_z_range": [
+     -1.04,
+     -0.43
+    ],
+    "n_facets": 279,
+    "orientation_match": 77,
+    "orientation_null_mean": 78.0,
+    "orientation_p": 0.534,
+    "proximity_match": 53,
+    "proximity_null_mean": 20.8,
+    "proximity_p": 0.008,
+    "continuation_match": 10,
+    "continuation_area_m2": 102.33,
+    "continuation_spin_null_mean": 16.39,
+    "continuation_spin_p": 0.642,
+    "continuation_shift_null_mean": 2.89,
+    "continuation_shift_p": 0.136,
+    "where": {
+     "n": 10,
+     "on_floor": 10,
+     "on_wall": 0,
+     "inside_footprint": 0,
+     "wall_area_m2": 0.0,
+     "z_min": -0.29,
+     "z_max": 0.05
+    }
+   },
+   {
+    "feature": "B2",
+    "dip_deg": 20.2,
+    "dip_dir_azimuth_deg": 76.9,
+    "plane_rms_m": 0.077,
+    "picked_z_range": [
+     -3.86,
+     -1.78
+    ],
+    "n_facets": 279,
+    "orientation_match": 61,
+    "orientation_null_mean": 28.3,
+    "orientation_p": 0.05,
+    "proximity_match": 62,
+    "proximity_null_mean": 13.0,
+    "proximity_p": 0.0,
+    "continuation_match": 22,
+    "continuation_area_m2": 33.63,
+    "continuation_spin_null_mean": 5.0,
+    "continuation_spin_p": 0.034,
+    "continuation_shift_null_mean": 0.88,
+    "continuation_shift_p": 0.0,
+    "where": {
+     "n": 22,
+     "on_floor": 13,
+     "on_wall": 9,
+     "inside_footprint": 0,
+     "wall_area_m2": 7.93,
+     "z_min": -0.04,
+     "z_max": 0.69
+    }
+   }
+  ]
+ },
+ "C": {
+  "n_facets": 1042,
+  "facet_z_range": [
+   -0.52,
+   12.78
+  ],
+  "features": [
+   {
+    "feature": "C1",
+    "dip_deg": 6.6,
+    "dip_dir_azimuth_deg": 153.8,
+    "plane_rms_m": 0.064,
+    "picked_z_range": [
+     -1.17,
+     -0.26
+    ],
+    "n_facets": 1042,
+    "orientation_match": 220,
+    "orientation_null_mean": 215.4,
+    "orientation_p": 0.21,
+    "proximity_match": 116,
+    "proximity_null_mean": 37.2,
+    "proximity_p": 0.0,
+    "continuation_match": 59,
+    "continuation_area_m2": 282.58,
+    "continuation_spin_null_mean": 36.43,
+    "continuation_spin_p": 0.11,
+    "continuation_shift_null_mean": 4.49,
+    "continuation_shift_p": 0.0,
+    "where": {
+     "n": 59,
+     "on_floor": 50,
+     "on_wall": 9,
+     "inside_footprint": 0,
+     "wall_area_m2": 6.29,
+     "z_min": -0.13,
+     "z_max": 0.72
+    }
+   },
+   {
+    "feature": "C2",
+    "dip_deg": 2.5,
+    "dip_dir_azimuth_deg": 269.4,
+    "plane_rms_m": 0.12,
+    "picked_z_range": [
+     -3.74,
+     -2.72
+    ],
+    "n_facets": 1042,
+    "orientation_match": 225,
+    "orientation_null_mean": 226.2,
+    "orientation_p": 0.614,
+    "proximity_match": 0,
+    "proximity_null_mean": 47.6,
+    "proximity_p": 1.0,
+    "continuation_match": 0,
+    "continuation_area_m2": 0.0,
+    "continuation_spin_null_mean": 0.0,
+    "continuation_spin_p": 1.0,
+    "continuation_shift_null_mean": 10.89,
+    "continuation_shift_p": 1.0,
+    "where": {
+     "n": 0,
+     "on_floor": 0,
+     "on_wall": 0,
+     "inside_footprint": 0,
+     "wall_area_m2": 0.0
+    }
+   }
+  ]
+ },
+ "settings": {
+  "angle_tol_deg": 15.0,
+  "distance_tol_m": 0.3,
+  "n_draws": 500,
+  "nulls": "spin keeps dip and re-draws dip direction; shift keeps orientation and moves the plane along its normal within the elevation range the photogrammetry covers",
+  "frame": "each block bench frame, metres, z up, bench top at 0; dip from the bench plane, not gravity"
+ }
+}

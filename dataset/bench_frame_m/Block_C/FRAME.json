@@ -6,12 +6,12 @@
   3.3357344406444587
  ],
  "report_x_dir": [
-  0.9728453247000254,
-  -0.23145620365266087
- ],
- "report_y_dir": [
   -0.2314562036526609,
   -0.9728453247000255
+ ],
+ "report_y_dir": [
+  0.9728453247000254,
+  -0.23145620365266087
  ],
  "grid_m": [
   7.0,
@@ -41,7 +41,7 @@
   2.459505884759754,
   -7.757465178018546
  ],
- "placement": "LABELS: C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; x toward k1 (7 m), y toward k3 (8 m); lattice angles and spacing unchanged",
+ "placement": "LABELS: C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; y (8 m side) toward k1, x (7 m side) toward k3 - corrected 12 Sep from the live-page overlay falling a metre short along C0-C1 and the pinned ring; the lattice fit had the two sides transposed",
  "n_valid_placements": 1,
- "origin_corner_ambiguity": "2-fold, k3=C0 chosen from paint density, likely"
+ "origin_corner_ambiguity": "resolved 12 Sep: origin on the C0 cross, y (8 m side) along the ramp-facing C0-C1 edge, x (7 m) perpendicular; right-handed; the lattice fit had the sides transposed, corrected in frames.py"
 }

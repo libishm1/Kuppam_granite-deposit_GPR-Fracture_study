@@ -65,14 +65,14 @@
    4.9454151364694034
   ],
   "xdir_local": [
-   0.9728453247000254,
-   -0.23145620365266087
-  ],
-  "ydir_local": [
    -0.2314562036526609,
    -0.9728453247000255
   ],
+  "ydir_local": [
+   0.9728453247000254,
+   -0.23145620365266087
+  ],
   "scale_m_per_unit": 0.6745105008567356,
-  "source": "C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; x toward k1 (7 m), y toward k3 (8 m); lattice angles and spacing unchanged"
+  "source": "C0 circle-cross in 20260819_182441 (px 470,3350) back-projected; origin ON the cross, as B0 is on its cross; y (8 m side) toward k1, x (7 m side) toward k3 - corrected 12 Sep from the live-page overlay falling a metre short along C0-C1 and the pinned ring; the lattice fit had the two sides transposed"
  }
 }

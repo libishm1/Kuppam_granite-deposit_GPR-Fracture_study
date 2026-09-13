@@ -1,0 +1,152 @@
+{
+ "A": {
+  "origin_model": [
+   -10.945,
+   6.503,
+   0.1
+  ],
+  "corners_model": [
+   [
+    -10.945,
+    6.503,
+    0.1
+   ],
+   [
+    -5.674,
+    4.931,
+    0.1
+   ],
+   [
+    -7.246,
+    -0.34,
+    0.1
+   ],
+   [
+    -12.516,
+    1.232,
+    0.1
+   ]
+  ],
+  "picked_side_lengths_m": [
+   5.44,
+   5.57,
+   5.68,
+   5.53
+  ],
+  "surveyed_m": [
+   5.5,
+   5.5
+  ],
+  "first_side_is": "the 5.5 m side",
+  "first_side_bearing_from_model_x_deg": 343.4,
+  "rotation_deg_about_vertical": 253.4,
+  "fit_rms_m": 0.09,
+  "corner_residuals_m": [
+   0.056,
+   0.071,
+   0.146,
+   0.054
+  ],
+  "bench_z_m": 0.1
+ },
+ "B": {
+  "origin_model": [
+   -4.598,
+   5.004,
+   0.03
+  ],
+  "corners_model": [
+   [
+    -4.598,
+    5.004,
+    0.03
+   ],
+   [
+    1.15,
+    3.283,
+    0.03
+   ],
+   [
+    -1.575,
+    -5.818,
+    0.03
+   ],
+   [
+    -7.323,
+    -4.096,
+    0.03
+   ]
+  ],
+  "picked_side_lengths_m": [
+   6.21,
+   8.98,
+   6.06,
+   9.03
+  ],
+  "surveyed_m": [
+   9.5,
+   6.0
+  ],
+  "first_side_is": "the 6.0 m side",
+  "first_side_bearing_from_model_x_deg": 343.3,
+  "rotation_deg_about_vertical": 253.33,
+  "fit_rms_m": 0.281,
+  "corner_residuals_m": [
+   0.219,
+   0.353,
+   0.188,
+   0.33
+  ],
+  "bench_z_m": 0.03
+ },
+ "C": {
+  "origin_model": [
+   2.081,
+   2.45,
+   0.045
+  ],
+  "corners_model": [
+   [
+    2.081,
+    2.45,
+    0.045
+   ],
+   [
+    9.85,
+    0.542,
+    0.045
+   ],
+   [
+    8.181,
+    -6.256,
+    0.045
+   ],
+   [
+    0.412,
+    -4.348,
+    0.045
+   ]
+  ],
+  "picked_side_lengths_m": [
+   8.74,
+   9.75,
+   9.37,
+   9.01
+  ],
+  "surveyed_m": [
+   7.0,
+   8.0
+  ],
+  "first_side_is": "the 8.0 m side",
+  "first_side_bearing_from_model_x_deg": 346.2,
+  "rotation_deg_about_vertical": 256.21,
+  "fit_rms_m": 1.323,
+  "corner_residuals_m": [
+   1.014,
+   1.472,
+   1.48,
+   1.269
+  ],
+  "bench_z_m": 0.045
+ }
+}

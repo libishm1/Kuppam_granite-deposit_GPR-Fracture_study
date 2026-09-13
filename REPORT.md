@@ -408,7 +408,7 @@ What helps, in order of cost:
 | `tables/uncertainty.json`, `model/unc/` | the tolerance ladder per surface, confidence in the clearances, migrated planes |
 | `tables/uncertainty_mc.json`, `figs/UNCERTAINTY_mc.png` | Monte Carlo block risk and re-planned yield spread |
 | `dataset/velocity/` | PARSAN's slab calibration (Table 1), the diffraction scan, the first-break times |
-| `dataset/site/` | the client's satellite screenshot used for orientation |
+| (satellite view) | the client's Google Maps screenshot used for orientation is third-party imagery and is not redistributed; `ORIENTATION.md` describes what it showed |
 | `tables/velocity_summary.json` | the velocity rule, spread and depth sensitivity |
 | `tables/sketch_vs_gpr_daylight.json`, `figs/DAYLIGHT_*.png` | the corrected daylight test with its null |
 | `web/site/index.html`, the GitHub Pages link above | the interface, one file, English and Tamil |
