@@ -143,13 +143,14 @@ def main():
     print('reserved DOI : %s' % (doi or '(none)'))
 
     # ---- files, replaced by name when the MD5 differs
-    existing = {f['name']: f for f in call('GET', '%s/account/articles/%d/files' % (API, aid)).json()}
+    existing = {f['name']: f for f in call('GET', '%s/account/articles/%d/files?page_size=1000' % (API, aid)).json()}   # the list endpoint pages at 10 by default
     for f in files:
         p = os.path.join(DEPOSIT, f); local = md5(p); size = os.path.getsize(p)
         if f in existing:
             if existing[f].get('computed_md5') == local or existing[f].get('supplied_md5') == local:
                 print('   unchanged  %s' % f); continue
-            call('DELETE', '%s/account/articles/%d/files/%d' % (API, aid, existing[f]['id']))
+            rd = call('DELETE', '%s/account/articles/%d/files/%d' % (API, aid, existing[f]['id']))
+            if rd.status_code >= 400: sys.exit('could not delete the old %s (HTTP %d %s); a duplicate would result' % (f, rd.status_code, rd.text[:200]))
         t0 = time.time()
         r = call('POST', '%s/account/articles/%d/files' % (API, aid), json=dict(name=f, md5=local, size=size))
         if r.status_code >= 400: sys.exit('file create failed: %s %d %s' % (f, r.status_code, r.text[:300]))
