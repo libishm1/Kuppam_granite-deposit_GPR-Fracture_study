@@ -14,6 +14,8 @@ Usage:
     python zenodo_upload.py --production        same on zenodo.org (asks for a typed confirmation)
 
 Every uploaded file is verified against Zenodo's returned MD5 before the script moves on.
+When Zenodo is slow or shedding load (403/429/5xx, timeouts) each call waits and retries, up to about 16 minutes
+per call; re-running with --deposition <id> resumes, skipping files whose checksum already matches.
 """
 import argparse, hashlib, io, json, os, sys, time
 
@@ -60,35 +62,51 @@ def main():
             sys.exit('aborted')
 
     s = requests.Session(); s.headers['Authorization'] = 'Bearer ' + tok
+    s.headers['User-Agent'] = 'kuppam-deposit-uploader/1.0 (python-requests)'
     api = host + '/api/deposit/depositions'
+    WAIT = (10, 30, 60, 120, 240, 480)          # seconds between attempts when Zenodo is slow or shedding load
+
+    def call(method, url, **kw):
+        """one API call with patient retries on 403/429/5xx and on timeouts; a file body is reopened per attempt"""
+        body = kw.pop('body', None)
+        for i, w in enumerate(WAIT + (None,)):
+            try:
+                if body: kw['data'] = open(body, 'rb')
+                r = s.request(method, url, timeout=600, **kw)
+                if body: kw['data'].close()
+                if r.status_code not in (403, 429, 500, 502, 503, 504): return r
+                why = 'HTTP %d' % r.status_code
+            except (requests.ConnectionError, requests.Timeout) as e:
+                why = type(e).__name__
+            if w is None: sys.exit('gave up on %s %s after %d attempts (%s)' % (method, url, len(WAIT) + 1, why))
+            print('   %s on %s %s; waiting %d s before attempt %d' % (why, method, url.split('/api/')[-1][:50], w, i + 2)); time.sleep(w)
 
     if a.deposition:
-        r = s.get('%s/%d' % (api, a.deposition)); r.raise_for_status(); dep = r.json()
+        r = call('GET', '%s/%d' % (api, a.deposition)); r.raise_for_status(); dep = r.json()
         if dep.get('submitted'):
             sys.exit('deposition %d is already published; a new version needs the web UI ("New version") first.' % a.deposition)
         print('\nrefreshing draft %d' % a.deposition)
     else:
-        r = s.post(api, json={}); r.raise_for_status(); dep = r.json()
+        r = call('POST', api, json={}); r.raise_for_status(); dep = r.json()
         print('\ncreated draft %d' % dep['id'])
 
     # metadata
-    r = s.put('%s/%d' % (api, dep['id']), json={'metadata': meta})
+    r = call('PUT', '%s/%d' % (api, dep['id']), json={'metadata': meta})
     if r.status_code >= 400:
         print('metadata rejected:', r.status_code, r.text[:2000]); sys.exit(1)
     dep = r.json()
     bucket = dep['links']['bucket']
 
     # files: replace by name
-    existing = {f['filename']: f for f in s.get('%s/%d/files' % (api, dep['id'])).json()}
+    existing = {f['filename']: f for f in call('GET', '%s/%d/files' % (api, dep['id'])).json()}
     for f in files:
         p = os.path.join(DEPOSIT, f); local = md5(p)
         if f in existing:
             if existing[f].get('checksum', '').replace('md5:', '') == local:
                 print('   unchanged  %s' % f); continue
-            s.delete(existing[f]['links']['self']).raise_for_status()
+            call('DELETE', existing[f]['links']['self']).raise_for_status()
         t0 = time.time()
-        with open(p, 'rb') as fh:
-            r = s.put('%s/%s' % (bucket, f), data=fh)
+        r = call('PUT', '%s/%s' % (bucket, f), body=p)
         if r.status_code >= 400:
             print('upload failed:', f, r.status_code, r.text[:500]); sys.exit(1)
         remote = r.json().get('checksum', '').replace('md5:', '')
@@ -97,7 +115,7 @@ def main():
         if not ok:
             sys.exit('checksum mismatch on %s: local %s, zenodo %s' % (f, local, remote))
 
-    dep = s.get('%s/%d' % (api, dep['id'])).json()
+    dep = call('GET', '%s/%d' % (api, dep['id'])).json()
     doi = dep.get('metadata', {}).get('prereserve_doi', {}).get('doi', '(none reserved)')
     print('\nDRAFT ready, not published.\n  edit/preview : %s\n  reserved DOI : %s\n' % (dep['links'].get('html', host + '/deposit/%d' % dep['id']), doi))
     print('Publish from that page after reading it. Nothing here publishes.')

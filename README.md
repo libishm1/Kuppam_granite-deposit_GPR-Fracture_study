@@ -76,8 +76,8 @@ share it, and build on it, on the terms of that licence: keep the copyright and 
 notices, state what you changed, and release derived work under the same licence.
 Attribute as: *Libish Murugesan, Kuppam dolerite benches: GPR fracture model, verification and
 block yield, 2026, https://github.com/libishm1/Kuppam_granite-deposit_GPR-Fracture_study*.
-The data, documents and figures are also deposited on Zenodo under CC BY 4.0 (DOI on the
-record page; `deposit/` holds the builder).
+The data, documents and figures are also deposited on figshare under CC BY 4.0:
+https://doi.org/10.6084/m9.figshare.33690616 (`deposit/` holds the builder).
 
 The survey data belongs to the client; the contractor's report and the raw survey records are
 not redistributed, and the quarry's position is withheld.

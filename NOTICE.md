@@ -5,7 +5,7 @@ except as licensed below.
 
 **Code** (every script, the web interface's HTML and JavaScript, and the build tools) is
 licensed under the GNU General Public License v3.0 only. See `LICENSE-code-GPL-3.0.txt`
-in the Zenodo deposit or `LICENSE` in the source repository.
+in the figshare deposit or `LICENSE` in the source repository.
 
 **Data, tables, figures, documents and the model** (the picks, surfaces, frames, point
 clouds, radargram panels, the report and audit documents, and the data embedded in the
@@ -15,8 +15,8 @@ is also available under the GPL-3.0 terms stated in its README; either licence m
 
 **Attribution.** Murugesan, L. (2026). Kuppam dolerite benches: ground-penetrating radar
 fracture model, verification and block yield. Source:
-https://github.com/libishm1/Kuppam_granite-deposit_GPR-Fracture_study. Dataset: Zenodo,
-DOI on the record page. The method of the uncertainty ladder follows the author's paper,
+https://github.com/libishm1/Kuppam_granite-deposit_GPR-Fracture_study. Dataset: figshare,
+https://doi.org/10.6084/m9.figshare.33690616. The method of the uncertainty ladder follows the author's paper,
 DOI 10.5281/zenodo.20608279.
 
 **What is not covered.** The ground-penetrating radar survey was carried out by PARSAN

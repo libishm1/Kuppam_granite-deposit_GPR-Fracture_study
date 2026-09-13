@@ -1,4 +1,4 @@
-"""Assemble the Zenodo deposit for the Kuppam GPR pilot from the corrected local state (13 September 2026).
+"""Assemble the data-repository deposit (figshare; Zenodo-style metadata kept in .zenodo.json) for the Kuppam GPR pilot from the corrected local state (13 September 2026).
 
 Everything included is derived data, the model, its verification, the standalone interactive model and
 the code that produced them: the perimeter the public GitHub repository already carries, brought up to
@@ -27,7 +27,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TOP = os.path.dirname(HERE)
 ROOT = os.path.join(TOP, 'deposit_v1.0.0')
 VERSION = '1.0.0'
-TITLE = 'Kuppam dolerite benches: ground-penetrating radar fracture model, verification and block yield - pilot dataset'
+DOI = '10.6084/m9.figshare.33690616'          # reserved on figshare 13 September 2026, article 33690616; resolves once published
+TITLE ='Kuppam dolerite benches: ground-penetrating radar fracture model, verification and block yield - pilot dataset'
 REPO = 'https://github.com/libishm1/Kuppam_granite-deposit_GPR-Fracture_study'
 SITE = 'https://libishm1.github.io/Kuppam_granite-deposit_GPR-Fracture_study/'
 
@@ -82,6 +83,7 @@ COMPONENTS = {
         (os.path.join(S, 'scripts/numbers_check.py'), 'audit/numbers_check.py', []),
         (os.path.join(HERE, 'build_deposit.py'), 'deposit/build_deposit.py', []),
         (os.path.join(HERE, 'zenodo_upload.py'), 'deposit/zenodo_upload.py', []),
+        (os.path.join(HERE, 'figshare_upload.py'), 'deposit/figshare_upload.py', []),
     ],
 }
 # built only with --with-optional; the owner decides whether they go up at all
@@ -213,6 +215,7 @@ def main():
         "keywords": ["ground-penetrating radar", "GPR", "dimension stone", "dolerite", "black granite", "fracture mapping",
                      "joint sets", "quarry", "block planning", "wire saw", "photogrammetry", "uncertainty",
                      "Kuppam", "Andhra Pradesh", "India"],
+        "doi": DOI,
         "related_identifiers": [
             {"identifier": REPO, "relation": "isSupplementTo", "resource_type": "software"},
             {"identifier": SITE, "relation": "isDocumentedBy"},
@@ -227,11 +230,11 @@ def main():
                   "correspondence and commercial figures are not part of this deposit; see PUBLIC_AUDIT.md."),
     }
     json.dump(meta, io.open(os.path.join(ROOT, '.zenodo.json'), 'w', encoding='utf-8'), indent=2, ensure_ascii=False)
-    cff = ('cff-version: 1.2.0\ntitle: "%s"\nmessage: "If you use this dataset, please cite it using this metadata."\n'
+    cff = ('cff-version: 1.2.0\ntitle: "%s"\nmessage: "If you use this dataset, please cite it using this metadata. The DOI is on the figshare record page."\n'
            'type: dataset\nauthors:\n  - given-names: Libish\n    family-names: Murugesan\n'
-           '    orcid: "https://orcid.org/0009-0004-3238-4202"\nversion: "%s"\ndate-released: "%s"\nlicense: CC-BY-4.0\n'
+           '    orcid: "https://orcid.org/0009-0004-3238-4202"\ndoi: "%s"\nversion: "%s"\ndate-released: "%s"\nlicense: CC-BY-4.0\n'
            'repository-code: "%s"\nurl: "%s"\nkeywords:\n  - ground-penetrating radar\n  - dimension stone\n  - dolerite\n'
-           '  - fracture mapping\n  - block planning\n') % (TITLE, VERSION, date.today().isoformat(), REPO, SITE)
+           '  - fracture mapping\n  - block planning\n') % (TITLE, DOI, VERSION, date.today().isoformat(), REPO, SITE)
     io.open(os.path.join(ROOT, 'CITATION.cff'), 'w', encoding='utf-8').write(cff)
     for f in ('.zenodo.json', 'CITATION.cff', 'FILELIST.txt', 'DUPLICATES.txt'):
         manifest.append((f, os.path.getsize(os.path.join(ROOT, f)), sha256(os.path.join(ROOT, f))))
